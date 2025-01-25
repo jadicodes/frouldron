@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-signal ammo_used
+signal ammo_used(decrease_amt : int)
 
 const _SPEED := 200.0
 const _JUMP_VELOCITY := -400.0
@@ -37,6 +37,6 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	pass # Replace with function body.
 
 
-func _on_bubble_shooter_ammo_used() -> void:
+func _on_bubble_shooter_ammo_used(decrease_amt) -> void:
 	# Pass to world
-	ammo_used.emit()
+	ammo_used.emit(decrease_amt)

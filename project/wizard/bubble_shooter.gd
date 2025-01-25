@@ -1,13 +1,13 @@
 class_name BubbleShooter
 extends Node2D
 
-const _MAX_AMMO := 50
+const _MAX_AMMO := 50.0
 
 var bubble_type
 var _bubble: Bubble
 var _current_ammo := _MAX_AMMO
 
-signal ammo_used 
+signal ammo_used(decrease_amt : int)
 
 
 func set_bubble_type():
@@ -25,5 +25,6 @@ func shoot(direction : Vector2) -> void:
 		_bubble.global_position = self.global_position
 		_bubble.set_velocity(direction)
 		_current_ammo -= _bubble.element.ammo_usage
-		ammo_used.emit()
+		var decrease :  = _bubble.element.ammo_usage
+		ammo_used.emit(decrease)
 	
