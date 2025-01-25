@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b2vxgw0eolsfr"]
 
-[ext_resource type="Texture2D" uid="uid://cp2f367msj7vk" path="res://BadToad.png" id="1_a2kbs"]
-[ext_resource type="Script" path="res://base_enemy.gd" id="1_l7tib"]
+[ext_resource type="Texture2D" uid="uid://cp2f367msj7vk" path="res://enemy/BadToad.png" id="1_a2kbs"]
+[ext_resource type="Script" path="res://enemy/base_enemy.gd" id="1_l7tib"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_big7e"]
 size = Vector2(154, 142)

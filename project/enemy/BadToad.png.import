@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cp2f367msj7vk"
-path="res://.godot/imported/BadToad.png-beaff851816d865aa31f1f146d2f0ccf.ctex"
+path="res://.godot/imported/BadToad.png-6e9900322662c6e2353f5b1871dbe86e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://BadToad.png"
-dest_files=["res://.godot/imported/BadToad.png-beaff851816d865aa31f1f146d2f0ccf.ctex"]
+source_file="res://enemy/BadToad.png"
+dest_files=["res://.godot/imported/BadToad.png-6e9900322662c6e2353f5b1871dbe86e.ctex"]
 
 [params]
 
