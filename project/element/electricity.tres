@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_vy02t")
-name = ""
-color = Color(0, 0, 0, 1)
-gravity_scale = 0.2
+name = "Electricity"
+color = Color(1, 0.843137, 0.0862745, 1)
+gravity_scale = 0.0
 bounces = 1
-ammo_usage = 1
-damage = 1
+ammo_usage = 2
+damage = 2

@@ -19,7 +19,7 @@ offset_left = 41.0
 offset_top = -1.0
 offset_right = 81.0
 offset_bottom = 39.0
-color = Color(0.298039, 1, 0.227451, 1)
+color = Color(0.0666667, 0.968627, 0.133333, 1)
 
 [node name="Fire" type="ColorRect" parent="."]
 visible = false
@@ -27,7 +27,7 @@ offset_left = 41.0
 offset_top = -1.0
 offset_right = 81.0
 offset_bottom = 39.0
-color = Color(0.874685, 0.0240133, 1.92523e-07, 1)
+color = Color(1, 0, 0, 1)
 
 [node name="Earth" type="ColorRect" parent="."]
 visible = false
@@ -35,7 +35,7 @@ offset_left = 41.0
 offset_top = -1.0
 offset_right = 81.0
 offset_bottom = 39.0
-color = Color(0.490196, 0.25098, 0, 1)
+color = Color(0.758588, 0.383898, 0.111187, 1)
 
 [node name="Water" type="ColorRect" parent="."]
 visible = false
@@ -43,8 +43,33 @@ offset_left = 41.0
 offset_top = -1.0
 offset_right = 81.0
 offset_bottom = 39.0
-color = Color(0.0440692, 0.68232, 0.846681, 1)
+color = Color(0.620684, 0.913727, 1, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="Ice" type="ColorRect" parent="."]
+visible = false
+offset_left = 41.0
+offset_top = -1.0
+offset_right = 81.0
+offset_bottom = 39.0
+color = Color(0, 1, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Nature" type="ColorRect" parent="."]
+visible = false
+offset_left = 41.0
+offset_top = -1.0
+offset_right = 81.0
+offset_bottom = 39.0
+color = Color(0.266667, 0.309804, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Electricity" type="ColorRect" parent="."]
+visible = false
+offset_left = 44.0
+offset_right = 84.0
+offset_bottom = 40.0
+color = Color(1, 0.843137, 0.0862745, 1)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

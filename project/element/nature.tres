@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_i8etw")
-name = ""
-color = Color(0, 0, 0, 1)
-gravity_scale = 0.2
-bounces = 1
-ammo_usage = 1
+name = "Nature"
+color = Color(0.266667, 0.309804, 0, 1)
+gravity_scale = 0.0
+bounces = 3
+ammo_usage = 2
 damage = 1

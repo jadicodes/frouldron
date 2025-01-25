@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_y4y37")
-name = ""
-color = Color(0, 0, 0, 1)
+name = "Ice"
+color = Color(0, 1, 1, 1)
 gravity_scale = 0.2
-bounces = 1
+bounces = 0
 ammo_usage = 1
-damage = 1
+damage = 2

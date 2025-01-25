@@ -141,9 +141,12 @@ offset_right = 1942.0
 offset_bottom = 1034.0
 texture = ExtResource("12_qb6ex")
 
-[node name="cauldron" parent="." instance=ExtResource("5_4m26d")]
+[node name="CauldronEarth" parent="." instance=ExtResource("5_4m26d")]
 position = Vector2(818, 904)
 element = 3
+
+[node name="CauldronWater" parent="." instance=ExtResource("5_4m26d")]
+position = Vector2(92, 904)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 offset = Vector2(0, 540)
@@ -154,5 +157,7 @@ target = NodePath("../Wizard")
 position = Vector2(-202, 888)
 
 [connection signal="ammo_used" from="Wizard" to="." method="_on_wizard_ammo_used"]
-[connection signal="add_ammo" from="cauldron" to="." method="_on_cauldron_add_ammo"]
-[connection signal="change_element" from="cauldron" to="." method="_on_cauldron_change_element"]
+[connection signal="add_ammo" from="CauldronEarth" to="." method="_on_cauldron_add_ammo"]
+[connection signal="change_element" from="CauldronEarth" to="." method="_on_cauldron_change_element"]
+[connection signal="add_ammo" from="CauldronWater" to="." method="_on_cauldron_add_ammo"]
+[connection signal="change_element" from="CauldronWater" to="." method="_on_cauldron_change_element"]

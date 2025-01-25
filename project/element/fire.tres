@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_yykd1")
-name = ""
-color = Color(0, 0, 0, 1)
-gravity_scale = 0.2
-bounces = 1
-ammo_usage = 1
-damage = 1
+name = "Fire"
+color = Color(1, 0, 0, 1)
+gravity_scale = -0.1
+bounces = 0
+ammo_usage = 2
+damage = 2
