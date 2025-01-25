@@ -12,11 +12,14 @@ var element: Element = [
 
 @onready var sprite: Sprite2D = %Sprite2D
 
+
 func _ready() -> void:
 	sprite.modulate = element.color
 
+
 func _physics_process(delta: float) -> void:
 	_move(delta)
+
 
 func _move(delta: float) -> void:
 	if not is_on_floor():
@@ -29,6 +32,7 @@ func _move(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, WALK_SPEED)
 
 	move_and_slide()
+
 
 func hit(bubble_element: Element) -> void:
 	health -= bubble_element.damage
