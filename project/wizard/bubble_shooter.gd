@@ -12,10 +12,8 @@ func get_bubble_type():
 	pass
 
 
-func shoot():
-	pass
-
-
-func make_new_bubble():
+func shoot(wizard_position, direction):
 	_bubble = preload("res://wizard/bubble/bubble.tscn").instantiate()
-	call_deferred("add_child", _bubble)
+	get_tree().get_root().add_child(_bubble)
+	_bubble.global_position = wizard_position
+	_bubble.apply_force(direction)
