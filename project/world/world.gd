@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var _ammo_bar : TextureProgressBar = $Control/AmmoBar
+@onready var _ammo_bar : TextureProgressBar = %AmmoBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
