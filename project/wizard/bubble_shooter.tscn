@@ -10,3 +10,7 @@ script = ExtResource("1_vmv6m")
 texture_filter = 1
 texture = ExtResource("2_imy21")
 offset = Vector2(23, -12)
+
+[node name="BubblePoint" type="Marker2D" parent="Sprite2D"]
+unique_name_in_owner = true
+position = Vector2(-57, -14)
