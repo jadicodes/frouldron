@@ -1,7 +1,7 @@
 class_name BaseEnemy
 extends CharacterBody2D
 
-const WALK_SPEED = 200
+const WALK_SPEED = 100
 
 @export var health = 4
 
