@@ -20,6 +20,7 @@ func _on_wizard_ammo_used(decrease_amt) -> void:
 
 func _on_cauldron_add_ammo() -> void:
 	$Wizard/BubbleShooter.fill_ammo()
+	_ammo_bar.value = $Wizard/BubbleShooter.MAX_AMMO
 
 
 func _on_cauldron_change_element(element: Element) -> void:

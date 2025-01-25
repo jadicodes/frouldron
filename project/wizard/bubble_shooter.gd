@@ -1,11 +1,11 @@
 class_name BubbleShooter
 extends Node2D
 
-const _MAX_AMMO := 50.0
+const MAX_AMMO := 50.0
 
 @export var element: Element = preload("res://element/normal.tres")
 var _bubble: Bubble
-var _current_ammo := _MAX_AMMO
+var _current_ammo := MAX_AMMO
 
 signal ammo_used(decrease_amt : int)
 
@@ -14,7 +14,7 @@ func set_bubble_type(new_element: Element)-> void:
 	element = new_element
 
 func fill_ammo():
-	_current_ammo = _MAX_AMMO
+	_current_ammo = MAX_AMMO
 
 
 func get_bubble_type():
