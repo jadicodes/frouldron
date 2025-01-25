@@ -4,6 +4,7 @@ signal ammo_used(decrease_amt : int)
 
 const _SPEED := 200.0
 const _JUMP_VELOCITY := -400.0
+const _DAMAGE := 12
 
 var _health := 100
 
@@ -38,8 +39,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func _on_hitbox_area_entered(_area: Area2D) -> void:
-	pass # Replace with function body.
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if(area.get_parent() is BaseEnemy): 
+		_health -= _DAMAGE
+		print(_health)
 
 
 func _on_bubble_shooter_ammo_used(decrease_amt) -> void:
