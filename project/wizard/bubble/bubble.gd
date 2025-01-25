@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var element: Element = preload("res://element/normal.tres")
 
 var _num_hits: int = 0
+var _bubble_speed := -25
 
 @onready var sprite: Sprite2D = %Sprite2D
 
@@ -15,6 +16,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	velocity += get_gravity() * element.gravity_scale * delta
+	velocity.x += _bubble_speed
 
 	var collision = move_and_collide(velocity * delta)
 
@@ -40,3 +42,7 @@ func _on_timer_timeout() -> void:
 func set_element(new_element: Element) -> void:
 	element = new_element
 	sprite.modulate = element.color
+
+
+func _bubble_direction():
+	pass
