@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 		_collide(collision)
 
 func _collide(_collision: KinematicCollision2D) -> void:
-	_velocity = _velocity.reflect(_collision.get_normal()) # TODO: Figure out why reflections don't work
+	_velocity = _velocity.bounce(_collision.get_normal())
 	_num_hits += 1
 
 	if _num_hits > element.bounces:
