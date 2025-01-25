@@ -16,6 +16,7 @@ var _current_ammo := MAX_AMMO
 func set_bubble_type(new_element: Element)-> void:
 	element = new_element
 
+
 func fill_ammo():
 	_current_ammo = MAX_AMMO
 
@@ -34,4 +35,5 @@ func shoot(direction : Vector2) -> void:
 		_current_ammo -= _bubble.element.ammo_usage
 		var decrease :  = _bubble.element.ammo_usage
 		ammo_used.emit(decrease)
+		$BubbleSound.play()
 	

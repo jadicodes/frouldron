@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dafyj7rbxk5qs"]
+[gd_scene load_steps=4 format=3 uid="uid://dafyj7rbxk5qs"]
 
 [ext_resource type="Script" path="res://wizard/bubble_shooter.gd" id="1_vmv6m"]
 [ext_resource type="Texture2D" uid="uid://bxk8sgxy1am6" path="res://wizard/wizard_arm.png" id="2_imy21"]
+[ext_resource type="AudioStream" uid="uid://dm60m3lewn3kd" path="res://wizard/bubble_shoot.wav" id="3_ras1y"]
 
 [node name="BubbleShooter" type="Node2D"]
 script = ExtResource("1_vmv6m")
@@ -14,3 +15,7 @@ offset = Vector2(23, -12)
 [node name="BubblePoint" type="Marker2D" parent="Sprite2D"]
 unique_name_in_owner = true
 position = Vector2(-57, -14)
+
+[node name="BubbleSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ras1y")
+volume_db = 5.0
