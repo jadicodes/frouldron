@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://wizard/wizard.gd" id="1_0ybg5"]
 [ext_resource type="Texture2D" uid="uid://cta14ng6ojwy3" path="res://icon.svg" id="2_5y6wa"]
-[ext_resource type="PackedScene" path="res://wizard/bubble_shooter.tscn" id="3_0to1p"]
+[ext_resource type="PackedScene" uid="uid://dafyj7rbxk5qs" path="res://wizard/bubble_shooter.tscn" id="3_0to1p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1x6s5"]
 size = Vector2(127, 157)
@@ -22,8 +22,6 @@ texture = ExtResource("2_5y6wa")
 position = Vector2(0.5, -68.5)
 shape = SubResource("RectangleShape2D_1x6s5")
 
-[node name="BubbleShooter" parent="." instance=ExtResource("3_0to1p")]
-
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="HitboxCollision" type="CollisionShape2D" parent="Hitbox"]
@@ -34,5 +32,8 @@ debug_color = Color(0.926858, 0.237749, 0.335021, 0.42)
 [node name="ShootMarker" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, -174)
+
+[node name="BubbleShooter" parent="." instance=ExtResource("3_0to1p")]
+position = Vector2(-55, -67)
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

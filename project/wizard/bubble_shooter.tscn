@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://k8hdtwdcffxp"]
+[gd_scene load_steps=3 format=3 uid="uid://dafyj7rbxk5qs"]
 
 [ext_resource type="Script" path="res://wizard/bubble_shooter.gd" id="1_vmv6m"]
+[ext_resource type="Texture2D" uid="uid://d2bbwqsm1jsla" path="res://wizard/wand.png" id="2_td2kv"]
 
 [node name="BubbleShooter" type="Node2D"]
 script = ExtResource("1_vmv6m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_td2kv")

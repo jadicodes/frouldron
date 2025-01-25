@@ -7,6 +7,7 @@ const _JUMP_VELOCITY := -400.0
 var _health := 100
 
 @onready var _shoot_marker := %ShootMarker
+@onready var _bubble_shooter : BubbleShooter = $BubbleShooter
 
 
 func _physics_process(delta: float) -> void:
@@ -19,7 +20,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = _JUMP_VELOCITY
 	
 	if Input.is_action_just_pressed("shoot"):
-		$BubbleShooter.shoot(_shoot_marker.global_position, velocity)
+		_bubble_shooter.shoot(velocity)
 
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
