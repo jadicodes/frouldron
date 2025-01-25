@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkitvpr4dba28"]
+[gd_scene load_steps=5 format=3 uid="uid://dkitvpr4dba28"]
 
 [ext_resource type="Script" path="res://wizard/wizard.gd" id="1_0ybg5"]
 [ext_resource type="Texture2D" uid="uid://cta14ng6ojwy3" path="res://icon.svg" id="2_5y6wa"]
+[ext_resource type="PackedScene" uid="uid://k8hdtwdcffxp" path="res://wizard/bubble_shooter.tscn" id="3_0to1p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1x6s5"]
 size = Vector2(127, 157)
@@ -16,3 +17,5 @@ texture = ExtResource("2_5y6wa")
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -68.5)
 shape = SubResource("RectangleShape2D_1x6s5")
+
+[node name="BubbleShooter" parent="." instance=ExtResource("3_0to1p")]
