@@ -1,27 +1,23 @@
 extends Node2D
 
 @onready var _ammo_bar : TextureProgressBar = %AmmoBar
+@onready var _bubble_shooter : BubbleShooter = $Wizard/BubbleShooter
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	_ammo_bar.modulate = _bubble_shooter.element.color
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
-
-func _on_wizard_ammo_used(decrease_amt) -> void:
+func _on_wizard_ammo_used(decrease_amt : int) -> void:
 	print(decrease_amt)
 	_ammo_bar.value -= decrease_amt
-	
 
 
 func _on_cauldron_add_ammo() -> void:
-	$Wizard/BubbleShooter.fill_ammo()
-	_ammo_bar.value = $Wizard/BubbleShooter.MAX_AMMO
+	_bubble_shooter.fill_ammo()
+	_ammo_bar.value = _bubble_shooter.MAX_AMMO
 
 
 func _on_cauldron_change_element(element: Element) -> void:
-	$Wizard/BubbleShooter.set_bubble_type(element)
+	_bubble_shooter.set_bubble_type(element)
+	_ammo_bar.modulate = element.color
