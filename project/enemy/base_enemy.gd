@@ -1,18 +1,13 @@
 extends CharacterBody2D
 
 
-var walk_speed = 4
+@onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
+@export var target_to_chase: CharacterBody2D
+
+const walk_speed = 400
 var enemy_health = 4
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
-	queue_free()
+func _physics_process(delta: float) -> void:
+	navigation_agent.target_position = target_to_chase.global_position
+	velocity = global_position.direction_to(navigation_agent.get_next_path_position())* walk_speed
+	move_and_slide()
