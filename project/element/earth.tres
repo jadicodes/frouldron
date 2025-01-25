@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Element" load_steps=2 format=3 uid="uid://cfo5jvoy7qgdb"]
+
+[ext_resource type="Script" path="res://element/element.gd" id="1_2kjii"]
+
+[resource]
+script = ExtResource("1_2kjii")
+name = "Earth"
+color = Color(0.758588, 0.383898, 0.111187, 1)
+gravity_scale = 0.5
+bounces = 3
