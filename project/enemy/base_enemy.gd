@@ -30,8 +30,8 @@ func _move(delta: float) -> void:
 
 	move_and_slide()
 
-func hit(_element: Element) -> void:
-	health -= 1
+func hit(bubble_element: Element) -> void:
+	health -= bubble_element.damage
 
 	if health <= 0:
 		queue_free()

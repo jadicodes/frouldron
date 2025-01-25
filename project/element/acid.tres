@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Element" load_steps=2 format=3 uid="uid://w37h2xcy8p4p"]
+
+[ext_resource type="Script" path="res://element/element.gd" id="1_77fpt"]
+
+[resource]
+script = ExtResource("1_77fpt")
+name = "Acid"
+color = Color(0.0666667, 0.968627, 0.133333, 1)
+gravity_scale = 0.0
+bounces = 0
+ammo_usage = 10
+damage = 4

@@ -23,13 +23,13 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and interact == true:
 		if element == 0:
 			emit_signal("add_ammo")
-			emit_signal("change_element","normal.tres")
+			emit_signal("change_element",preload("res://element/normal.tres"))
 		if element == 1:
 			emit_signal("add_ammo")
 			emit_signal("change_element", "Fire.tres")
 		if element == 2:
 			emit_signal("add_ammo")
-			emit_signal("change_element","Acid.tres")
+			emit_signal("change_element", preload("res://element/acid.tres"))
 		if element == 3:
 			emit_signal("add_ammo")
 			emit_signal("change_element", preload("res://element/earth.tres"))

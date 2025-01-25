@@ -19,6 +19,7 @@ offset_left = 41.0
 offset_top = -1.0
 offset_right = 81.0
 offset_bottom = 39.0
+color = Color(0.298039, 1, 0.227451, 1)
 
 [node name="Fire" type="ColorRect" parent="."]
 visible = false
