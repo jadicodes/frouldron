@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Element" load_steps=2 format=3 uid="uid://dn6xy0s2w4i4j"]
+
+[ext_resource type="Script" path="res://element/element.gd" id="1_kwfof"]
+
+[resource]
+script = ExtResource("1_kwfof")
+name = "Normal"
+color = Color(0.620684, 0.913727, 1, 1)
+gravity_scale = -0.1
+bounces = 1

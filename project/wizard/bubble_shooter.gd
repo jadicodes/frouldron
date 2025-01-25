@@ -16,4 +16,4 @@ func shoot(wizard_position, direction):
 	_bubble = preload("res://wizard/bubble/bubble.tscn").instantiate()
 	get_tree().get_root().add_child(_bubble)
 	_bubble.global_position = wizard_position
-	_bubble.apply_force(direction)
+	_bubble.set_vel(direction)

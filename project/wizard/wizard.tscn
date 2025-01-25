@@ -32,6 +32,7 @@ shape = SubResource("RectangleShape2D_5o7th")
 debug_color = Color(0.926858, 0.237749, 0.335021, 0.42)
 
 [node name="ShootMarker" type="Marker2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(0, -174)
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

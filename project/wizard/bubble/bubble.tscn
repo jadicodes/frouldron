@@ -1,25 +1,26 @@
 [gd_scene load_steps=4 format=3 uid="uid://cnocfmm8g08eb"]
 
 [ext_resource type="Script" path="res://wizard/bubble/bubble.gd" id="1_a0lqv"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qqc0n"]
+[ext_resource type="Texture2D" uid="uid://bmo02gelb0xw4" path="res://wizard/bubble/bubble.png" id="2_o3d2t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2p1v7"]
 
-[node name="Bubble" type="RigidBody2D"]
-gravity_scale = 0.0
+[node name="Bubble" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 6
 script = ExtResource("1_a0lqv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(-2.98023e-08, -1.19209e-07)
-scale = Vector2(20, 20)
-texture = SubResource("PlaceholderTexture2D_qqc0n")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_o3d2t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2p1v7")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 15.0
 one_shot = true
 autostart = true
 
