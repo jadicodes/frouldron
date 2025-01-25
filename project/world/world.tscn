@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://djly2h2jcl2kh"]
+[gd_scene load_steps=22 format=4 uid="uid://djly2h2jcl2kh"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_d12hr"]
 [ext_resource type="Texture2D" uid="uid://cta14ng6ojwy3" path="res://icon.svg" id="1_f5boq"]
@@ -13,8 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://d2galsko2rrke" path="res://world/dirt3.png" id="9_g24er"]
 [ext_resource type="Texture2D" uid="uid://6gp2y8tpud2n" path="res://world/dirt4.png" id="10_kqbxd"]
 [ext_resource type="Script" path="res://wizard/follow_camera.gd" id="10_njmoa"]
-[ext_resource type="Texture2D" uid="uid://cho7tteei4fdu" path="res://world/ammo_wand.png" id="12_qb6ex"]
-[ext_resource type="PackedScene" uid="uid://dbirdq8cnpjxk" path="res://world/enemy_spawner/enemy_spawner.tscn" id="14_fbijg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_scnr5"]
 texture = ExtResource("1_f5boq")
@@ -58,7 +56,6 @@ sources/3 = SubResource("TileSetAtlasSource_50622")
 sources/4 = SubResource("TileSetAtlasSource_cknmb")
 
 [sub_resource type="Gradient" id="Gradient_5kqja"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_c7pj2"]
 gradient = SubResource("Gradient_5kqja")
@@ -94,7 +91,7 @@ offset = Vector2(0, 540)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-1, 58)
-tile_map_data = PackedByteArray("AAAAAAcAAwAAAAAAAAABAAcABAAAAAAAAAACAAcABAAAAAAAAAADAAcAAgAAAAAAAAAEAAcAAgAAAAAAAAAFAAcAAQAAAAAAAAAGAAcAAwAAAAAAAAAHAAcAAQAAAAAAAAAIAAcAAwAAAAAAAAAJAAcAAQAAAAAAAAAKAAcABAAAAAAAAAALAAcAAgAAAAAAAAAMAAcAAgAAAAAAAAANAAcAAQAAAAAAAAAOAAcAAQAAAAAAAAD//wcAAQAAAAAAAAD+/wcAAgAAAAAAAAD9/wcABAAAAAAAAAD8/wcAAgAAAAAAAAD7/wcAAQAAAAAAAAD6/wcAAwAAAAAAAAD5/wcAAQAAAAAAAAD4/wcABAAAAAAAAAD3/wcAAwAAAAAAAAD2/wcAAgAAAAAAAAD1/wcAAQAAAAAAAAD0/wcABAAAAAAAAADy/wcABAAAAAAAAADx/wcAAwAAAAAAAADw/wcABAAAAAAAAADz/wcAAQAAAAAAAADv/wcAAQAAAAAAAADu/wcABAAAAAAAAADt/wcAAgAAAAAAAADr/wcAAgAAAAAAAADq/wcAAgAAAAAAAADp/wcABAAAAAAAAADo/wcAAgAAAAAAAADn/wcAAQAAAAAAAADs/wcAAQAAAAAAAADn/wYAAQAAAAAAAADn/wUAAQAAAAAAAADn/wQAAQAAAAAAAADn/wMAAQAAAAAAAADn/wIAAQAAAAAAAADn/wEAAQAAAAAAAADn/wAAAQAAAAAAAADn////AQAAAAAAAAAPAAcAAQAAAAAAAAAQAAcAAQAAAAAAAAARAAcAAQAAAAAAAAASAAcAAQAAAAAAAAATAAcAAQAAAAAAAAAUAAcAAQAAAAAAAAAVAAcAAQAAAAAAAAAWAAcAAQAAAAAAAAAWAAYAAQAAAAAAAAAWAAUAAQAAAAAAAAAWAAQAAQAAAAAAAAAWAAMAAQAAAAAAAAAWAAIAAQAAAAAAAAAWAAEAAQAAAAAAAAAWAAAAAQAAAAAAAAAWAP//AQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAcAAwAAAAAAAAABAAcABAAAAAAAAAACAAcABAAAAAAAAAADAAcAAgAAAAAAAAAEAAcAAgAAAAAAAAAFAAcAAQAAAAAAAAAGAAcAAwAAAAAAAAAHAAcAAQAAAAAAAAAIAAcAAwAAAAAAAAAJAAcAAQAAAAAAAAAKAAcABAAAAAAAAAALAAcAAgAAAAAAAAAMAAcAAgAAAAAAAAANAAcAAQAAAAAAAAAOAAcAAQAAAAAAAAD//wcAAQAAAAAAAAD+/wcAAgAAAAAAAAD9/wcABAAAAAAAAAD8/wcAAgAAAAAAAAD7/wcAAQAAAAAAAAD6/wcAAwAAAAAAAAD5/wcAAQAAAAAAAAD4/wcABAAAAAAAAAD3/wcAAwAAAAAAAAD2/wcAAgAAAAAAAAD1/wcAAQAAAAAAAAD0/wcABAAAAAAAAADy/wcABAAAAAAAAADx/wcAAwAAAAAAAADw/wcABAAAAAAAAADz/wcAAQAAAAAAAADv/wcAAQAAAAAAAADu/wcABAAAAAAAAADt/wcAAgAAAAAAAADr/wcAAgAAAAAAAADq/wcAAgAAAAAAAADp/wcABAAAAAAAAADo/wcAAgAAAAAAAADn/wcAAQAAAAAAAADs/wcAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_2u478")
 
 [node name="Wizard" parent="." instance=ExtResource("2_61scl")]
@@ -121,10 +118,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -136.0
-offset_top = -296.0
-offset_right = -114.0
-offset_bottom = -56.0
+offset_left = -94.0
+offset_top = -374.0
+offset_right = -44.0
+offset_bottom = -33.0
 grow_horizontal = 0
 grow_vertical = 0
 max_value = 50.0
@@ -132,14 +129,6 @@ value = 50.0
 fill_mode = 3
 nine_patch_stretch = true
 texture_progress = SubResource("GradientTexture1D_c7pj2")
-
-[node name="AmmoWand" type="TextureRect" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_left = 1650.0
-offset_top = 552.0
-offset_right = 1942.0
-offset_bottom = 1034.0
-texture = ExtResource("12_qb6ex")
 
 [node name="cauldron" parent="." instance=ExtResource("5_4m26d")]
 position = Vector2(818, 904)
@@ -149,9 +138,6 @@ element = 3
 offset = Vector2(0, 540)
 script = ExtResource("10_njmoa")
 target = NodePath("../Wizard")
-
-[node name="EnemySpawner" parent="." instance=ExtResource("14_fbijg")]
-position = Vector2(-202, 888)
 
 [connection signal="ammo_used" from="Wizard" to="." method="_on_wizard_ammo_used"]
 [connection signal="add_ammo" from="cauldron" to="." method="_on_cauldron_add_ammo"]

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Element" load_steps=2 format=3 uid="uid://bdqwg028h8n3y"]
+
+[ext_resource type="Script" path="res://element/element.gd" id="1_y4y37"]
+
+[resource]
+script = ExtResource("1_y4y37")
+name = ""
+color = Color(0, 0, 0, 1)
+gravity_scale = 0.2
+bounces = 1
+ammo_usage = 1
+damage = 1
