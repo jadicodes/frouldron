@@ -50,6 +50,10 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	if(area.get_parent() is BaseEnemy): 
 		_health -= _DAMAGE
 		_health_bar.value = _health
+		if(_health <= 0):
+			$DeathSound.play()
+		else:
+			$HurtSound.play()
 
 
 func _on_bubble_shooter_ammo_used(decrease_amt) -> void:

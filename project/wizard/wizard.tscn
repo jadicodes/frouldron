@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dkitvpr4dba28"]
+[gd_scene load_steps=21 format=3 uid="uid://dkitvpr4dba28"]
 
 [ext_resource type="Script" path="res://wizard/wizard.gd" id="1_0ybg5"]
 [ext_resource type="PackedScene" uid="uid://dafyj7rbxk5qs" path="res://wizard/bubble_shooter.tscn" id="3_0to1p"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://byqmbcby0afe0" path="res://wizard/wizard_foot.png" id="3_o2ed3"]
 [ext_resource type="Texture2D" uid="uid://c8b86h023qu3a" path="res://wizard/health_empty.png" id="5_86pck"]
 [ext_resource type="Texture2D" uid="uid://m1wq67bn8fxi" path="res://wizard/health_full.png" id="6_l8vex"]
+[ext_resource type="AudioStream" uid="uid://dulh0xs533iwc" path="res://wizard/wizard_harm.wav" id="7_cea23"]
+[ext_resource type="AudioStream" uid="uid://c8dwusy6fdo6l" path="res://wizard/wizard_death.wav" id="8_sto20"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1x6s5"]
 size = Vector2(193, 108.5)
@@ -176,6 +178,12 @@ offset_bottom = -153.0
 value = 100.0
 texture_over = ExtResource("5_86pck")
 texture_progress = ExtResource("6_l8vex")
+
+[node name="HurtSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_cea23")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_sto20")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="ammo_used" from="BubbleShooter" to="." method="_on_bubble_shooter_ammo_used"]
