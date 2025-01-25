@@ -14,6 +14,7 @@ func _ready() -> void:
 
 	sprite.modulate = element.color
 
+
 func _physics_process(delta: float) -> void:
 	velocity += get_gravity() * element.gravity_scale * delta
 	velocity.x += _bubble_speed
@@ -22,6 +23,7 @@ func _physics_process(delta: float) -> void:
 
 	if collision:
 		_collide(collision)
+
 
 func _collide(collision: KinematicCollision2D) -> void:
 	var collider = collision.get_collider()
@@ -36,8 +38,10 @@ func _collide(collision: KinematicCollision2D) -> void:
 	if _num_hits > element.bounces:
 		queue_free()
 
+
 func _on_timer_timeout() -> void:
 	queue_free()
+
 
 func set_element(new_element: Element) -> void:
 	element = new_element
