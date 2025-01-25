@@ -1,31 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkitvpr4dba28"]
+[gd_scene load_steps=7 format=3 uid="uid://dkitvpr4dba28"]
 
 [ext_resource type="Script" path="res://wizard/wizard.gd" id="1_0ybg5"]
-[ext_resource type="Texture2D" uid="uid://cta14ng6ojwy3" path="res://icon.svg" id="2_5y6wa"]
 [ext_resource type="PackedScene" uid="uid://dafyj7rbxk5qs" path="res://wizard/bubble_shooter.tscn" id="3_0to1p"]
+[ext_resource type="Texture2D" uid="uid://dcs0tghxh1h8v" path="res://wizard/wizard_body.png" id="3_brajv"]
+[ext_resource type="Texture2D" uid="uid://byqmbcby0afe0" path="res://wizard/wizard_foot.png" id="3_o2ed3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1x6s5"]
-size = Vector2(127, 157)
+size = Vector2(193, 108.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5o7th"]
-size = Vector2(134, 181)
+size = Vector2(249, 126.5)
 
 [node name="Wizard" type="CharacterBody2D"]
 collision_mask = 6
 script = ExtResource("1_0ybg5")
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(0, -65)
-texture = ExtResource("2_5y6wa")
-
 [node name="PhysicsCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, -79)
+position = Vector2(-18.5, -54.75)
 shape = SubResource("RectangleShape2D_1x6s5")
 
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="HitboxCollision" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0, -91)
+position = Vector2(-5.5, -63.75)
 shape = SubResource("RectangleShape2D_5o7th")
 debug_color = Color(0.926858, 0.237749, 0.335021, 0.42)
 
@@ -33,8 +30,19 @@ debug_color = Color(0.926858, 0.237749, 0.335021, 0.42)
 unique_name_in_owner = true
 position = Vector2(0, -174)
 
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(-2, 0)
+texture = ExtResource("3_brajv")
+offset = Vector2(0, -80)
+
+[node name="Foot" type="Sprite2D" parent="."]
+position = Vector2(28, -16)
+texture = ExtResource("3_o2ed3")
+offset = Vector2(-28, -64)
+
 [node name="BubbleShooter" parent="." instance=ExtResource("3_0to1p")]
-position = Vector2(-55, -67)
+position = Vector2(-23, -68)
+rotation = -0.295946
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="ammo_used" from="BubbleShooter" to="." method="_on_bubble_shooter_ammo_used"]
