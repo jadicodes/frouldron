@@ -10,6 +10,7 @@ var _health := 100
 
 @onready var _shoot_marker := %ShootMarker
 @onready var _bubble_shooter : BubbleShooter = $BubbleShooter
+@onready var _animation_tree: AnimationTree = %AnimationTree
 
 
 func _physics_process(delta: float) -> void:
@@ -27,7 +28,11 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * _SPEED
+		_animation_tree["parameters/conditions/idle"] = false
+		_animation_tree["parameters/conditions/is_moving"] = true
 	else:
+		_animation_tree["parameters/conditions/idle"] = true
+		_animation_tree["parameters/conditions/is_moving"] = false
 		velocity.x = move_toward(velocity.x, 0, _SPEED)
 
 	move_and_slide()
