@@ -56,26 +56,28 @@ width = 50
 [node name="World" type="Node2D"]
 script = ExtResource("1_d12hr")
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
+[node name="ParallaxSky" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxSky"]
 texture = ExtResource("2_y4um3")
 offset = Vector2(0, 540)
 
-[node name="Parallax2D2" type="Parallax2D" parent="."]
-visible = false
+[node name="ParallaxStars" type="Parallax2D" parent="."]
+modulate = Color(1, 1, 1, 0.352941)
 scroll_scale = Vector2(0.1, 0.1)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Parallax2D2"]
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxStars"]
+position = Vector2(-115, 1074)
+rotation = 3.14159
 texture = ExtResource("3_2ejju")
 offset = Vector2(0, 540)
 
-[node name="Parallax2D3" type="Parallax2D" parent="."]
+[node name="ParallaxClouds" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.25, 0.25)
 repeat_size = Vector2(4000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D3"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxClouds"]
 texture = ExtResource("4_sag0k")
 offset = Vector2(0, 540)
 
