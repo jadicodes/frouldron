@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://djly2h2jcl2kh"]
+[gd_scene load_steps=22 format=4 uid="uid://djly2h2jcl2kh"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_d12hr"]
 [ext_resource type="Texture2D" uid="uid://cta14ng6ojwy3" path="res://icon.svg" id="1_f5boq"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b4nvmctkqt2wd" path="res://world/dirt.png" id="7_3dw1w"]
 [ext_resource type="Texture2D" uid="uid://dreg0wp2qrpeq" path="res://world/dirt2.png" id="8_0luym"]
 [ext_resource type="Texture2D" uid="uid://d2galsko2rrke" path="res://world/dirt3.png" id="9_g24er"]
+[ext_resource type="Texture2D" uid="uid://6gp2y8tpud2n" path="res://world/dirt4.png" id="10_kqbxd"]
 [ext_resource type="Script" path="res://wizard/follow_camera.gd" id="10_njmoa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_scnr5"]
@@ -38,6 +39,12 @@ texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cknmb"]
+texture = ExtResource("10_kqbxd")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
 [sub_resource type="TileSet" id="TileSet_2u478"]
 tile_size = Vector2i(128, 128)
 physics_layer_0/collision_layer = 2
@@ -46,6 +53,7 @@ sources/0 = SubResource("TileSetAtlasSource_scnr5")
 sources/1 = SubResource("TileSetAtlasSource_b28kv")
 sources/2 = SubResource("TileSetAtlasSource_cc31v")
 sources/3 = SubResource("TileSetAtlasSource_50622")
+sources/4 = SubResource("TileSetAtlasSource_cknmb")
 
 [sub_resource type="Gradient" id="Gradient_5kqja"]
 
@@ -85,8 +93,8 @@ offset = Vector2(0, 540)
 position = Vector2(1598, 712)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(0, 58)
-tile_map_data = PackedByteArray("AAAAAAcAAwAAAAAAAAABAAcAAQAAAAAAAAACAAcAAQAAAAAAAAADAAcAAgAAAAAAAAAEAAcAAgAAAAAAAAAFAAcAAQAAAAAAAAAGAAcAAwAAAAAAAAAHAAcAAQAAAAAAAAAIAAcAAwAAAAAAAAAJAAcAAQAAAAAAAAAKAAcAAQAAAAAAAAALAAcAAgAAAAAAAAAMAAcAAgAAAAAAAAANAAcAAQAAAAAAAAAOAAcAAQAAAAAAAAD//wcAAQAAAAAAAAD+/wcAAgAAAAAAAAD9/wcAAgAAAAAAAAD8/wcAAgAAAAAAAAD7/wcAAQAAAAAAAAD6/wcAAwAAAAAAAAD5/wcAAQAAAAAAAAD4/wcAAQAAAAAAAAD3/wcAAwAAAAAAAAD2/wcAAgAAAAAAAAD1/wcAAQAAAAAAAAD0/wcAAQAAAAAAAAA=")
+position = Vector2(-1, 58)
+tile_map_data = PackedByteArray("AAAAAAcAAwAAAAAAAAABAAcABAAAAAAAAAACAAcABAAAAAAAAAADAAcAAgAAAAAAAAAEAAcAAgAAAAAAAAAFAAcAAQAAAAAAAAAGAAcAAwAAAAAAAAAHAAcAAQAAAAAAAAAIAAcAAwAAAAAAAAAJAAcAAQAAAAAAAAAKAAcABAAAAAAAAAALAAcAAgAAAAAAAAAMAAcAAgAAAAAAAAANAAcAAQAAAAAAAAAOAAcAAQAAAAAAAAD//wcAAQAAAAAAAAD+/wcAAgAAAAAAAAD9/wcABAAAAAAAAAD8/wcAAgAAAAAAAAD7/wcAAQAAAAAAAAD6/wcAAwAAAAAAAAD5/wcAAQAAAAAAAAD4/wcABAAAAAAAAAD3/wcAAwAAAAAAAAD2/wcAAgAAAAAAAAD1/wcAAQAAAAAAAAD0/wcABAAAAAAAAADy/wcABAAAAAAAAADx/wcAAwAAAAAAAADw/wcABAAAAAAAAADz/wcAAQAAAAAAAADv/wcAAQAAAAAAAADu/wcABAAAAAAAAADt/wcAAgAAAAAAAADr/wcAAgAAAAAAAADq/wcAAgAAAAAAAADp/wcABAAAAAAAAADo/wcAAgAAAAAAAADn/wcAAQAAAAAAAADs/wcAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_2u478")
 
 [node name="BaseEnemy" parent="." instance=ExtResource("3_mgd26")]
