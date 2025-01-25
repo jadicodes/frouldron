@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func _on_hitbox_area_entered(area: Area2D) -> void:
+func _on_hitbox_area_entered(_area: Area2D) -> void:
 	pass # Replace with function body.
 
 

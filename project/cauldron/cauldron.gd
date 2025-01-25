@@ -35,9 +35,9 @@ func _process(_delta: float) -> void:
 			emit_signal("change_element", preload("res://element/earth.tres"))
 	
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	interact = true
 	
 
-func _on_body_exited(body: Node2D) -> void:
+func _on_body_exited(_body: Node2D) -> void:
 	interact = false
