@@ -15,17 +15,17 @@ collision_mask = 6
 script = ExtResource("1_0ybg5")
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(0, -68)
+position = Vector2(0, -65)
 texture = ExtResource("2_5y6wa")
 
 [node name="PhysicsCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -68.5)
+position = Vector2(0, -79)
 shape = SubResource("RectangleShape2D_1x6s5")
 
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="HitboxCollision" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(1, -80.5)
+position = Vector2(0, -91)
 shape = SubResource("RectangleShape2D_5o7th")
 debug_color = Color(0.926858, 0.237749, 0.335021, 0.42)
 
