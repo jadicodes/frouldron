@@ -7,7 +7,10 @@
 size = Vector2(123, 80)
 
 [node name="BaseEnemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_l7tib")
+health = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
