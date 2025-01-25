@@ -11,7 +11,7 @@ collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_l7tib")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 self_modulate = Color(1, 0, 0, 1)
 position = Vector2(-1.50001, -24.5)
@@ -21,3 +21,9 @@ texture = ExtResource("1_a2kbs")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_big7e")
+
+[node name="RayCast" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1.19209e-07, -1.90735e-06)
+target_position = Vector2(84, 1.90735e-06)
+collision_mask = 6
