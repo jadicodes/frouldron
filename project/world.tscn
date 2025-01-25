@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=4 uid="uid://djly2h2jcl2kh"]
+[gd_scene load_steps=9 format=4 uid="uid://djly2h2jcl2kh"]
 
+[ext_resource type="Script" path="res://world.gd" id="1_d12hr"]
 [ext_resource type="Texture2D" uid="uid://cta14ng6ojwy3" path="res://icon.svg" id="1_f5boq"]
 [ext_resource type="PackedScene" uid="uid://dkitvpr4dba28" path="res://wizard/wizard.tscn" id="2_61scl"]
 [ext_resource type="PackedScene" uid="uid://b2vxgw0eolsfr" path="res://enemy/base_enemy.tscn" id="3_mgd26"]
@@ -16,7 +17,14 @@ physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 5
 sources/0 = SubResource("TileSetAtlasSource_scnr5")
 
+[sub_resource type="Gradient" id="Gradient_5kqja"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c7pj2"]
+gradient = SubResource("Gradient_5kqja")
+width = 50
+
 [node name="World" type="Node2D"]
+script = ExtResource("1_d12hr")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -37,3 +45,23 @@ tile_set = SubResource("TileSet_2u478")
 
 [node name="BaseEnemy" parent="." instance=ExtResource("3_mgd26")]
 position = Vector2(193, 472)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AmmoBar" type="TextureProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 1773.0
+offset_top = 677.0
+offset_right = 1823.0
+offset_bottom = 1018.0
+max_value = 50.0
+value = 50.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture1D_c7pj2")
+
+[connection signal="ammo_used" from="Wizard" to="." method="_on_wizard_ammo_used"]
