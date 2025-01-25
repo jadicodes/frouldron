@@ -16,3 +16,11 @@ func _on_wizard_ammo_used(decrease_amt) -> void:
 	print(decrease_amt)
 	_ammo_bar.value -= decrease_amt
 	
+
+
+func _on_cauldron_add_ammo() -> void:
+	$Wizard/BubbleShooter.fill_ammo()
+
+
+func _on_cauldron_change_element(element: Element) -> void:
+	$Wizard/BubbleShooter.set_bubble_type(element)

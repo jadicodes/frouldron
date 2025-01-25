@@ -28,7 +28,7 @@ offset_right = 81.0
 offset_bottom = 39.0
 color = Color(0.874685, 0.0240133, 1.92523e-07, 1)
 
-[node name="Mud" type="ColorRect" parent="."]
+[node name="Earth" type="ColorRect" parent="."]
 visible = false
 offset_left = 41.0
 offset_top = -1.0

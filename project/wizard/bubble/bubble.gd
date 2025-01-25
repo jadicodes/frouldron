@@ -36,3 +36,7 @@ func _collide(collision: KinematicCollision2D) -> void:
 
 func _on_timer_timeout() -> void:
 	queue_free()
+
+func set_element(new_element: Element) -> void:
+	element = new_element
+	sprite.modulate = element.color
