@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvlivrphp416p"]
+
+[ext_resource type="Script" path="res://cauldron/cauldron.gd" id="1_ffeai"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wdih"]
+size = Vector2(128.5, 41)
+
+[node name="cauldron" type="Area2D"]
+position = Vector2(2, 3)
+script = ExtResource("1_ffeai")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(62.75, 19)
+shape = SubResource("RectangleShape2D_8wdih")
+
+[node name="Acid" type="ColorRect" parent="."]
+visible = false
+offset_left = 41.0
+offset_top = -1.0
+offset_right = 81.0
+offset_bottom = 39.0
+
+[node name="Fire" type="ColorRect" parent="."]
+visible = false
+offset_left = 41.0
+offset_top = -1.0
+offset_right = 81.0
+offset_bottom = 39.0
+color = Color(0.874685, 0.0240133, 1.92523e-07, 1)
+
+[node name="Mud" type="ColorRect" parent="."]
+visible = false
+offset_left = 41.0
+offset_top = -1.0
+offset_right = 81.0
+offset_bottom = 39.0
+color = Color(0.490196, 0.25098, 0, 1)
+
+[node name="Water" type="ColorRect" parent="."]
+visible = false
+offset_left = 41.0
+offset_top = -1.0
+offset_right = 81.0
+offset_bottom = 39.0
+color = Color(0.0440692, 0.68232, 0.846681, 1)
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
