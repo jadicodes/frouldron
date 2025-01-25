@@ -1,8 +1,11 @@
 class_name BubbleShooter
 extends Node2D
 
+const _MAX_AMMO := 50
+
 var bubble_type
 var _bubble: Bubble
+var _current_ammo := _MAX_AMMO
 
 
 func set_bubble_type():
@@ -18,3 +21,5 @@ func shoot(direction : Vector2) -> void:
 	get_tree().get_root().add_child(_bubble)
 	_bubble.global_position = self.global_position
 	_bubble.set_vel(direction)
+	_current_ammo -= _bubble.element.ammo_usage
+	

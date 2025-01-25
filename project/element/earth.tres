@@ -8,3 +8,4 @@ name = "Earth"
 color = Color(0.758588, 0.383898, 0.111187, 1)
 gravity_scale = 0.5
 bounces = 3
+ammo_usage = 3

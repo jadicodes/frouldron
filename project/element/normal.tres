@@ -8,3 +8,4 @@ name = "Normal"
 color = Color(0.620684, 0.913727, 1, 1)
 gravity_scale = -0.1
 bounces = 0
+ammo_usage = 5
