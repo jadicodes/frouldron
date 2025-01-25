@@ -12,10 +12,12 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Jump
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	# Handle jump.
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = _JUMP_VELOCITY
-
+	
+	if Input.is_action_just_pressed("shoot"):
+		$BubbleShooter.make_new_bubble()
 
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:

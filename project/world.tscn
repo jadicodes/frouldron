@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://djly2h2jcl2kh"]
+[gd_scene load_steps=6 format=4 uid="uid://djly2h2jcl2kh"]
 
 [ext_resource type="Texture2D" uid="uid://cta14ng6ojwy3" path="res://icon.svg" id="1_f5boq"]
 [ext_resource type="PackedScene" uid="uid://dkitvpr4dba28" path="res://wizard/wizard.tscn" id="2_61scl"]
+[ext_resource type="PackedScene" uid="uid://b2vxgw0eolsfr" path="res://enemy/base_enemy.tscn" id="3_mgd26"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_scnr5"]
 texture = ExtResource("1_f5boq")
@@ -29,3 +30,6 @@ position = Vector2(917, 413)
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_2u478")
+
+[node name="BaseEnemy" parent="." instance=ExtResource("3_mgd26")]
+position = Vector2(193, 472)

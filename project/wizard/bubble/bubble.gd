@@ -1,3 +1,4 @@
+class_name Bubble
 extends RigidBody2D
 
 
@@ -11,5 +12,5 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
+func _on_timer_timeout() -> void:
 	queue_free()
