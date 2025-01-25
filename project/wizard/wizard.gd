@@ -9,9 +9,12 @@ const _DAMAGE := 12
 var _health := 100
 
 
-@onready var _shoot_marker := %ShootMarker
 @onready var _bubble_shooter : BubbleShooter = $BubbleShooter
 @onready var _animation_tree: AnimationTree = %AnimationTree
+@onready var _health_bar: TextureProgressBar = $WizardHealth
+
+func _ready() -> void:
+	_health_bar.value = _health
 
 
 func _physics_process(delta: float) -> void:
@@ -42,7 +45,7 @@ func _physics_process(delta: float) -> void:
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if(area.get_parent() is BaseEnemy): 
 		_health -= _DAMAGE
-		print(_health)
+		_health_bar.value = _health
 
 
 func _on_bubble_shooter_ammo_used(decrease_amt) -> void:
