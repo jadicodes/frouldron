@@ -1,42 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://djly2h2jcl2kh"]
+[gd_scene load_steps=5 format=4 uid="uid://djly2h2jcl2kh"]
 
 [ext_resource type="Texture2D" uid="uid://cta14ng6ojwy3" path="res://icon.svg" id="1_f5boq"]
+[ext_resource type="PackedScene" uid="uid://dkitvpr4dba28" path="res://wizard/wizard.tscn" id="2_61scl"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1c5dg"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_scnr5"]
 texture = ExtResource("1_f5boq")
 texture_region_size = Vector2i(128, 128)
-2:1/0 = 0
 0:0/0 = 0
-1:0/0 = 0
-1:1/0 = 0
-2:2/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-3:2/0 = 0
-3:1/0 = 0
-3:0/0 = 0
-2:0/0 = 0
-1:2/0 = 0
-0:2/0 = 0
-0:1/0 = 0
-1:3/0 = 0
-0:3/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 
-[sub_resource type="TileSet" id="TileSet_nirof"]
-tile_size = Vector2i(32, 32)
+[sub_resource type="TileSet" id="TileSet_2u478"]
+tile_size = Vector2i(128, 128)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_1c5dg")
+sources/0 = SubResource("TileSetAtlasSource_scnr5")
 
 [node name="World" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -1135.0
-offset_top = 2.0
-offset_right = 1010.0
-offset_bottom = 597.0
+offset_left = -1140.0
+offset_right = 1005.0
+offset_bottom = 595.0
 color = Color(0.250072, 0.105533, 0, 1)
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_nirof")
-format = 2
-layer_0/tile_data = PackedInt32Array(1114113, 0, 0, 1114114, 0, 0, 1114115, 0, 0, 1114116, 0, 0, 1114117, 0, 0, 1114118, 0, 0, 1114119, 0, 0, 1114120, 0, 0, 1114121, 0, 0, 1114122, 0, 0, 1114123, 0, 0, 1114124, 0, 0, 1114125, 0, 0, 1114126, 0, 0, 1114127, 0, 0, 1114128, 0, 0, 1114129, 0, 0, 1114130, 0, 0, 1114131, 0, 0, 1114132, 0, 0, 1114133, 0, 0, 1114134, 0, 0, 1114135, 0, 0, 1114136, 0, 0, 1114137, 0, 0, 1114138, 0, 0, 1114139, 0, 0, 1114140, 0, 0, 1114141, 0, 0)
+[node name="Wizard" parent="." instance=ExtResource("2_61scl")]
+position = Vector2(917, 413)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_2u478")
