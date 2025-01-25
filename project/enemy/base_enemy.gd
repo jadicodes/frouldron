@@ -29,3 +29,9 @@ func _move(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, WALK_SPEED)
 
 	move_and_slide()
+
+func hit(_element: Element) -> void:
+	health -= 1
+
+	if health <= 0:
+		queue_free()

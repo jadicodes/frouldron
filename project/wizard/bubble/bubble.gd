@@ -21,8 +21,14 @@ func _physics_process(delta: float) -> void:
 	if collision:
 		_collide(collision)
 
-func _collide(_collision: KinematicCollision2D) -> void:
-	velocity = velocity.bounce(_collision.get_normal())
+func _collide(collision: KinematicCollision2D) -> void:
+	var collider = collision.get_collider()
+
+	if collider.has_method("hit"):
+		collider.hit(element)
+		queue_free()
+
+	velocity = velocity.bounce(collision.get_normal())
 	_num_hits += 1
 
 	if _num_hits > element.bounces:
