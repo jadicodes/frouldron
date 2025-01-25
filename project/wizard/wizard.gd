@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
+signal ammo_used
 
 const _SPEED := 200.0
 const _JUMP_VELOCITY := -400.0
 
 var _health := 100
+
 
 @onready var _shoot_marker := %ShootMarker
 @onready var _bubble_shooter : BubbleShooter = $BubbleShooter
@@ -33,3 +35,8 @@ func _physics_process(delta: float) -> void:
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	pass # Replace with function body.
+
+
+func _on_bubble_shooter_ammo_used() -> void:
+	# Pass to world
+	ammo_used.emit()

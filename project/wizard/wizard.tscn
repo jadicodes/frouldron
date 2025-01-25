@@ -37,3 +37,4 @@ position = Vector2(0, -174)
 position = Vector2(-55, -67)
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="ammo_used" from="BubbleShooter" to="." method="_on_bubble_shooter_ammo_used"]
