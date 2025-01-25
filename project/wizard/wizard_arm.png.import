@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m1niuarjqsgq"
-path="res://.godot/imported/dirt_tile.png-d87798f1d96146d51fcd3adc3bcb606b.ctex"
+uid="uid://cka50vcp6mfv0"
+path="res://.godot/imported/wizard_arm.png-8db73e54a44f106b956d093760171ca3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/dirt_tile.png"
-dest_files=["res://.godot/imported/dirt_tile.png-d87798f1d96146d51fcd3adc3bcb606b.ctex"]
+source_file="res://wizard/wizard_arm.png"
+dest_files=["res://.godot/imported/wizard_arm.png-8db73e54a44f106b956d093760171ca3.ctex"]
 
 [params]
 
