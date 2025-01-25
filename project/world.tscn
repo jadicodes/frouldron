@@ -37,14 +37,15 @@ grow_vertical = 2
 color = Color(0.250072, 0.105533, 0, 1)
 
 [node name="Wizard" parent="." instance=ExtResource("2_61scl")]
-position = Vector2(917, 413)
+position = Vector2(1598, 712)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAACAAIAAAAAAAAAAAA=")
+position = Vector2(0, 58)
+tile_map_data = PackedByteArray("AAAAAAcAAAAAAAAAAAABAAcAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAAKAAcAAAAAAAAAAAALAAcAAAAAAAAAAAAMAAcAAAAAAAAAAAANAAcAAAAAAAAAAAAOAAcAAAAAAAAAAAD//wcAAAAAAAAAAAD+/wcAAAAAAAAAAAD9/wcAAAAAAAAAAAD8/wcAAAAAAAAAAAD7/wcAAAAAAAAAAAD6/wcAAAAAAAAAAAD5/wcAAAAAAAAAAAD4/wcAAAAAAAAAAAD3/wcAAAAAAAAAAAD2/wcAAAAAAAAAAAD1/wcAAAAAAAAAAAD0/wcAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_2u478")
 
 [node name="BaseEnemy" parent="." instance=ExtResource("3_mgd26")]
-position = Vector2(193, 472)
+position = Vector2(420, 859)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -54,10 +55,10 @@ offset_bottom = 40.0
 
 [node name="AmmoBar" type="TextureProgressBar" parent="Control"]
 layout_mode = 0
-offset_left = 1773.0
-offset_top = 677.0
-offset_right = 1823.0
-offset_bottom = 1018.0
+offset_left = 1832.0
+offset_top = 685.0
+offset_right = 1882.0
+offset_bottom = 1026.0
 max_value = 50.0
 value = 50.0
 fill_mode = 3
