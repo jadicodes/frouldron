@@ -81,13 +81,13 @@ repeat_size = Vector2(4000, 0)
 texture = ExtResource("4_sag0k")
 offset = Vector2(0, 540)
 
-[node name="Wizard" parent="." instance=ExtResource("2_61scl")]
-position = Vector2(1598, 712)
-
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(0, 58)
 tile_map_data = PackedByteArray("AAAAAAcAAwAAAAAAAAABAAcAAQAAAAAAAAACAAcAAQAAAAAAAAADAAcAAgAAAAAAAAAEAAcAAgAAAAAAAAAFAAcAAQAAAAAAAAAGAAcAAwAAAAAAAAAHAAcAAQAAAAAAAAAIAAcAAwAAAAAAAAAJAAcAAQAAAAAAAAAKAAcAAQAAAAAAAAALAAcAAgAAAAAAAAAMAAcAAgAAAAAAAAANAAcAAQAAAAAAAAAOAAcAAQAAAAAAAAD//wcAAQAAAAAAAAD+/wcAAgAAAAAAAAD9/wcAAgAAAAAAAAD8/wcAAgAAAAAAAAD7/wcAAQAAAAAAAAD6/wcAAwAAAAAAAAD5/wcAAQAAAAAAAAD4/wcAAQAAAAAAAAD3/wcAAwAAAAAAAAD2/wcAAgAAAAAAAAD1/wcAAQAAAAAAAAD0/wcAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_2u478")
+
+[node name="Wizard" parent="." instance=ExtResource("2_61scl")]
+position = Vector2(1598, 712)
 
 [node name="BaseEnemy" parent="." instance=ExtResource("3_mgd26")]
 position = Vector2(420, 859)

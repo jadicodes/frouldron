@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbirdq8cnpjxk"]
+
+[ext_resource type="Script" path="res://world/enemy_spawner/enemy_spawner.gd" id="1_t7x2y"]
+
+[node name="EnemySpawner" type="Marker2D"]
+script = ExtResource("1_t7x2y")
+
+[node name="OnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="screen_entered" from="OnScreenNotifier" to="." method="_on_on_screen_notifier_screen_entered"]
+[connection signal="screen_exited" from="OnScreenNotifier" to="." method="_on_on_screen_notifier_screen_exited"]
