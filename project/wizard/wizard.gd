@@ -8,7 +8,7 @@ var _health := 100
 
 
 func _physics_process(delta: float) -> void:
-	# Gravity
+	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = _JUMP_VELOCITY
 	
 	if Input.is_action_just_pressed("shoot"):
-		$BubbleShooter.make_new_bubble()
+		$BubbleShooter.shoot(global_position, Vector2(velocity.x, velocity.y))
 
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
