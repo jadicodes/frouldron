@@ -25,7 +25,7 @@ offset_left = 545.0
 offset_top = 214.0
 offset_right = 1335.0
 offset_bottom = 313.0
-text = "You've Slain the Boss!!!"
+text = "You've boiled Jeffrey!"
 label_settings = SubResource("LabelSettings_8wuwc")
 
 [node name="TitleScreenButton" type="Button" parent="."]
