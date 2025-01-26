@@ -17,6 +17,7 @@ var _double_jump = 0
 var _can_double_jump = true
 var _can_move = false
 
+var _dead_wizard := preload("res://wizard/wizard_corpse.tscn")
 
 @onready var _bubble_shooter : BubbleShooter = $BubbleShooter
 @onready var _animation_tree: AnimationTree = %AnimationTree
@@ -80,6 +81,11 @@ func hit(element: Element) -> void:
 	_health_bar.value = _health
 	if(_health <= 0):
 		$DeathSound.play()
+		var dead_pile = _dead_wizard.instantiate()
+		var dead_y = global_position.y - 50
+		dead_pile.global_position = Vector2(global_position.x, dead_y)
+		get_parent().add_child(dead_pile)
+		queue_free()
 	else:
 		$HurtSound.pitch_scale = randf_range(0.95, 1.05)
 		$HurtSound.play()
