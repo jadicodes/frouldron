@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://chk7e4837im5l" path="res://cauldron/cauldron.png" id="3_sdc7v"]
 [ext_resource type="FontFile" uid="uid://c7l3ys4in51ll" path="res://menus/timesbd.ttf" id="4_nxga7"]
 [ext_resource type="Texture2D" uid="uid://db4piu30w8ccu" path="res://enemy/peasant_body.png" id="5_41g2b"]
-[ext_resource type="Theme" uid="uid://bap8kcbfphudo" path="res://menus/new_theme.tres" id="5_rim48"]
+[ext_resource type="Theme" uid="uid://dh864qd5g7bre" path="res://menus/new_theme.tres" id="5_rim48"]
 [ext_resource type="Texture2D" uid="uid://crjbbmimpu7iq" path="res://enemy/knight_body.png" id="6_5r8bm"]
 
 [sub_resource type="Gradient" id="Gradient_bbkqn"]
@@ -31,9 +31,6 @@ shadow_size = 12
 shadow_color = Color(0, 0, 0, 0.407843)
 shadow_offset = Vector2(3, 3)
 
-[sub_resource type="LabelSettings" id="LabelSettings_ilgpu"]
-font_size = 32
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8jgs"]
 bg_color = Color(0.22, 0.14421, 0.1034, 0)
 border_width_left = 1
@@ -42,6 +39,9 @@ border_width_right = 1
 border_width_bottom = 2
 border_color = Color(0.22, 0.14421, 0.1034, 0.392157)
 corner_detail = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_ilgpu"]
+font_size = 32
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -85,6 +85,25 @@ theme_type_variation = &"HeaderLarge"
 text = "FROULDRON"
 label_settings = SubResource("LabelSettings_opixd")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(348, 1203)
+rotation = -0.213538
+scale = Vector2(2.99143, 2.83547)
+texture = ExtResource("5_41g2b")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(470, 1046)
+rotation = -0.213538
+scale = Vector2(3.01184, 2.52437)
+texture = ExtResource("6_5r8bm")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(48.067, 27.0196)
+theme_override_styles/panel = SubResource("StyleBoxFlat_b8jgs")
+
 [node name="StartGameButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 776.0
@@ -96,17 +115,6 @@ theme = ExtResource("5_rim48")
 theme_type_variation = &"FlatButton"
 text = "Start"
 
-[node name="OpenTutorialButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 776.0
-offset_top = 656.0
-offset_right = 876.0
-offset_bottom = 689.0
-scale = Vector2(3, 3)
-theme = ExtResource("5_rim48")
-theme_type_variation = &"FlatButton"
-text = "Tutorial"
-
 [node name="ExitButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 792.0
@@ -117,6 +125,17 @@ scale = Vector2(3, 3)
 theme = ExtResource("5_rim48")
 theme_type_variation = &"FlatButton"
 text = "Exit"
+
+[node name="OpenTutorialButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 656.0
+offset_right = 876.0
+offset_bottom = 689.0
+scale = Vector2(3, 3)
+theme = ExtResource("5_rim48")
+theme_type_variation = &"FlatButton"
+text = "Tutorial"
 
 [node name="TutorialScreen" type="ColorRect" parent="."]
 visible = false
@@ -146,31 +165,12 @@ visible = false
 layout_mode = 0
 offset_left = 906.0
 offset_top = 704.0
-offset_right = 951.0
-offset_bottom = 735.0
+offset_right = 959.0
+offset_bottom = 737.0
 scale = Vector2(2, 2)
 text = "Back"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(348, 1203)
-rotation = -0.213538
-scale = Vector2(2.99143, 2.83547)
-texture = ExtResource("5_41g2b")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(470, 1046)
-rotation = -0.213538
-scale = Vector2(3.01184, 2.52437)
-texture = ExtResource("6_5r8bm")
-
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(48.067, 27.0196)
-theme_override_styles/panel = SubResource("StyleBoxFlat_b8jgs")
-
 [connection signal="pressed" from="StartGameButton" to="." method="_on_start_game_button_pressed"]
-[connection signal="pressed" from="OpenTutorialButton" to="." method="_on_open_tutorial_button_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="OpenTutorialButton" to="." method="_on_open_tutorial_button_pressed"]
 [connection signal="pressed" from="CloseTutorialButton" to="." method="_on_close_tutorial_button_pressed"]
