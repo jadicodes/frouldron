@@ -202,6 +202,7 @@ target = NodePath("../Wizard")
 position = Vector2(-202, 888)
 
 [node name="BigCauldron" parent="." instance=ExtResource("22_g7613")]
+z_index = 5
 position = Vector2(1249, 752)
 
 [node name="Wizard" parent="." instance=ExtResource("2_61scl")]
