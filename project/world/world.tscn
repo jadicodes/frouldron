@@ -237,5 +237,6 @@ libraries = {
 [connection signal="change_element" from="Cauldrons/CauldronNature" to="." method="_on_cauldron_change_element"]
 [connection signal="finished_all_text" from="CanvasLayer/Textbox" to="." method="_on_textbox_finished_all_text"]
 [connection signal="finished_current_text" from="CanvasLayer/Textbox" to="." method="_on_textbox_finished_current_text"]
+[connection signal="boss_condition_met" from="BigCauldron" to="." method="_on_big_cauldron_boss_condition_met"]
 [connection signal="ammo_used" from="Wizard" to="." method="_on_wizard_ammo_used"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

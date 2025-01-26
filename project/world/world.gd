@@ -45,3 +45,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		%Textbox.show()
 		%Textbox.set_queue(_opening_scene_text.size())
 		%Textbox.set_text(_opening_scene_text[_text_index])
+
+
+func _on_big_cauldron_boss_condition_met() -> void:
+	pass # Replace with function body.

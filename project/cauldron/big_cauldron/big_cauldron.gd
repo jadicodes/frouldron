@@ -4,6 +4,8 @@ extends Area2D
 
 var boss_condition := 0
 
+signal boss_condition_met
+
 # Take all of the elements and match them with a Gem Sprite so that each element is represented by a gem.
 func _ready():
 	var counter = 0
@@ -33,4 +35,4 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _trigger_boss():
-	get_tree().change_scene_to_file("res://boss_fight/boss_fight.tscn")
+	emit_signal("boss_condition_met")
