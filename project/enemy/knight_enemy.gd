@@ -1,8 +1,4 @@
 extends BaseEnemy
-#extends CharacterBody2D
-
-
-
 
 func _ready() -> void:
 	_animation_tree["parameters/conditions/is_attacking"] = false
@@ -42,13 +38,12 @@ func hit(bubble_element: Element) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	_animation_tree["parameters/conditions/is_attacking"] = true
-	
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	_animation_tree["parameters/conditions/is_attacking"] = false
 
+
 func deal_damage():
 	if _animation_tree["parameters/conditions/is_attacking"] == true:
-		Wizard.instance.hit(12)
-		
+		Wizard.instance.hit(element)

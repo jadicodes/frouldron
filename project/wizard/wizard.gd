@@ -67,8 +67,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func hit(damage:int ) -> void:
-	_health -= _DAMAGE
+func hit(element: Element) -> void:
+	_health -= element.damage * _DAMAGE
 	_health_bar.value = _health
 	if(_health <= 0):
 		$DeathSound.play()
