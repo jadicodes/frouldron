@@ -6,7 +6,7 @@ func _process(_delta: float) -> void:
 		get_tree().change_scene_to_file("res://world/world.tscn")
 
 
-func _on_start_over_pressed() -> void:
+func _on_title_screen_pressed() -> void:
 	get_tree().change_scene_to_file("res://world/world.tscn")
 
 

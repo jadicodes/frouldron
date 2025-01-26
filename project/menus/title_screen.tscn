@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpg8dua1xhuyl"]
+
+[ext_resource type="Script" path="res://menus/title_screen.gd" id="1_aci83"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_opixd"]
+font_size = 72
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aci83")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 714.0
+offset_top = 300.0
+offset_right = 1159.0
+offset_bottom = 399.0
+text = "FROULDRON"
+label_settings = SubResource("LabelSettings_opixd")
+
+[node name="StartGameButton" type="Button" parent="."]
+offset_left = 833.0
+offset_top = 511.0
+offset_right = 931.0
+offset_bottom = 542.0
+scale = Vector2(2, 2)
+text = "Start Game"
+
+[node name="ExitButton" type="Button" parent="."]
+offset_left = 840.0
+offset_top = 634.0
+offset_right = 927.0
+offset_bottom = 665.0
+scale = Vector2(2, 2)
+text = "Exit Game"
+
+[connection signal="pressed" from="StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
