@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://w0p55do31lkq"]
+
+[ext_resource type="Texture2D" uid="uid://q4hj8n76tbc1" path="res://boss/boss_head.png" id="1_xifnm"]
+[ext_resource type="Texture2D" uid="uid://gsanwuxwl8l" path="res://boss/boss_jaw.png" id="2_7ssks"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ycjc2"]
+radius = 136.0
+height = 400.0
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_761pg"]
+
+[node name="Boss" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ycjc2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_xifnm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_7ssks")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_761pg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
