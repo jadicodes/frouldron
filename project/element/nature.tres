@@ -6,11 +6,11 @@
 [resource]
 script = ExtResource("1_i8etw")
 name = "Nature"
-color = Color(0.266667, 0.309804, 0, 1)
+color = Color(0.162854, 0.0392181, 0.394475, 1)
 gravity_scale = -2.0
 bounces = 0
 force = 0.0
-lifetime = 15.0
+lifetime = 0.5
 ammo_usage = 10
 damage = 1
 heal = 15
