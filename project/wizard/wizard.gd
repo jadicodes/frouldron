@@ -109,7 +109,7 @@ func _spawn_jump_bubbles():
 	var element := _bubble_shooter.element
 	for i in range(-1, 2):
 		var bubble = preload("res://wizard/bubble/bubble.tscn").instantiate()
-		get_tree().get_root().add_child(bubble)
+		get_parent().add_child(bubble)
 		bubble.set_element(element)
 		bubble.global_position = _jump_bubbles.global_position
 		bubble.set_velocity(Vector2.DOWN.rotated(deg_to_rad(15 * i)) * 500 * element.force)

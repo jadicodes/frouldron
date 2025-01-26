@@ -44,7 +44,7 @@ func _attack(direction: int) -> void:
 
 	var bubble = preload("res://wizard/bubble/bubble.tscn").instantiate()
 	bubble.collision_mask = 3
-	get_tree().get_root().add_child(bubble)
+	get_parent().add_child(bubble)
 	bubble.global_position = _attack_origin.global_position
 	bubble.set_velocity(velocity + Vector2.RIGHT * direction * 500 * element.force)
 	bubble.set_element(element)

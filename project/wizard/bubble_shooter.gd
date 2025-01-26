@@ -35,7 +35,7 @@ func shoot(velocity: Vector2, direction: float) -> bool:
 		return false
 
 	_bubble = preload("res://wizard/bubble/bubble.tscn").instantiate()
-	get_tree().get_root().add_child(_bubble)
+	get_parent().get_parent().add_child(_bubble)
 	_bubble.global_position = _bubble_point.global_position
 	_bubble.set_velocity(velocity + Vector2.RIGHT * direction * 500 * element.force)
 	_bubble.set_element(element)

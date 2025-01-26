@@ -10,7 +10,7 @@ var _can_spawn := false
 
 func make_base_enemy():
 	base_enemy = enemy.pick_random().instantiate()
-	get_tree().get_root().add_child(base_enemy)
+	get_parent().add_child(base_enemy)
 	base_enemy.global_position = global_position
 
 
