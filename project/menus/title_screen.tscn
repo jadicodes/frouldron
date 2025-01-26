@@ -1,17 +1,15 @@
-[gd_scene load_steps=21 format=3 uid="uid://dpg8dua1xhuyl"]
+[gd_scene load_steps=15 format=3 uid="uid://dpg8dua1xhuyl"]
 
+<<<<<<< Updated upstream
 [ext_resource type="FontFile" uid="uid://buwy73urdic2h" path="res://common/times.ttf" id="1_a4sh0"]
+=======
+>>>>>>> Stashed changes
 [ext_resource type="Script" path="res://menus/title_screen.gd" id="1_aci83"]
 [ext_resource type="Texture2D" uid="uid://chk7e4837im5l" path="res://cauldron/cauldron.png" id="3_sdc7v"]
 [ext_resource type="FontFile" uid="uid://c7l3ys4in51ll" path="res://menus/timesbd.ttf" id="4_nxga7"]
-[ext_resource type="Theme" uid="uid://bap8kcbfphudo" path="res://menus/new_theme.tres" id="5_rim48"]
-
-[sub_resource type="Theme" id="Theme_qwlfs"]
-default_font = ExtResource("1_a4sh0")
-MarginContainer/constants/margin_bottom = 0
-MarginContainer/constants/margin_left = 0
-MarginContainer/constants/margin_right = 0
-MarginContainer/constants/margin_top = 0
+[ext_resource type="Texture2D" uid="uid://db4piu30w8ccu" path="res://enemy/peasant_body.png" id="5_41g2b"]
+[ext_resource type="Theme" uid="uid://bap8kcbfphudo" path="res://menus/theme.tres" id="5_rim48"]
+[ext_resource type="Texture2D" uid="uid://crjbbmimpu7iq" path="res://enemy/knight_body.png" id="6_5r8bm"]
 
 [sub_resource type="Gradient" id="Gradient_bbkqn"]
 offsets = PackedFloat32Array(0, 0.00319489, 1)
@@ -37,109 +35,17 @@ shadow_size = 12
 shadow_color = Color(0, 0, 0, 0.407843)
 shadow_offset = Vector2(3, 3)
 
-[sub_resource type="Theme" id="Theme_c5e24"]
-default_font = ExtResource("1_a4sh0")
-default_font_size = 22
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ut6g"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.3)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t802e"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.75)
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5yhpq"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.321368, 0.387829, 0.273245, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fcb8"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.264691, 0.429483, 0.187489, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7djxe"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.464548, 0.600306, 0.215027, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="Theme" id="Theme_njchn"]
-Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
-Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
-Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
-Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
-Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-Button/colors/font_outline_color = Color(0, 0, 0, 1)
-Button/colors/font_pressed_color = Color(1, 1, 1, 1)
-Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
-Button/colors/icon_focus_color = Color(1, 1, 1, 1)
-Button/colors/icon_hover_color = Color(1, 1, 1, 1)
-Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
-Button/colors/icon_normal_color = Color(1, 1, 1, 1)
-Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
-Button/constants/align_to_largest_stylebox = 0
-Button/constants/h_separation = 4
-Button/constants/icon_max_width = 0
-Button/constants/outline_size = 0
-Button/font_sizes/font_size = 20
-Button/fonts/font = ExtResource("1_a4sh0")
-Button/styles/disabled = SubResource("StyleBoxFlat_3ut6g")
-Button/styles/focus = SubResource("StyleBoxFlat_t802e")
-Button/styles/hover = SubResource("StyleBoxFlat_5yhpq")
-Button/styles/normal = SubResource("StyleBoxFlat_0fcb8")
-Button/styles/pressed = SubResource("StyleBoxFlat_7djxe")
-Label/font_sizes/font_size = 27
-Label/fonts/font = ExtResource("1_a4sh0")
-
 [sub_resource type="LabelSettings" id="LabelSettings_ilgpu"]
 font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8jgs"]
+bg_color = Color(0.22, 0.14421, 0.1034, 0)
+border_width_left = 1
+border_width_top = 2
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(0.22, 0.14421, 0.1034, 0.392157)
+corner_detail = 1
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -148,7 +54,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_qwlfs")
+theme = ExtResource("5_rim48")
 script = ExtResource("1_aci83")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -168,48 +74,52 @@ texture = SubResource("NoiseTexture2D_cmd7v")
 expand_mode = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="TextureRect"]
-self_modulate = Color(1, 1, 1, 0.0862745)
-position = Vector2(19.6963, 23.6647)
-scale = Vector2(0.201747, 0.270771)
+position = Vector2(19.3012, 8.30861)
+scale = Vector2(0.0542674, 0.0751018)
 texture = ExtResource("3_sdc7v")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 0
-offset_left = 645.0
-offset_top = 312.0
-offset_right = 1244.0
-offset_bottom = 416.0
+offset_left = 624.0
+offset_top = 344.0
+offset_right = 1223.0
+offset_bottom = 458.0
+theme = ExtResource("5_rim48")
+theme_type_variation = &"HeaderLarge"
 text = "FROULDRON"
 label_settings = SubResource("LabelSettings_opixd")
 
 [node name="StartGameButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 840.0
-offset_top = 520.0
-offset_right = 938.0
-offset_bottom = 553.0
-scale = Vector2(2, 2)
-theme = SubResource("Theme_c5e24")
+offset_left = 776.0
+offset_top = 504.0
+offset_right = 874.0
+offset_bottom = 537.0
+scale = Vector2(3, 3)
+theme = ExtResource("5_rim48")
+theme_type_variation = &"FlatButton"
 text = "Start"
 
 [node name="OpenTutorialButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 840.0
-offset_top = 600.0
-offset_right = 940.0
-offset_bottom = 631.0
-scale = Vector2(2, 2)
-theme = SubResource("Theme_njchn")
+offset_left = 776.0
+offset_top = 656.0
+offset_right = 876.0
+offset_bottom = 689.0
+scale = Vector2(3, 3)
+theme = ExtResource("5_rim48")
+theme_type_variation = &"FlatButton"
 text = "Tutorial"
 
 [node name="ExitButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 848.0
-offset_top = 672.0
-offset_right = 935.0
-offset_bottom = 705.0
-scale = Vector2(2, 2)
+offset_left = 792.0
+offset_top = 800.0
+offset_right = 879.0
+offset_bottom = 833.0
+scale = Vector2(3, 3)
 theme = ExtResource("5_rim48")
+theme_type_variation = &"FlatButton"
 text = "Exit"
 
 [node name="TutorialScreen" type="ColorRect" parent="."]
@@ -244,6 +154,25 @@ offset_right = 951.0
 offset_bottom = 735.0
 scale = Vector2(2, 2)
 text = "Back"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(348, 1203)
+rotation = -0.213538
+scale = Vector2(2.99143, 2.83547)
+texture = ExtResource("5_41g2b")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(470, 1046)
+rotation = -0.213538
+scale = Vector2(3.01184, 2.52437)
+texture = ExtResource("6_5r8bm")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(48.067, 27.0196)
+theme_override_styles/panel = SubResource("StyleBoxFlat_b8jgs")
 
 [connection signal="pressed" from="StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="OpenTutorialButton" to="." method="_on_open_tutorial_button_pressed"]

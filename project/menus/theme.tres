@@ -1,0 +1,116 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bap8kcbfphudo"]
+
+[ext_resource type="FontFile" uid="uid://buwy73urdic2h" path="res://menus/times.ttf" id="1_g4f01"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rnp7h"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o46gc"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vt7be"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.176, 0.32, 0.2528, 0.6)
+border_width_left = 3
+border_width_top = 3
+border_color = Color(0.107166, 0.0950098, 0.0701249, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+shadow_size = 1
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3nmfj"]
+bg_color = Color(0.127154, 0.184654, 0.107183, 1)
+border_width_left = 3
+border_width_top = 3
+border_color = Color(0.12152, 0.14, 0.0938, 1)
+corner_detail = 5
+shadow_color = Color(0.1233, 0.18, 0.1044, 0.454902)
+shadow_size = 1
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y0xbb"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.245277, 0.355595, 0.17074, 0.6)
+border_width_left = 3
+border_width_top = 3
+border_color = Color(0.147971, 0.211885, 0.125777, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jadr5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_top = 10
+border_color = Color(0.215686, 0.141176, 0.101961, 1)
+
+[resource]
+default_font = ExtResource("1_g4f01")
+default_font_size = 22
+Button/colors/font_color = Color(0.955963, 0.955963, 0.955963, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 23
+Button/fonts/font = ExtResource("1_g4f01")
+Button/styles/disabled = SubResource("StyleBoxFlat_rnp7h")
+Button/styles/focus = SubResource("StyleBoxFlat_o46gc")
+Button/styles/hover = SubResource("StyleBoxFlat_vt7be")
+Button/styles/normal = SubResource("StyleBoxFlat_3nmfj")
+Button/styles/pressed = SubResource("StyleBoxFlat_y0xbb")
+HeaderLarge/styles/normal = SubResource("StyleBoxFlat_jadr5")
+MarginContainer/constants/margin_bottom = 0
+MarginContainer/constants/margin_left = 0
+MarginContainer/constants/margin_right = 0
+MarginContainer/constants/margin_top = 0
