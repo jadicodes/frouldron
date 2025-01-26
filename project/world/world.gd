@@ -16,7 +16,6 @@ func _play_opening_cutscene():
 
 
 func _on_wizard_ammo_used(decrease_amt : int) -> void:
-	print(decrease_amt)
 	_ammo_bar.value -= decrease_amt
 
 

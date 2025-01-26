@@ -2,6 +2,8 @@ class_name BubbleShooter
 extends Node2D
 
 signal ammo_used(decrease_amt: int)
+signal ammo_gone
+signal ammo_refilled
 
 const MAX_AMMO := 50.0
 
@@ -19,6 +21,7 @@ func set_bubble_type(new_element: Element)-> void:
 
 func fill_ammo():
 	_current_ammo = MAX_AMMO
+	ammo_refilled.emit()
 
 
 func get_bubble_type():
@@ -27,6 +30,8 @@ func get_bubble_type():
 
 func shoot(velocity: Vector2, direction: float) -> bool:
 	if not has_ammo():
+		ammo_gone.emit()
+		print("no ammo")
 		return false
 
 	_bubble = preload("res://wizard/bubble/bubble.tscn").instantiate()

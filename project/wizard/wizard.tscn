@@ -192,17 +192,31 @@ shape = SubResource("RectangleShape2D_5o7th")
 debug_color = Color(0.926858, 0.237749, 0.335021, 0.42)
 
 [node name="Body" type="Sprite2D" parent="."]
-position = Vector2(-2, 0)
+position = Vector2(-2, 14)
 texture = ExtResource("3_brajv")
 offset = Vector2(0, -70)
 
 [node name="Foot" type="Sprite2D" parent="."]
-position = Vector2(28, -16)
+position = Vector2(28, -2)
 texture = ExtResource("3_o2ed3")
 offset = Vector2(-28, -64)
 
+[node name="JumpBubbles" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 11)
+
+[node name="JumpBubbles2" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 11)
+rotation = 0.436332
+
+[node name="JumpBubbles3" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 11)
+rotation = -0.436332
+
 [node name="BubbleShooter" parent="." instance=ExtResource("3_0to1p")]
-position = Vector2(-23, -58)
+position = Vector2(-23, -44)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 unique_name_in_owner = true
@@ -226,6 +240,7 @@ offset_bottom = -153.0
 value = 100.0
 texture_over = ExtResource("5_86pck")
 texture_progress = ExtResource("6_l8vex")
+metadata/_edit_use_anchors_ = true
 
 [node name="HurtSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_cea23")
@@ -234,4 +249,6 @@ stream = ExtResource("7_cea23")
 stream = ExtResource("8_sto20")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="ammo_gone" from="BubbleShooter" to="." method="_on_bubble_shooter_ammo_gone"]
+[connection signal="ammo_refilled" from="BubbleShooter" to="." method="_on_bubble_shooter_ammo_refilled"]
 [connection signal="ammo_used" from="BubbleShooter" to="." method="_on_bubble_shooter_ammo_used"]
