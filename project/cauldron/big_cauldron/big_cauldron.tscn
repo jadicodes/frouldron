@@ -57,7 +57,7 @@ _data = {
 [node name="BigCauldron" type="Area2D"]
 collision_mask = 8
 script = ExtResource("1_on4uo")
-_bubble_types = Array[ExtResource("2_k78el")]([ExtResource("3_hyiu1"), ExtResource("4_c5lyy"), ExtResource("7_kcjwh"), ExtResource("8_2euye")])
+_bubble_types = Array[ExtResource("2_k78el")]([ExtResource("8_2euye"), ExtResource("7_kcjwh"), ExtResource("4_c5lyy"), ExtResource("3_hyiu1")])
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("10_xed13")
