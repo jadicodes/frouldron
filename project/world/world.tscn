@@ -16,7 +16,7 @@
 [ext_resource type="Script" path="res://wizard/follow_camera.gd" id="10_njmoa"]
 [ext_resource type="Resource" uid="uid://cfo5jvoy7qgdb" path="res://element/earth.tres" id="11_a2o3n"]
 [ext_resource type="Texture2D" uid="uid://cho7tteei4fdu" path="res://world/ammo_wand.png" id="12_qb6ex"]
-[ext_resource type="Resource" path="res://element/acid.tres" id="12_u7kxp"]
+[ext_resource type="Resource" uid="uid://w37h2xcy8p4p" path="res://element/acid.tres" id="12_u7kxp"]
 [ext_resource type="Resource" uid="uid://ca1v1brmxtemq" path="res://element/electricity.tres" id="13_uhyw3"]
 [ext_resource type="Resource" uid="uid://dhtojjrnhu6ij" path="res://element/fire.tres" id="14_1lxds"]
 [ext_resource type="PackedScene" uid="uid://dbirdq8cnpjxk" path="res://world/enemy_spawner/enemy_spawner.tscn" id="14_fbijg"]
@@ -118,26 +118,26 @@ position = Vector2(813, 966)
 element = ExtResource("11_a2o3n")
 
 [node name="CauldronWater" parent="." instance=ExtResource("5_4m26d")]
-position = Vector2(97, 961)
+position = Vector2(97, 980)
 
 [node name="CauldronAcid" parent="." instance=ExtResource("5_4m26d")]
 position = Vector2(-2957, 958)
 element = ExtResource("12_u7kxp")
 
 [node name="CauldronLightning" parent="." instance=ExtResource("5_4m26d")]
-position = Vector2(-865, 963)
+position = Vector2(-864, 975)
 element = ExtResource("13_uhyw3")
 
 [node name="CauldronFire" parent="." instance=ExtResource("5_4m26d")]
-position = Vector2(-1689, 959)
+position = Vector2(-1691, 978)
 element = ExtResource("14_1lxds")
 
 [node name="CauldronIce" parent="." instance=ExtResource("5_4m26d")]
-position = Vector2(-2369, 955)
+position = Vector2(-2369, 980)
 element = ExtResource("15_lax71")
 
 [node name="CauldronNature" parent="." instance=ExtResource("5_4m26d")]
-position = Vector2(-1204, 959)
+position = Vector2(-1203, 978)
 element = ExtResource("16_4bsim")
 
 [node name="Wizard" parent="." instance=ExtResource("2_61scl")]
