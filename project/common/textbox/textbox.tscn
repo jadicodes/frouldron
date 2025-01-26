@@ -1,16 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5ga0jy4gbl1x"]
+[gd_scene load_steps=5 format=3 uid="uid://c5ga0jy4gbl1x"]
 
 [ext_resource type="Script" path="res://common/textbox/textbox.gd" id="1_863gk"]
+[ext_resource type="FontFile" uid="uid://c7l3ys4in51ll" path="res://menus/timesbd.ttf" id="2_kyceu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxhae"]
+bg_color = Color(0.0858459, 0.147343, 0.137088, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qh44k"]
+bg_color = Color(0.256159, 0.319262, 0.305027, 1)
 
 [node name="Textbox" type="CanvasLayer"]
 script = ExtResource("1_863gk")
 
 [node name="TextboxContainer" type="PanelContainer" parent="."]
 unique_name_in_owner = true
-offset_right = 414.0
-offset_bottom = 120.0
+offset_right = 632.0
+offset_bottom = 222.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pxhae")
 
 [node name="MarginContainer" type="MarginContainer" parent="TextboxContainer"]
 unique_name_in_owner = true
@@ -27,19 +33,40 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_qh44k")
 
 [node name="MarginContainer2" type="MarginContainer" parent="TextboxContainer/MarginContainer/Panel"]
 unique_name_in_owner = true
-layout_mode = 2
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 404.0
-offset_bottom = 110.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_bottom = 60
 
 [node name="Label" type="Label" parent="TextboxContainer/MarginContainer/Panel/MarginContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(5, 5)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.889064, 0.866339, 0.830846, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("2_kyceu")
+theme_override_font_sizes/font_size = 42
 text = "This is some demonstration text. I am awesome and can do this in 10 minutes."
+horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="SpaceLabel" type="Label" parent="."]
+offset_left = 240.0
+offset_top = 163.0
+offset_right = 395.0
+offset_bottom = 208.0
+theme_override_colors/font_color = Color(0.890196, 0.866667, 0.831373, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("2_kyceu")
+theme_override_font_sizes/font_size = 36
+text = "[SPACE]"

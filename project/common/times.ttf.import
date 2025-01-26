@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://buwy73urdic2h"
-path="res://.godot/imported/times.ttf-405c07170da997c6f05bec5f6e000c07.fontdata"
+path="res://.godot/imported/times.ttf-22ff78097f52508e066d8958de4b8341.fontdata"
 
 [deps]
 
-source_file="res://menus/times.ttf"
-dest_files=["res://.godot/imported/times.ttf-405c07170da997c6f05bec5f6e000c07.fontdata"]
+source_file="res://common/times.ttf"
+dest_files=["res://.godot/imported/times.ttf-22ff78097f52508e066d8958de4b8341.fontdata"]
 
 [params]
 

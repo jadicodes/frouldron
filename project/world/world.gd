@@ -1,5 +1,6 @@
 extends Node2D
 
+var _text_index = 0
 @onready var _ammo_bar : TextureProgressBar = %AmmoBar
 @onready var _bubble_shooter : BubbleShooter = $Wizard/BubbleShooter
 @export var _opening_scene_text : Array[String]
@@ -11,8 +12,7 @@ func _ready() -> void:
 
 
 func _play_opening_cutscene():
-	%Textbox.set_queue(_opening_scene_text.size())
-	%Textbox.set_text(_opening_scene_text[0])
+	$AnimationPlayer.play("opening")
 
 
 func _on_wizard_ammo_used(decrease_amt : int) -> void:
@@ -30,8 +30,18 @@ func _on_cauldron_change_element(element: Element) -> void:
 
 
 func _on_textbox_finished_current_text() -> void:
-	%Textbox.set_text(_opening_scene_text[1])
+	_text_index += 1
+	%Textbox.set_text(_opening_scene_text[_text_index])
 
 
 func _on_textbox_finished_all_text() -> void:
 	%Textbox.hide()
+	%Wizard.set_can_move(true)
+	_text_index = 0
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "opening":
+		%Textbox.show()
+		%Textbox.set_queue(_opening_scene_text.size())
+		%Textbox.set_text(_opening_scene_text[_text_index])

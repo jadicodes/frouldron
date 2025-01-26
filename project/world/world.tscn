@@ -314,8 +314,9 @@ texture = ExtResource("12_qb6ex")
 
 [node name="Textbox" parent="CanvasLayer" instance=ExtResource("17_nd7w2")]
 unique_name_in_owner = true
-offset = Vector2(150, 150)
-transform = Transform2D(1, 0, 0, 1, 150, 150)
+visible = false
+offset = Vector2(800, 800)
+transform = Transform2D(1, 0, 0, 1, 800, 800)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 offset = Vector2(0, 540)
@@ -329,6 +330,7 @@ position = Vector2(-202, 888)
 position = Vector2(1620, 498)
 
 [node name="Wizard" parent="." instance=ExtResource("2_61scl")]
+unique_name_in_owner = true
 position = Vector2(1625, 709)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -353,3 +355,4 @@ libraries = {
 [connection signal="finished_all_text" from="CanvasLayer/Textbox" to="." method="_on_textbox_finished_all_text"]
 [connection signal="finished_current_text" from="CanvasLayer/Textbox" to="." method="_on_textbox_finished_current_text"]
 [connection signal="ammo_used" from="Wizard" to="." method="_on_wizard_ammo_used"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

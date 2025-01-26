@@ -82,11 +82,14 @@ func _change_state(new_state) -> void:
 	match current_state:
 		state.READY:
 			_text.visible_ratio = 0.0
+			$SpaceLabel.show()
 		state.READING:
 			_tween.play()
+			$SpaceLabel.hide()
 		state.FINISHED:
 			_text.visible_ratio = 1.0
 			_tween.pause()
+			$SpaceLabel.show()
 
 
 # Manages signal received from tween finishing

@@ -14,7 +14,11 @@ static var instance: Wizard
 var _health := _MAX_HEALTH
 var _current_direction := -1
 var _double_jump = 0
+<<<<<<< Updated upstream
 var _can_double_jump = true
+=======
+var _can_move = false
+>>>>>>> Stashed changes
 
 
 @onready var _bubble_shooter : BubbleShooter = $BubbleShooter
@@ -28,6 +32,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+<<<<<<< Updated upstream
 	_animation_tree["parameters/conditions/shoot_pressed"] = false
 	# Add the gravity.
 	if not is_on_floor():
@@ -42,30 +47,44 @@ func _physics_process(delta: float) -> void:
 		if _double_jump == 1:
 			_spawn_jump_bubbles()
 		_double_jump += 1
+=======
+	if _can_move:
+		_animation_tree["parameters/conditions/shoot_pressed"] = false
+		# Add the gravity.
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+		if is_on_floor():
+			_double_jump = 0
 
-	var direction := Input.get_axis("move_left", "move_right")
-	if direction:
-		_current_direction = 1 if direction > 0 else -1
-		scale.y = -_current_direction
-		rotation = PI if direction > 0 else 0.0
-		_health_bar.fill_mode =  1 if direction > 0 else 0
-		velocity.x = direction * _SPEED
-		_animation_tree["parameters/conditions/idle"] = false
-		_animation_tree["parameters/conditions/is_moving"] = true
-	else:
-		_animation_tree["parameters/conditions/idle"] = true
-		_animation_tree["parameters/conditions/is_moving"] = false
-		velocity.x = move_toward(velocity.x, 0, _SPEED)
+		# Handle jump.
+		if Input.is_action_just_pressed("jump") and _double_jump != 2:
+			velocity.y = _JUMP_VELOCITY
+			_double_jump += 1
+>>>>>>> Stashed changes
 
-	if Input.is_action_just_pressed("shoot"):
-		var shot := _bubble_shooter.shoot(velocity, _current_direction)
-		_animation_tree["parameters/conditions/shoot_pressed"] = shot
+		var direction := Input.get_axis("move_left", "move_right")
+		if direction:
+			_current_direction = 1 if direction > 0 else -1
+			scale.y = -_current_direction
+			rotation = PI if direction > 0 else 0.0
+			_health_bar.fill_mode =  1 if direction > 0 else 0
+			velocity.x = direction * _SPEED
+			_animation_tree["parameters/conditions/idle"] = false
+			_animation_tree["parameters/conditions/is_moving"] = true
+		else:
+			_animation_tree["parameters/conditions/idle"] = true
+			_animation_tree["parameters/conditions/is_moving"] = false
+			velocity.x = move_toward(velocity.x, 0, _SPEED)
 
-		if shot:
-			_health = clamp(_health + _bubble_shooter.element.heal, 0, _MAX_HEALTH)
-			_health_bar.value = _health
+		if Input.is_action_just_pressed("shoot"):
+			var shot := _bubble_shooter.shoot(velocity, _current_direction)
+			_animation_tree["parameters/conditions/shoot_pressed"] = shot
 
-	move_and_slide()
+			if shot:
+				_health = clamp(_health + _bubble_shooter.element.heal, 0, _MAX_HEALTH)
+				_health_bar.value = _health
+
+		move_and_slide()
 
 
 func hit(element: Element) -> void:
@@ -83,6 +102,7 @@ func _on_bubble_shooter_ammo_used(decrease_amt) -> void:
 	ammo_used.emit(decrease_amt)
 
 
+<<<<<<< Updated upstream
 func _spawn_jump_bubbles():
 	if _bubble_shooter._current_ammo <= 0:
 		return
@@ -106,3 +126,8 @@ func _on_bubble_shooter_ammo_gone() -> void:
 func _on_bubble_shooter_ammo_refilled() -> void:
 	_can_double_jump = true
 	print("can double jump")
+=======
+func set_can_move(if_can_move):
+	_can_move = if_can_move
+	
+>>>>>>> Stashed changes
