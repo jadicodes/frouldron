@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bgov5pii281s2"]
 
 [ext_resource type="Theme" uid="uid://bap8kcbfphudo" path="res://menus/theme.tres" id="1_t8ssq"]
-[ext_resource type="FontFile" uid="uid://bksvqqf8x1u7m" path="res://menus/AlmendraSC-Regular.ttf" id="2_a6vi4"]
+[ext_resource type="FontFile" uid="uid://b5cnpspwjgi7q" path="res://menus/AlmendraSC-Regular.ttf" id="2_a6vi4"]
 
 [sub_resource type="Gradient" id="Gradient_1ee8l"]
 colors = PackedColorArray(0.0993852, 0.162491, 0.105692, 1, 0.203038, 0.32256, 0.219668, 1)
@@ -27,6 +27,7 @@ border_color = Color(0.02048, 0.04, 0.0156, 0.443137)
 [sub_resource type="LabelSettings" id="LabelSettings_r0prg"]
 font = ExtResource("2_a6vi4")
 font_size = 138
+font_color = Color(0.923169, 0.902282, 0.90534, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wrsmp"]
 font_size = 12
