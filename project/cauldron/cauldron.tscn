@@ -1,75 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvlivrphp416p"]
+[gd_scene load_steps=5 format=3 uid="uid://cvlivrphp416p"]
 
 [ext_resource type="Script" path="res://cauldron/cauldron.gd" id="1_ffeai"]
+[ext_resource type="Texture2D" uid="uid://chk7e4837im5l" path="res://cauldron/cauldron.png" id="2_3s3hv"]
+[ext_resource type="Texture2D" uid="uid://0ow7trufpq3a" path="res://cauldron/cauldron_contents.png" id="3_tnxxa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8wdih"]
-size = Vector2(128.5, 41)
+size = Vector2(170, 124.5)
 
 [node name="cauldron" type="Area2D"]
 position = Vector2(2, 3)
 script = ExtResource("1_ffeai")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(62.75, 19)
+position = Vector2(-2, -65.25)
 shape = SubResource("RectangleShape2D_8wdih")
 
-[node name="Acid" type="ColorRect" parent="."]
-visible = false
-offset_left = 41.0
-offset_top = -1.0
-offset_right = 81.0
-offset_bottom = 39.0
-color = Color(0.0666667, 0.968627, 0.133333, 1)
+[node name="Cauldron" type="Sprite2D" parent="."]
+position = Vector2(-2, -60)
+texture = ExtResource("2_3s3hv")
 
-[node name="Fire" type="ColorRect" parent="."]
-visible = false
-offset_left = 41.0
-offset_top = -1.0
-offset_right = 81.0
-offset_bottom = 39.0
-color = Color(1, 0, 0, 1)
-
-[node name="Earth" type="ColorRect" parent="."]
-visible = false
-offset_left = 41.0
-offset_top = -1.0
-offset_right = 81.0
-offset_bottom = 39.0
-color = Color(0.758588, 0.383898, 0.111187, 1)
-
-[node name="Water" type="ColorRect" parent="."]
-visible = false
-offset_left = 41.0
-offset_top = -1.0
-offset_right = 81.0
-offset_bottom = 39.0
-color = Color(0.620684, 0.913727, 1, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Ice" type="ColorRect" parent="."]
-visible = false
-offset_left = 41.0
-offset_top = -1.0
-offset_right = 81.0
-offset_bottom = 39.0
-color = Color(0, 1, 1, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Nature" type="ColorRect" parent="."]
-visible = false
-offset_left = 41.0
-offset_top = -1.0
-offset_right = 81.0
-offset_bottom = 39.0
-color = Color(0.266667, 0.309804, 0, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Electricity" type="ColorRect" parent="."]
-visible = false
-offset_left = 44.0
-offset_right = 84.0
-offset_bottom = 40.0
-color = Color(1, 0.843137, 0.0862745, 1)
+[node name="CauldronContents" type="Sprite2D" parent="Cauldron"]
+texture = ExtResource("3_tnxxa")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
