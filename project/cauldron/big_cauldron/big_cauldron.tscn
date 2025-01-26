@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://c0gq67ekf5mmx"]
+[gd_scene load_steps=13 format=3 uid="uid://c0gq67ekf5mmx"]
 
 [ext_resource type="Script" path="res://cauldron/big_cauldron/big_cauldron.gd" id="1_on4uo"]
 [ext_resource type="Resource" uid="uid://w37h2xcy8p4p" path="res://element/acid.tres" id="2_1rlc2"]
+[ext_resource type="Script" path="res://element/element.gd" id="2_k78el"]
 [ext_resource type="Resource" uid="uid://cfo5jvoy7qgdb" path="res://element/earth.tres" id="3_hyiu1"]
 [ext_resource type="Resource" uid="uid://ca1v1brmxtemq" path="res://element/electricity.tres" id="4_c5lyy"]
 [ext_resource type="Resource" uid="uid://dhtojjrnhu6ij" path="res://element/fire.tres" id="5_tq3jq"]
@@ -17,7 +18,7 @@ size = Vector2(390.5, 203)
 
 [node name="BigCauldron" type="Area2D"]
 script = ExtResource("1_on4uo")
-_bubble_types = Array[Resource]([ExtResource("2_1rlc2"), ExtResource("3_hyiu1"), ExtResource("4_c5lyy"), ExtResource("5_tq3jq"), ExtResource("6_emq26"), ExtResource("7_kcjwh"), ExtResource("8_2euye")])
+_bubble_types = Array[ExtResource("2_k78el")]([ExtResource("2_1rlc2"), ExtResource("3_hyiu1"), ExtResource("4_c5lyy"), ExtResource("5_tq3jq"), ExtResource("6_emq26"), ExtResource("7_kcjwh"), ExtResource("8_2euye")])
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(194.75, 101.25)

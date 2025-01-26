@@ -6,7 +6,7 @@ extends Area2D
 func _ready():
 	var counter = 0
 	for children in $Gems.get_children():
-		children.modulate = _bubble_types[counter].color
+		children.modulate = Color(_bubble_types[counter].color.r, _bubble_types[counter].color.g, _bubble_types[counter].color.b, .5)
 		counter += 1
 
 
