@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c0gq67ekf5mmx"]
+[gd_scene load_steps=13 format=3 uid="uid://c0gq67ekf5mmx"]
 
 [ext_resource type="Script" path="res://cauldron/big_cauldron/big_cauldron.gd" id="1_on4uo"]
 [ext_resource type="Script" path="res://element/element.gd" id="2_k78el"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bmo02gelb0xw4" path="res://wizard/bubble/bubble.png" id="9_eyk1q"]
 [ext_resource type="Texture2D" uid="uid://bu2sw4tn81wxk" path="res://cauldron/big_cauldron/jeffrey_cauldron.png" id="10_xed13"]
 [ext_resource type="Texture2D" uid="uid://bgylwc4ncw53d" path="res://cauldron/big_cauldron/jeffrey_cauldron_bubble_container.png" id="11_dpyvn"]
+[ext_resource type="AudioStream" uid="uid://dbrime1w8apog" path="res://cauldron/big_cauldron/level-up-289723.mp3" id="11_r6dpo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x5cvq"]
 radius = 250.5
@@ -67,5 +68,9 @@ texture = ExtResource("9_eyk1q")
 [node name="Sprite4" type="Sprite2D" parent="Gems"]
 position = Vector2(322, 133)
 texture = ExtResource("9_eyk1q")
+
+[node name="LightUpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_r6dpo")
+volume_db = 5.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

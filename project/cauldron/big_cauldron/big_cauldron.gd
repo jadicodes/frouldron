@@ -22,6 +22,7 @@ func _on_body_entered(body: Node2D) -> void:
 		if gem.modulate.a == 1:
 			return
 
+		$LightUpSound.play()
 		gem.modulate = Color(element.color.r, element.color.g, element.color.b, 1)
 		body.queue_free()
 
