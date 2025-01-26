@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bgov5pii281s2"]
+[gd_scene load_steps=12 format=3 uid="uid://cnlr0wg51s2wj"]
 
-[ext_resource type="Theme" uid="uid://bap8kcbfphudo" path="res://menus/theme.tres" id="1_t8ssq"]
-[ext_resource type="FontFile" uid="uid://b5cnpspwjgi7q" path="res://menus/AlmendraSC-Regular.ttf" id="2_a6vi4"]
+[ext_resource type="Script" path="res://menus/credits.gd" id="1_q83bt"]
+[ext_resource type="Theme" uid="uid://bap8kcbfphudo" path="res://menus/theme.tres" id="2_rv522"]
+[ext_resource type="FontFile" uid="uid://b5cnpspwjgi7q" path="res://menus/AlmendraSC-Regular.ttf" id="3_ga8f7"]
 
 [sub_resource type="Gradient" id="Gradient_1ee8l"]
 colors = PackedColorArray(0.0993852, 0.162491, 0.105692, 1, 0.203038, 0.32256, 0.219668, 1)
@@ -25,7 +26,7 @@ border_width_bottom = 2
 border_color = Color(0.02048, 0.04, 0.0156, 0.443137)
 
 [sub_resource type="LabelSettings" id="LabelSettings_r0prg"]
-font = ExtResource("2_a6vi4")
+font = ExtResource("3_ga8f7")
 font_size = 138
 font_color = Color(0.923169, 0.902282, 0.90534, 1)
 
@@ -35,7 +36,7 @@ shadow_size = 0
 shadow_color = Color(0.06, 0.06, 0.06, 0.72549)
 
 [sub_resource type="LabelSettings" id="LabelSettings_v5p2e"]
-font = ExtResource("2_a6vi4")
+font = ExtResource("3_ga8f7")
 font_size = 96
 outline_color = Color(0.327703, 0.442731, 0.287898, 1)
 shadow_size = 10
@@ -48,6 +49,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_q83bt")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -75,26 +77,42 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_bm2ky")
 
 [node name="CreditsLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 742.0
-offset_top = 203.0
-offset_right = 1180.0
-offset_bottom = 380.0
-theme = ExtResource("1_t8ssq")
+offset_left = 745.0
+offset_top = 140.0
+offset_right = 1183.0
+offset_bottom = 317.0
+theme = ExtResource("2_rv522")
 theme_type_variation = &"GraphNodeTitleLabel"
 text = "Credits"
 label_settings = SubResource("LabelSettings_r0prg")
 
 [node name="Credits" type="Label" parent="."]
 layout_mode = 0
-offset_left = 520.0
-offset_top = 284.0
-offset_right = 802.0
-offset_bottom = 463.0
+offset_left = 114.0
+offset_top = 294.0
+offset_right = 396.0
+offset_bottom = 436.0
 scale = Vector2(3.16908, 4.42282)
 text = "Jadi Miller: Developer
 Brooke Wright: Developer & Artist
 Traigh Scott: Developer
+Tanner Bauserman: Developer
 Jeffrey Harmon: Developer
+"
+label_settings = SubResource("LabelSettings_wrsmp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 890.0
+offset_top = 140.0
+offset_right = 1172.0
+offset_bottom = 357.0
+scale = Vector2(3.16908, 4.42282)
+text = "Sam Shively: Artist
+Erik Taylor: Music
+CrisCat : Sound Effects
 Tatum Hadley: Title & Credits Design
 Pixabay
 Ana Sanfelippo (Font)"
@@ -110,3 +128,14 @@ offset_right = 1462.0
 offset_bottom = 168.0
 text = "Thank you for playing!"
 label_settings = SubResource("LabelSettings_v5p2e")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 737.0
+offset_top = 862.0
+offset_right = 889.775
+offset_bottom = 929.0
+scale = Vector2(2.4, 2.4)
+text = "Main Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
