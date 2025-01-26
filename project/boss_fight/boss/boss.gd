@@ -60,13 +60,16 @@ func _attack_step() -> void:
 
 func _attack(direction: int) -> void:
 	var element = ELEMENTS.pick_random()
+	var aim: Vector2 = (_target.global_position - _attack_origin.global_position).normalized()
 
-	var bubble = preload("res://wizard/bubble/bubble.tscn").instantiate()
-	bubble.collision_mask = 3
-	get_parent().add_child(bubble)
-	bubble.global_position = _attack_origin.global_position
-	bubble.set_velocity(velocity + Vector2.RIGHT * direction * 500 * element.force)
-	bubble.set_element(element)
+	for i in range(-2, 3):
+		var bubble = preload("res://wizard/bubble/bubble.tscn").instantiate()
+		bubble.collision_mask = 3
+		get_parent().add_child(bubble)
+		bubble.set_element(element)
+		bubble.global_position = _attack_origin.global_position
+		bubble.set_velocity(aim.rotated(deg_to_rad(10 * i)) * 500 * element.force)
+	print(direction)
 
 
 func _on_boss_area_body_entered(body: Node2D) -> void:
