@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://df2mqbudt1oqi"]
 
-[ext_resource type="Texture2D" uid="uid://bdrxy3718i4h2" path="res://enemy/gore_of_my_comfort_character.png" id="1_mfaj5"]
+[ext_resource type="Texture2D" uid="uid://dra1cg14bdsn2" path="res://enemy/gore_of_my_comfort_character.png" id="1_mfaj5"]
 
 [node name="EnemyCorpse" type="Sprite2D"]
 position = Vector2(1, 0)

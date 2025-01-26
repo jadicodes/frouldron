@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://gsanwuxwl8l"
-path="res://.godot/imported/boss_jaw.png-4412417bab3d69283a91ae8f16c4fc62.ctex"
+path="res://.godot/imported/boss_jaw.png-74d9e5698380cc3c001f4065662afab0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://boss/boss_jaw.png"
-dest_files=["res://.godot/imported/boss_jaw.png-4412417bab3d69283a91ae8f16c4fc62.ctex"]
+source_file="res://boss_fight/boss/boss_jaw.png"
+dest_files=["res://.godot/imported/boss_jaw.png-74d9e5698380cc3c001f4065662afab0.ctex"]
 
 [params]
 

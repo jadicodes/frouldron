@@ -1,8 +1,8 @@
 [gd_scene load_steps=20 format=3 uid="uid://w0p55do31lkq"]
 
-[ext_resource type="Script" path="res://boss/boss.gd" id="1_sv155"]
-[ext_resource type="Texture2D" uid="uid://q4hj8n76tbc1" path="res://boss/boss_head.png" id="1_xifnm"]
-[ext_resource type="Texture2D" uid="uid://gsanwuxwl8l" path="res://boss/boss_jaw.png" id="2_7ssks"]
+[ext_resource type="Script" path="res://boss_fight/boss/boss.gd" id="1_sv155"]
+[ext_resource type="Texture2D" uid="uid://q4hj8n76tbc1" path="res://boss_fight/boss/boss_head.png" id="1_xifnm"]
+[ext_resource type="Texture2D" uid="uid://gsanwuxwl8l" path="res://boss_fight/boss/boss_jaw.png" id="2_7ssks"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ycjc2"]
 radius = 136.0

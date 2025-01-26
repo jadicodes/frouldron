@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b33227v2jyavf"]
+
+[ext_resource type="Texture2D" uid="uid://r4c16i1e16pw" path="res://wizard/wizard_dead.png" id="1_uw42u"]
+
+[node name="Wizard_corpse" type="Sprite2D"]
+texture = ExtResource("1_uw42u")
