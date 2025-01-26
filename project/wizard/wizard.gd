@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 			move_and_slide()
 			return
 
-		if is_on_floor() and _can_double_jump:
+		if is_on_floor():
 			_double_jump = 0
 
 		# Handle jump.
@@ -51,6 +51,7 @@ func _physics_process(delta: float) -> void:
 			if _double_jump == 1:
 				_spawn_jump_bubbles()
 			_double_jump += 1
+			print(_double_jump)
 
 		var direction := Input.get_axis("move_left", "move_right")
 		if direction:
@@ -120,6 +121,7 @@ func _spawn_jump_bubbles():
 func _on_bubble_shooter_ammo_gone() -> void:
 	_can_double_jump = false
 	print("cannot double jump")
+	_double_jump = 0
 
 
 func _on_bubble_shooter_ammo_refilled() -> void:
