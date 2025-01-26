@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://c8dwusy6fdo6l" path="res://wizard/wizard_death.wav" id="8_sto20"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1x6s5"]
-size = Vector2(193, 108.5)
+size = Vector2(193, 114.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5o7th"]
 size = Vector2(249, 126.5)
@@ -181,8 +181,7 @@ collision_mask = 6
 script = ExtResource("1_0ybg5")
 
 [node name="PhysicsCollision" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(-18.5, -54.75)
+position = Vector2(-18.5, -52.375)
 shape = SubResource("RectangleShape2D_1x6s5")
 
 [node name="Hitbox" type="Area2D" parent="."]

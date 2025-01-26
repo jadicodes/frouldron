@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 signal ammo_used(decrease_amt : int)
 
-const _SPEED := 200.0
-const _JUMP_VELOCITY := -400.0
+const _SPEED := 250.0
+const _JUMP_VELOCITY := -600.0
 const _DAMAGE := 12
 
 var _health := 100
