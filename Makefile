@@ -29,4 +29,4 @@ zip: linux macos windows
 	cp LICENSE build/zip
 	mkdir -p build/zip/press
 	cp press/*png build/zip/press
-	cd build/zip;	zip Frouldron.zip -r .
+	cd build;	zip Frouldron.zip -r zip
