@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cw1i5grrph4mi"]
+[gd_scene load_steps=4 format=3 uid="uid://b1nlyyakk552h"]
 
 [ext_resource type="Script" path="res://menus/win_screen.gd" id="1_uq4hb"]
+[ext_resource type="Texture2D" uid="uid://buva2okvpccel" path="res://menus/success_end_screen.png" id="2_4x3qa"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8wuwc"]
 font_size = 72
@@ -14,6 +15,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uq4hb")
 
+[node name="SuccessEndScreen" type="Sprite2D" parent="."]
+position = Vector2(960, 537)
+texture = ExtResource("2_4x3qa")
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 545.0
@@ -25,19 +30,19 @@ label_settings = SubResource("LabelSettings_8wuwc")
 
 [node name="TitleScreenButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 833.0
-offset_top = 511.0
-offset_right = 931.0
-offset_bottom = 542.0
+offset_left = 839.0
+offset_top = 412.0
+offset_right = 937.0
+offset_bottom = 443.0
 scale = Vector2(2, 2)
 text = "Title Screen"
 
 [node name="ExitButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 848.0
-offset_top = 634.0
-offset_right = 935.0
-offset_bottom = 665.0
+offset_left = 845.0
+offset_top = 544.0
+offset_right = 932.0
+offset_bottom = 575.0
 scale = Vector2(2, 2)
 text = "Exit Game"
 
