@@ -1,11 +1,15 @@
 extends Marker2D
+var enemy = [
+	preload("res://enemy/base_enemy.tscn"),
+	preload("res://enemy/knight_enemy.tscn")
+	] 
 
 var base_enemy: BaseEnemy
 var _can_spawn := false
 
 
 func make_base_enemy():
-	base_enemy = preload("res://enemy/base_enemy.tscn").instantiate()
+	base_enemy = enemy.pick_random().instantiate()
 	get_tree().get_root().add_child(base_enemy)
 	base_enemy.global_position = global_position
 

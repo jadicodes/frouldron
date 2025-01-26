@@ -1,15 +1,7 @@
-extends CharacterBody2D
+extends BaseEnemy
+#extends CharacterBody2D
 
-const WALK_SPEED = 100
-signal damage(dealt:int)
-@onready var _animation_tree: AnimationTree = %AnimationTree
-@export var health = 4
-var _current_direction := 1
-var _direction := 1
-var element: Element = [
-	preload("res://element/normal.tres"),
-	preload("res://element/earth.tres")
-].pick_random()
+
 
 
 func _ready() -> void:

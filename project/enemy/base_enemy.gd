@@ -12,7 +12,7 @@ var element: Element = [
 	preload("res://element/earth.tres")
 ].pick_random()
 
-@onready var sprite: Sprite2D = %Sprite
+
 
 
 func _ready() -> void:
