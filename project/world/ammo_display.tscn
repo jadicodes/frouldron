@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://chdd0ek4xraie"]
+
+[ext_resource type="Script" path="res://world/ammo_display.gd" id="1_d3k1k"]
+[ext_resource type="Texture2D" uid="uid://cho7tteei4fdu" path="res://world/ammo_wand.png" id="2_f4578"]
+[ext_resource type="PackedScene" uid="uid://c5ga0jy4gbl1x" path="res://common/textbox/textbox.tscn" id="3_a5xy1"]
+
+[sub_resource type="Gradient" id="Gradient_5kqja"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kk3xs"]
+gradient = SubResource("Gradient_5kqja")
+width = 50
+
+[node name="AmmoDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_d3k1k")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AmmoBar" type="TextureProgressBar" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -136.0
+offset_top = -296.0
+offset_right = -114.0
+offset_bottom = -56.0
+grow_horizontal = 0
+grow_vertical = 0
+max_value = 50.0
+value = 50.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture1D_kk3xs")
+
+[node name="AmmoWand" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1650.0
+offset_top = 552.0
+offset_right = 1942.0
+offset_bottom = 1034.0
+texture = ExtResource("2_f4578")
+
+[node name="Textbox" parent="CanvasLayer" instance=ExtResource("3_a5xy1")]
+unique_name_in_owner = true
+visible = false
+offset = Vector2(800, 800)
+transform = Transform2D(1, 0, 0, 1, 800, 800)
