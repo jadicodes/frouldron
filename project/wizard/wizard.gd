@@ -37,7 +37,8 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and _double_jump < 2:
-		velocity.y = _JUMP_VELOCITY
+		if not _double_jump == 1 or _bubble_shooter._current_ammo > 0:
+			velocity.y = _JUMP_VELOCITY
 		if _double_jump == 1:
 			_spawn_jump_bubbles()
 		_double_jump += 1
@@ -83,11 +84,18 @@ func _on_bubble_shooter_ammo_used(decrease_amt) -> void:
 
 
 func _spawn_jump_bubbles():
-	var _bubble = preload("res://wizard/bubble/bubble.tscn").instantiate()
-	get_tree().get_root().add_child(_bubble)
-	_bubble.global_position = _jump_bubbles.global_position
-	_bubble.set_velocity(velocity * -100)
-	_on_bubble_shooter_ammo_used(15)
+	if _bubble_shooter._current_ammo <= 0:
+		return
+
+	var element := _bubble_shooter.element
+	for i in range(-1, 2):
+		var bubble = preload("res://wizard/bubble/bubble.tscn").instantiate()
+		get_tree().get_root().add_child(bubble)
+		bubble.set_element(element)
+		bubble.global_position = _jump_bubbles.global_position
+		bubble.set_velocity(Vector2.DOWN.rotated(deg_to_rad(15 * i)) * 500 * element.force)
+	_bubble_shooter._current_ammo -= element.ammo_usage * 2
+	_on_bubble_shooter_ammo_used(element.ammo_usage * 2)
 
 
 func _on_bubble_shooter_ammo_gone() -> void:
