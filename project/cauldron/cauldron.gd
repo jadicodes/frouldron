@@ -13,10 +13,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and interact == true:
-		emit_signal("add_ammo")
-		emit_signal("change_element", element)
-		
-	
+		add_ammo.emit()
+		change_element.emit(element)
+
 
 func _on_body_entered(_body: Node2D) -> void:
 	interact = true
