@@ -33,6 +33,7 @@ func _physics_process(delta: float) -> void:
 		_current_direction = 1 if direction > 0 else -1
 		scale.y = -_current_direction
 		rotation = PI if direction > 0 else 0.0
+		_health_bar.fill_mode =  1 if direction > 0 else 0
 		velocity.x = direction * _SPEED
 		_animation_tree["parameters/conditions/idle"] = false
 		_animation_tree["parameters/conditions/is_moving"] = true
