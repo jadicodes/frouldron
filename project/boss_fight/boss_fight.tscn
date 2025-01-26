@@ -1,12 +1,54 @@
-[gd_scene load_steps=6 format=4 uid="uid://e6wwrqgw04wr"]
+[gd_scene load_steps=10 format=4 uid="uid://e6wwrqgw04wr"]
 
-[ext_resource type="TileSet" uid="uid://b4w3lotvm2n6p" path="res://world/tileset/tileset.tres" id="1_b5cdc"]
+[ext_resource type="TileSet" uid="uid://elhebk3wqs1s" path="res://world/tileset/tileset.tres" id="1_b5cdc"]
+[ext_resource type="Texture2D" uid="uid://bgqk8h1fvvjnf" path="res://world/sky.png" id="1_sy1hg"]
+[ext_resource type="Texture2D" uid="uid://c2djko2ttpj52" path="res://world/stars.png" id="2_f1p4i"]
+[ext_resource type="Texture2D" uid="uid://brfclo7fsku0d" path="res://world/clouds.png" id="3_o1sdo"]
+[ext_resource type="Texture2D" uid="uid://h0i7xv7yha14" path="res://world/mountains.png" id="4_qisgx"]
 [ext_resource type="PackedScene" uid="uid://dkitvpr4dba28" path="res://wizard/wizard.tscn" id="6_6libe"]
 [ext_resource type="Script" path="res://wizard/follow_camera.gd" id="7_icq30"]
 [ext_resource type="PackedScene" uid="uid://w0p55do31lkq" path="res://boss_fight/boss/boss.tscn" id="8_8i6od"]
 [ext_resource type="AudioStream" uid="uid://bqhi5l5137r1l" path="res://boss_fight/boss_fight_music.ogg" id="9_o3meo"]
 
 [node name="BossFight" type="Node2D"]
+
+[node name="ParallaxSky" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(4, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxSky"]
+texture = ExtResource("1_sy1hg")
+offset = Vector2(0, 540)
+
+[node name="ParallaxStars" type="Parallax2D" parent="."]
+modulate = Color(1, 1, 1, 0.352941)
+scroll_scale = Vector2(0.1, 0.1)
+scroll_offset = Vector2(4, 4)
+repeat_size = Vector2(4000, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxStars"]
+position = Vector2(-115, 1074)
+rotation = 3.14159
+texture = ExtResource("2_f1p4i")
+offset = Vector2(0, 540)
+
+[node name="ParallaxClouds" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.25, 0.25)
+scroll_offset = Vector2(4, 4)
+repeat_size = Vector2(4000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxClouds"]
+texture = ExtResource("3_o1sdo")
+offset = Vector2(0, 540)
+
+[node name="ParallaxMountains" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.7, 0.7)
+scroll_offset = Vector2(4, 4)
+repeat_size = Vector2(4000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxMountains"]
+texture = ExtResource("4_qisgx")
+offset = Vector2(0, 540)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(3, 62)
