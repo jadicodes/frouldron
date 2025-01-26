@@ -31,7 +31,6 @@ func get_bubble_type():
 func shoot(velocity: Vector2, direction: float) -> bool:
 	if not has_ammo():
 		ammo_gone.emit()
-		print("no ammo")
 		return false
 
 	_bubble = preload("res://wizard/bubble/bubble.tscn").instantiate()

@@ -87,11 +87,9 @@ func hit(element: Element) -> void:
 		var dead_y = global_position.y - 50
 		dead_pile.global_position = Vector2(global_position.x, dead_y)
 		get_parent().add_child(dead_pile)
-		print("death")
 		visible = false
 		_can_move = false
 		await get_tree().create_timer(3.0).timeout
-		print("death")
 		get_tree().change_scene_to_file("res://menus/end_screen.tscn")
 	else:
 		$HurtSound.pitch_scale = randf_range(0.95, 1.05)
@@ -120,13 +118,11 @@ func _spawn_jump_bubbles():
 
 func _on_bubble_shooter_ammo_gone() -> void:
 	_can_double_jump = false
-	print("cannot double jump")
 	_double_jump = 0
 
 
 func _on_bubble_shooter_ammo_refilled() -> void:
 	_can_double_jump = true
-	print("can double jump")
 
 
 func set_can_move(if_can_move):
