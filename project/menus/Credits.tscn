@@ -1,0 +1,111 @@
+[gd_scene load_steps=11 format=3 uid="uid://bgov5pii281s2"]
+
+[ext_resource type="Theme" uid="uid://bap8kcbfphudo" path="res://menus/theme.tres" id="1_t8ssq"]
+[ext_resource type="FontFile" uid="uid://bksvqqf8x1u7m" path="res://menus/AlmendraSC-Regular.ttf" id="2_a6vi4"]
+
+[sub_resource type="Gradient" id="Gradient_1ee8l"]
+colors = PackedColorArray(0.0993852, 0.162491, 0.105692, 1, 0.203038, 0.32256, 0.219668, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g5qsc"]
+gradient = SubResource("Gradient_1ee8l")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_a48ok"]
+noise_type = 3
+seed = 9
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1mlof"]
+normalize = false
+noise = SubResource("FastNoiseLite_a48ok")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bm2ky"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0.02048, 0.04, 0.0156, 0.443137)
+
+[sub_resource type="LabelSettings" id="LabelSettings_r0prg"]
+font = ExtResource("2_a6vi4")
+font_size = 138
+
+[sub_resource type="LabelSettings" id="LabelSettings_wrsmp"]
+font_size = 12
+shadow_size = 0
+shadow_color = Color(0.06, 0.06, 0.06, 0.72549)
+
+[sub_resource type="LabelSettings" id="LabelSettings_v5p2e"]
+font = ExtResource("2_a6vi4")
+font_size = 96
+outline_color = Color(0.327703, 0.442731, 0.287898, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.356863)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(48.2198, 27.0372)
+texture = SubResource("GradientTexture2D_g5qsc")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.0705882)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(48.2198, 27.0372)
+texture = SubResource("NoiseTexture2D_1mlof")
+expand_mode = 1
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(48.0467, 26.9374)
+theme_override_styles/panel = SubResource("StyleBoxFlat_bm2ky")
+
+[node name="CreditsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 742.0
+offset_top = 203.0
+offset_right = 1180.0
+offset_bottom = 380.0
+theme = ExtResource("1_t8ssq")
+theme_type_variation = &"GraphNodeTitleLabel"
+text = "Credits"
+label_settings = SubResource("LabelSettings_r0prg")
+
+[node name="Credits" type="Label" parent="."]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 284.0
+offset_right = 802.0
+offset_bottom = 463.0
+scale = Vector2(3.16908, 4.42282)
+text = "Jadi Miller: Developer
+Brooke Wright: Developer & Artist
+Traigh Scott: Developer
+Jeffrey Harmon: Developer
+Tatum Hadley: Title & Credits Design
+Pixabay
+Ana Sanfelippo (Font)"
+label_settings = SubResource("LabelSettings_wrsmp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ThankYou" type="Label" parent="."]
+layout_mode = 0
+offset_left = 508.0
+offset_top = 52.0
+offset_right = 1462.0
+offset_bottom = 168.0
+text = "Thank you for playing!"
+label_settings = SubResource("LabelSettings_v5p2e")
