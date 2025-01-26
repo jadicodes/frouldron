@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://6up5k51gemjg" path="res://enemy/knight_leg_front.png" id="6_mt4r4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_opc2n"]
-size = Vector2(202, 318)
+size = Vector2(186, 291)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_su7xi"]
 animation = &"attack"
@@ -298,7 +298,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85tdr"]
-size = Vector2(221, 316)
+size = Vector2(203, 286)
 
 [node name="knight_enemy" type="CharacterBody2D"]
 position = Vector2(7, 4)
@@ -307,7 +307,7 @@ collision_mask = 3
 script = ExtResource("1_ne6ki")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(20, -144)
+position = Vector2(28, -130.5)
 shape = SubResource("RectangleShape2D_opc2n")
 
 [node name="KnightBody" type="Sprite2D" parent="."]
@@ -362,7 +362,7 @@ collision_mask = 6
 position = Vector2(-72, -294)
 
 [node name="Attack_box" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(107.5, 152)
+position = Vector2(116.5, 167)
 shape = SubResource("RectangleShape2D_85tdr")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
