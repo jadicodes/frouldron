@@ -2,6 +2,7 @@ class_name BaseEnemy
 extends CharacterBody2D
 
 const WALK_SPEED = 100
+signal damage(dealt:int)
 @onready var _animation_tree: AnimationTree = %AnimationTree
 @export var health = 4
 var _current_direction := 1
@@ -52,8 +53,13 @@ func hit(bubble_element: Element) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	_animation_tree["parameters/conditions/is_attacking"] = true
-	#_animation_tree["parameters/conditions/is_attacking"] = false
+	
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	_animation_tree["parameters/conditions/is_attacking"] = false
+
+func deal_damage():
+	if _animation_tree["parameters/conditions/is_attacking"] == true:
+		Wizard.instance.hit(12)
+		

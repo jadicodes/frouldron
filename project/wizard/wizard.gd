@@ -1,11 +1,15 @@
+class_name Wizard
 extends CharacterBody2D
 
 signal ammo_used(decrease_amt : int)
+
 
 const _SPEED := 250.0
 const _JUMP_VELOCITY := -600.0
 const _DAMAGE := 12
 const _MAX_HEALTH := 100
+
+static var instance: Wizard
 
 var _health := _MAX_HEALTH
 var _current_direction := -1
@@ -16,6 +20,7 @@ var _current_direction := -1
 @onready var _health_bar: TextureProgressBar = $WizardHealth
 
 func _ready() -> void:
+	instance = self
 	_health_bar.value = _health
 
 
@@ -54,16 +59,24 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func _on_hitbox_area_entered(area: Area2D) -> void:
-	if(area.get_parent() is BaseEnemy):
-		_health -= _DAMAGE
-		_health_bar.value = _health
-		if(_health <= 0):
-			$DeathSound.play()
-		else:
-			$HurtSound.pitch_scale = randf_range(0.95, 1.05)
-			$HurtSound.play()
+#func _on_hitbox_area_entered(area: Area2D) -> void:
+	#if(area.get_parent() is BaseEnemy):
+		#_health -= _DAMAGE
+		#_health_bar.value = _health
+		#if(_health <= 0):
+			#$DeathSound.play()
+		#else:
+			#$HurtSound.pitch_scale = randf_range(0.95, 1.05)
+			#$HurtSound.play()
 
+func hit(damage:int ) -> void:
+	_health -= _DAMAGE
+	_health_bar.value = _health
+	if(_health <= 0):
+		$DeathSound.play()
+	else:
+		$HurtSound.pitch_scale = randf_range(0.95, 1.05)
+		$HurtSound.play()
 
 func _on_bubble_shooter_ammo_used(decrease_amt) -> void:
 	# Pass to world
