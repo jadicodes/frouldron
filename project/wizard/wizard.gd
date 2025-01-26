@@ -29,49 +29,50 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	_animation_tree["parameters/conditions/shoot_pressed"] = false
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	if _can_move:
+		_animation_tree["parameters/conditions/shoot_pressed"] = false
+		# Add the gravity.
+		if not is_on_floor():
+			velocity += get_gravity() * delta
 
-	if not _can_move:
+		if not _can_move:
+			move_and_slide()
+			return
+
+		if is_on_floor() and _can_double_jump:
+			_double_jump = 0
+
+		# Handle jump.
+		if Input.is_action_just_pressed("jump") and _double_jump < 2:
+			if not _double_jump == 1 or _bubble_shooter._current_ammo > 0:
+				velocity.y = _JUMP_VELOCITY
+			if _double_jump == 1:
+				_spawn_jump_bubbles()
+			_double_jump += 1
+
+		var direction := Input.get_axis("move_left", "move_right")
+		if direction:
+			_current_direction = 1 if direction > 0 else -1
+			scale.y = -_current_direction
+			rotation = PI if direction > 0 else 0.0
+			_health_bar.fill_mode =  1 if direction > 0 else 0
+			velocity.x = direction * _SPEED
+			_animation_tree["parameters/conditions/idle"] = false
+			_animation_tree["parameters/conditions/is_moving"] = true
+		else:
+			_animation_tree["parameters/conditions/idle"] = true
+			_animation_tree["parameters/conditions/is_moving"] = false
+			velocity.x = move_toward(velocity.x, 0, _SPEED)
+
+		if Input.is_action_just_pressed("shoot"):
+			var shot := _bubble_shooter.shoot(velocity, _current_direction)
+			_animation_tree["parameters/conditions/shoot_pressed"] = shot
+
+			if shot:
+				_health = clamp(_health + _bubble_shooter.element.heal, 0, _MAX_HEALTH)
+				_health_bar.value = _health
+
 		move_and_slide()
-		return
-
-	if is_on_floor() and _can_double_jump:
-		_double_jump = 0
-
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and _double_jump < 2:
-		if not _double_jump == 1 or _bubble_shooter._current_ammo > 0:
-			velocity.y = _JUMP_VELOCITY
-		if _double_jump == 1:
-			_spawn_jump_bubbles()
-		_double_jump += 1
-
-	var direction := Input.get_axis("move_left", "move_right")
-	if direction:
-		_current_direction = 1 if direction > 0 else -1
-		scale.y = -_current_direction
-		rotation = PI if direction > 0 else 0.0
-		_health_bar.fill_mode =  1 if direction > 0 else 0
-		velocity.x = direction * _SPEED
-		_animation_tree["parameters/conditions/idle"] = false
-		_animation_tree["parameters/conditions/is_moving"] = true
-	else:
-		_animation_tree["parameters/conditions/idle"] = true
-		_animation_tree["parameters/conditions/is_moving"] = false
-		velocity.x = move_toward(velocity.x, 0, _SPEED)
-
-	if Input.is_action_just_pressed("shoot"):
-		var shot := _bubble_shooter.shoot(velocity, _current_direction)
-		_animation_tree["parameters/conditions/shoot_pressed"] = shot
-
-		if shot:
-			_health = clamp(_health + _bubble_shooter.element.heal, 0, _MAX_HEALTH)
-			_health_bar.value = _health
-
-	move_and_slide()
 
 
 func hit(element: Element) -> void:
