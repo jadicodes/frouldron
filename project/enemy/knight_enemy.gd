@@ -36,11 +36,3 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	_animation_tree["parameters/conditions/is_attacking"] = false
-<<<<<<< HEAD
-
-
-func deal_damage():
-	if _animation_tree["parameters/conditions/is_attacking"] == true:
-		Wizard.instance.hit(element)
-=======
->>>>>>> 4df644f (Spawn a gunk pile when enemy dies)

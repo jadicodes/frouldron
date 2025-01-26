@@ -6,18 +6,13 @@ const WALK_SPEED = 100
 
 var _current_direction := 1
 var _direction := 1
-<<<<<<< HEAD
 var element: Element = preload("res://element/normal.tres")
-=======
-var element: Element = [
-	preload("res://element/normal.tres"),
-	preload("res://element/earth.tres")
-].pick_random()
+
 var _corpse := preload("res://enemy/enemy_corpse.tscn")
 
 @onready var _animation_tree: AnimationTree = %AnimationTree
 @export var health = 4
->>>>>>> 4df644f (Spawn a gunk pile when enemy dies)
+
 
 
 func _ready() -> void:
