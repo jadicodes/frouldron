@@ -79,21 +79,22 @@ func _physics_process(delta: float) -> void:
 
 
 func hit(element: Element) -> void:
-	_health -= element.damage * _DAMAGE
-	_health_bar.value = _health
-	if(_health <= 0):
-		$DeathSound.play()
-		var dead_pile = _dead_wizard.instantiate()
-		var dead_y = global_position.y - 50
-		dead_pile.global_position = Vector2(global_position.x, dead_y)
-		get_parent().add_child(dead_pile)
-		visible = false
-		_can_move = false
-		await get_tree().create_timer(3.0).timeout
-		get_tree().change_scene_to_file("res://menus/end_screen.tscn")
-	else:
-		$HurtSound.pitch_scale = randf_range(0.95, 1.05)
-		$HurtSound.play()
+	if(_can_move):
+		_health -= element.damage * _DAMAGE
+		_health_bar.value = _health
+		if(_health <= 0):
+			$DeathSound.play()
+			var dead_pile = _dead_wizard.instantiate()
+			var dead_y = global_position.y - 50
+			dead_pile.global_position = Vector2(global_position.x, dead_y)
+			get_parent().add_child(dead_pile)
+			visible = false
+			_can_move = false
+			await get_tree().create_timer(3.0).timeout
+			get_tree().change_scene_to_file("res://menus/end_screen.tscn")
+		else:
+			$HurtSound.pitch_scale = randf_range(0.95, 1.05)
+			$HurtSound.play()
 
 
 func _on_bubble_shooter_ammo_used(decrease_amt) -> void:
@@ -125,5 +126,5 @@ func _on_bubble_shooter_ammo_refilled() -> void:
 	_can_double_jump = true
 
 
-func set_can_move(if_can_move):
+func set_can_move(if_can_move : bool) -> void:
 	_can_move = if_can_move
