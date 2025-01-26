@@ -1,0 +1,367 @@
+[gd_scene load_steps=19 format=3 uid="uid://r377us7triwg"]
+
+[ext_resource type="Texture2D" uid="uid://cgpuu8jgrqw1r" path="res://enemy/knight_arm_back.png" id="1_h4g7q"]
+[ext_resource type="Script" path="res://enemy/knight_enemy.gd" id="1_ne6ki"]
+[ext_resource type="Texture2D" uid="uid://pndxt13prawj" path="res://enemy/knight_arm_front.png" id="2_kkcej"]
+[ext_resource type="Texture2D" uid="uid://crjbbmimpu7iq" path="res://enemy/knight_body.png" id="3_6ssdu"]
+[ext_resource type="Texture2D" uid="uid://lv8ebqof0phm" path="res://enemy/knight_leg_back.png" id="5_3d3xe"]
+[ext_resource type="Texture2D" uid="uid://6up5k51gemjg" path="res://enemy/knight_leg_front.png" id="6_mt4r4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opc2n"]
+size = Vector2(202, 318)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_su7xi"]
+animation = &"attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b36tm"]
+animation = &"walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mpi3e"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iyjug"]
+advance_mode = 2
+advance_condition = &"is_attacking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gw53u"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_d6wjl"]
+states/Start/position = Vector2(145, 100)
+states/attack/node = SubResource("AnimationNodeAnimation_su7xi")
+states/attack/position = Vector2(426, 186)
+states/walking/node = SubResource("AnimationNodeAnimation_b36tm")
+states/walking/position = Vector2(380, 67)
+transitions = ["Start", "walking", SubResource("AnimationNodeStateMachineTransition_mpi3e"), "walking", "attack", SubResource("AnimationNodeStateMachineTransition_iyjug"), "attack", "walking", SubResource("AnimationNodeStateMachineTransition_gw53u")]
+
+[sub_resource type="Animation" id="Animation_1bt0n"]
+resource_name = "walking"
+length = 2.0
+loop_mode = 1
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KnightBody:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.10472, 0.0, 0.113446, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KnightBody/KnightLegBack:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.20944, 0.0, 0.427606, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KnightBody/KnightArmBack:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.972148, 0.0, -0.663225, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("KnightBody/KnightArmFront:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.427606, 0.0, 0.349066, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("KnightBody/KnightLegFront:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.314159, 0.0, -0.479966, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_04c86"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KnightBody:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KnightBody/KnightLegBack:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KnightBody/KnightArmBack:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("KnightBody/KnightArmFront:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("KnightBody/KnightLegFront:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("KnightBody/KnightLegBack:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(18, -59)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("KnightBody/KnightLegFront:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12, -58)]
+}
+
+[sub_resource type="Animation" id="Animation_264rx"]
+resource_name = "attack"
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KnightBody:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.191986, 0.466003, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KnightBody/KnightLegBack:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.18326, -0.392699, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KnightBody/KnightLegBack:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(18, -59), Vector2(19.9291, -50.1181), Vector2(4.77923, -59.4908), Vector2(18, -59)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("KnightBody/KnightArmBack:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -1.33692, 1.76802, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("KnightBody/KnightArmFront:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.108682, -0.493754, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("KnightBody/KnightLegFront:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.174533, -0.432842, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("KnightBody/KnightLegFront:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-12, -58), Vector2(-15.6002, -56.0057), Vector2(-24.7073, -46.8994), Vector2(-12, -58)]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"deal_damage"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ycm7"]
+_data = {
+"RESET": SubResource("Animation_04c86"),
+"attack": SubResource("Animation_264rx"),
+"walking": SubResource("Animation_1bt0n")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85tdr"]
+size = Vector2(228, 320)
+
+[node name="knight_enemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_ne6ki")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(91, 149)
+shape = SubResource("RectangleShape2D_opc2n")
+
+[node name="KnightBody" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(72, 246)
+texture = ExtResource("3_6ssdu")
+offset = Vector2(27, -102)
+
+[node name="KnightLegBack" type="Sprite2D" parent="KnightBody"]
+z_index = -1
+position = Vector2(18, -59)
+texture = ExtResource("5_3d3xe")
+offset = Vector2(20, -49)
+
+[node name="KnightArmBack" type="Sprite2D" parent="KnightBody"]
+z_index = -1
+position = Vector2(10, -129)
+texture = ExtResource("1_h4g7q")
+offset = Vector2(18, 32)
+
+[node name="KnightArmFront" type="Sprite2D" parent="KnightBody"]
+position = Vector2(-19, -126)
+texture = ExtResource("2_kkcej")
+offset = Vector2(45, 32)
+
+[node name="KnightLegFront" type="Sprite2D" parent="KnightBody"]
+z_index = -1
+position = Vector2(-12, -58)
+texture = ExtResource("6_mt4r4")
+offset = Vector2(40, -48)
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+unique_name_in_owner = true
+root_node = NodePath("%AnimationTree/..")
+tree_root = SubResource("AnimationNodeStateMachine_d6wjl")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/is_attacking = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3ycm7")
+}
+
+[node name="RayCast" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(80, 242)
+scale = Vector2(1, 7.08)
+target_position = Vector2(128, 0.141243)
+collision_mask = 6
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Attack_box" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(104, 150)
+shape = SubResource("RectangleShape2D_85tdr")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
