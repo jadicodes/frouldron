@@ -103,6 +103,7 @@ scale = Vector2(-1, 1)
 element = ExtResource("15_l408u")
 
 [connection signal="ammo_used" from="Wizard" to="." method="_on_wizard_ammo_used"]
+[connection signal="died" from="Boss" to="." method="_on_boss_died"]
 [connection signal="add_ammo" from="Cauldrons/CauldronEarth" to="." method="_on_cauldron_add_ammo"]
 [connection signal="change_element" from="Cauldrons/CauldronEarth" to="." method="_on_cauldron_change_element"]
 [connection signal="add_ammo" from="Cauldrons/CauldronWater" to="." method="_on_cauldron_add_ammo"]

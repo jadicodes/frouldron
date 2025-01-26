@@ -20,3 +20,8 @@ func _on_cauldron_add_ammo() -> void:
 func _on_cauldron_change_element(element: Element) -> void:
 	_bubble_shooter.set_bubble_type(element)
 	_ammo_display.refill(element)
+
+
+func _on_boss_died() -> void:
+	await get_tree().create_timer(3.0).timeout
+	get_tree().change_scene_to_file("res://menus/win_screen.tscn")
