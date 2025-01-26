@@ -86,7 +86,12 @@ func hit(element: Element) -> void:
 		var dead_y = global_position.y - 50
 		dead_pile.global_position = Vector2(global_position.x, dead_y)
 		get_parent().add_child(dead_pile)
-		queue_free()
+		print("death")
+		visible = false
+		_can_move = false
+		await get_tree().create_timer(3.0).timeout
+		print("death")
+		get_tree().change_scene_to_file("res://menus/end_screen.tscn")
 	else:
 		$HurtSound.pitch_scale = randf_range(0.95, 1.05)
 		$HurtSound.play()
