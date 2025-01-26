@@ -25,15 +25,21 @@ func get_bubble_type():
 	pass
 
 
-func shoot(velocity: Vector2, direction: float) -> void:
-	if(_current_ammo > 0):
-		_bubble = preload("res://wizard/bubble/bubble.tscn").instantiate()
-		get_tree().get_root().add_child(_bubble)
-		_bubble.global_position = _bubble_point.global_position
-		_bubble.set_velocity(velocity + Vector2.RIGHT * direction * 500)
-		_bubble.set_element(element)
-		_current_ammo -= _bubble.element.ammo_usage
-		var decrease :  = _bubble.element.ammo_usage
-		ammo_used.emit(decrease)
-		$BubbleSound.play()
+func shoot(velocity: Vector2, direction: float) -> bool:
+	if not has_ammo():
+		return false
+
+	_bubble = preload("res://wizard/bubble/bubble.tscn").instantiate()
+	get_tree().get_root().add_child(_bubble)
+	_bubble.global_position = _bubble_point.global_position
+	_bubble.set_velocity(velocity + Vector2.RIGHT * direction * 500)
+	_bubble.set_element(element)
+	_current_ammo -= _bubble.element.ammo_usage
+	var decrease :  = _bubble.element.ammo_usage
+	ammo_used.emit(decrease)
+	$BubbleSound.play()
+
+	return true
 	
+func has_ammo() -> bool:
+	return _current_ammo > 0

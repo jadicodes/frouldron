@@ -19,6 +19,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	_animation_tree["parameters/conditions/shoot_pressed"] = false
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -41,7 +42,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, _SPEED)
 
 	if Input.is_action_just_pressed("shoot"):
-		_bubble_shooter.shoot(velocity, _current_direction)
+		_animation_tree["parameters/conditions/shoot_pressed"] = _bubble_shooter.shoot(velocity, _current_direction)
 
 	move_and_slide()
 

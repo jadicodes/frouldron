@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dkitvpr4dba28"]
+[gd_scene load_steps=27 format=3 uid="uid://dkitvpr4dba28"]
 
 [ext_resource type="Script" path="res://wizard/wizard.gd" id="1_0ybg5"]
 [ext_resource type="PackedScene" uid="uid://dafyj7rbxk5qs" path="res://wizard/bubble_shooter.tscn" id="3_0to1p"]
@@ -18,6 +18,9 @@ size = Vector2(249, 126.5)
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7bdq6"]
 animation = &"idle"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r8yat"]
+animation = &"shoot"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g4juy"]
 animation = &"walking"
 
@@ -32,13 +35,31 @@ advance_condition = &"is_moving"
 advance_mode = 2
 advance_condition = &"idle"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gwpi3"]
+advance_mode = 2
+advance_condition = &"shoot_pressed"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2h32a"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_twjic"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nodr1"]
+advance_mode = 2
+advance_condition = &"shoot_pressed"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hiyn7"]
 states/Start/position = Vector2(172, 107)
 states/idle/node = SubResource("AnimationNodeAnimation_7bdq6")
 states/idle/position = Vector2(416, 131)
+states/shoot/node = SubResource("AnimationNodeAnimation_r8yat")
+states/shoot/position = Vector2(535, 266)
 states/walking/node = SubResource("AnimationNodeAnimation_g4juy")
-states/walking/position = Vector2(548, 139)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_lyctf"), "idle", "walking", SubResource("AnimationNodeStateMachineTransition_6dtbx"), "walking", "idle", SubResource("AnimationNodeStateMachineTransition_4ovdj")]
+states/walking/position = Vector2(634, 131)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_lyctf"), "idle", "walking", SubResource("AnimationNodeStateMachineTransition_6dtbx"), "walking", "idle", SubResource("AnimationNodeStateMachineTransition_4ovdj"), "idle", "shoot", SubResource("AnimationNodeStateMachineTransition_gwpi3"), "shoot", "idle", SubResource("AnimationNodeStateMachineTransition_2h32a"), "shoot", "walking", SubResource("AnimationNodeStateMachineTransition_twjic"), "walking", "shoot", SubResource("AnimationNodeStateMachineTransition_nodr1")]
 
 [sub_resource type="Animation" id="Animation_wxqli"]
 length = 0.001
@@ -93,6 +114,32 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.75, 1.25, 1.75, 2)
 }
 
+[sub_resource type="Animation" id="Animation_72oa5"]
+resource_name = "shoot"
+length = 0.4
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BubbleShooter:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.0333333, 0.472222, 0.5, -0.0333333, 0.00213677, 0.0666667, -0.000712246, 0, -0.233333, 0.0334758, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1, 0.4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Foot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="Animation" id="Animation_mgeah"]
 resource_name = "walking"
 length = 2.0
@@ -125,6 +172,7 @@ tracks/1/keys = {
 _data = {
 "RESET": SubResource("Animation_wxqli"),
 "idle": SubResource("Animation_tyxhi"),
+"shoot": SubResource("Animation_72oa5"),
 "walking": SubResource("Animation_mgeah")
 }
 
@@ -152,7 +200,7 @@ offset = Vector2(0, -70)
 [node name="Foot" type="Sprite2D" parent="."]
 position = Vector2(28, -16)
 texture = ExtResource("3_o2ed3")
-offset = Vector2(-28, -54)
+offset = Vector2(-28, -64)
 
 [node name="BubbleShooter" parent="." instance=ExtResource("3_0to1p")]
 position = Vector2(-23, -58)
@@ -162,8 +210,9 @@ unique_name_in_owner = true
 root_node = NodePath("%AnimationTree/..")
 tree_root = SubResource("AnimationNodeStateMachine_hiyn7")
 anim_player = NodePath("../AnimationPlayer")
-parameters/conditions/idle = true
+parameters/conditions/idle = false
 parameters/conditions/is_moving = false
+parameters/conditions/shoot_pressed = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
