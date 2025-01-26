@@ -4,6 +4,8 @@ var _text_index = 0
 @onready var _ammo_bar : TextureProgressBar = %AmmoBar
 @onready var _bubble_shooter : BubbleShooter = $Wizard/BubbleShooter
 @export var _opening_scene_text : Array[String]
+@export var _boss_transition_text : Array[String]
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -45,7 +47,11 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		%Textbox.show()
 		%Textbox.set_queue(_opening_scene_text.size())
 		%Textbox.set_text(_opening_scene_text[_text_index])
+	if anim_name == "transition_to_boss":
+		$BigCauldron.play_animation()
 
 
 func _on_big_cauldron_boss_condition_met() -> void:
-	pass # Replace with function body.
+	$Camera2D.change_target($BigCauldron)
+	$AnimationPlayer.play("transition_to_boss")
+	

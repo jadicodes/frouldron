@@ -36,3 +36,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _trigger_boss():
 	emit_signal("boss_condition_met")
+
+
+func play_animation():
+	$AnimationPlayer.play("jeffrey_head_stick_out")

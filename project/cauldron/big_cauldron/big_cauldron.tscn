@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c0gq67ekf5mmx"]
+[gd_scene load_steps=17 format=3 uid="uid://c0gq67ekf5mmx"]
 
 [ext_resource type="Script" path="res://cauldron/big_cauldron/big_cauldron.gd" id="1_on4uo"]
 [ext_resource type="Script" path="res://element/element.gd" id="2_k78el"]
@@ -11,10 +11,48 @@
 [ext_resource type="Texture2D" uid="uid://bu2sw4tn81wxk" path="res://cauldron/big_cauldron/jeffrey_cauldron.png" id="10_xed13"]
 [ext_resource type="Texture2D" uid="uid://bgylwc4ncw53d" path="res://cauldron/big_cauldron/jeffrey_cauldron_bubble_container.png" id="11_dpyvn"]
 [ext_resource type="AudioStream" uid="uid://dbrime1w8apog" path="res://cauldron/big_cauldron/level-up-289723.mp3" id="11_r6dpo"]
+[ext_resource type="Texture2D" uid="uid://bml34qx5re7l6" path="res://boss_fight/boss/boss.png" id="12_jocbe"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x5cvq"]
 radius = 250.5
 height = 681.5
+
+[sub_resource type="Animation" id="Animation_n6hs6"]
+resource_name = "jeffrey_head_stick_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Boss:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-9, 24), Vector2(-9, -233.14)]
+}
+
+[sub_resource type="Animation" id="Animation_a2jcv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Boss:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-9, 24)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_htcya"]
+_data = {
+"RESET": SubResource("Animation_a2jcv"),
+"jeffrey_head_stick_out": SubResource("Animation_n6hs6")
+}
 
 [node name="BigCauldron" type="Area2D"]
 collision_mask = 8
@@ -72,5 +110,15 @@ texture = ExtResource("9_eyk1q")
 [node name="LightUpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_r6dpo")
 volume_db = 5.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_htcya")
+}
+
+[node name="Boss" type="Sprite2D" parent="."]
+position = Vector2(-9, 24)
+scale = Vector2(0.558954, 0.517881)
+texture = ExtResource("12_jocbe")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
