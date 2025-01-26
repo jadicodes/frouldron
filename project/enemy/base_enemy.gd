@@ -48,3 +48,12 @@ func hit(bubble_element: Element) -> void:
 
 	if health <= 0:
 		queue_free()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	_animation_tree["parameters/conditions/is_attacking"] = true
+	#_animation_tree["parameters/conditions/is_attacking"] = false
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	_animation_tree["parameters/conditions/is_attacking"] = false

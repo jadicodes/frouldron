@@ -12,7 +12,7 @@
 size = Vector2(152, 283)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72vcu"]
-size = Vector2(170, 292)
+size = Vector2(211, 292)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_og4ej"]
 animation = &"attack"
@@ -27,7 +27,7 @@ advance_mode = 2
 advance_mode = 2
 advance_condition = &"is_attacking"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xnfpu"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_07kae"]
 switch_mode = 2
 advance_mode = 2
 
@@ -36,7 +36,7 @@ states/attack/node = SubResource("AnimationNodeAnimation_og4ej")
 states/attack/position = Vector2(494, 181)
 states/walking/node = SubResource("AnimationNodeAnimation_eqffg")
 states/walking/position = Vector2(370, 90)
-transitions = ["Start", "walking", SubResource("AnimationNodeStateMachineTransition_ox3ip"), "walking", "attack", SubResource("AnimationNodeStateMachineTransition_twunw"), "attack", "walking", SubResource("AnimationNodeStateMachineTransition_xnfpu")]
+transitions = ["Start", "walking", SubResource("AnimationNodeStateMachineTransition_ox3ip"), "walking", "attack", SubResource("AnimationNodeStateMachineTransition_twunw"), "attack", "walking", SubResource("AnimationNodeStateMachineTransition_07kae")]
 
 [sub_resource type="Animation" id="Animation_cupro"]
 resource_name = "walking"
@@ -193,7 +193,6 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_1whxi"]
 resource_name = "attack"
-loop_mode = 1
 step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -313,7 +312,7 @@ collision_mask = 6
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="AttackCollision" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(32, -3)
+position = Vector2(52.5, -3)
 shape = SubResource("RectangleShape2D_72vcu")
 
 [node name="PeasantBody" type="Sprite2D" parent="."]
@@ -358,3 +357,6 @@ root_node = NodePath("../AnimationTree")
 libraries = {
 "": SubResource("AnimationLibrary_wix0j")
 }
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
