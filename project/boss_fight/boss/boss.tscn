@@ -532,7 +532,6 @@ monitorable = false
 shape = SubResource("CapsuleShape2D_ycjc2")
 
 [node name="HeadSprite" type="Sprite2D" parent="."]
-visible = false
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_xifnm")
 offset = Vector2(-24, -8)
@@ -562,6 +561,7 @@ libraries = {
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = SubResource("PlaceholderTexture2D_b0lit")
 
 [connection signal="body_entered" from="BossArea" to="." method="_on_boss_area_body_entered"]

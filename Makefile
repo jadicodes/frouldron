@@ -5,15 +5,15 @@ clean:
 
 linux:
 	mkdir -p build/linux
-	godot -v --export-release "Linux/X11" ../build/linux/SnatchNSniff.x86_64 project/project.godot
+	godot4 -v --headless --export-release "Linux/X11" ../build/linux/Frouldron.x86_64 project/project.godot
 
 macos:
 	mkdir -p build/macos
-	godot -v --export-release "macOS" ../build/macos/SnatchNSniff.dmg project/project.godot
+	godot4 -v --headless --export-release "macOS" ../build/macos/Frouldron.dmg project/project.godot
 
 windows:
 	mkdir -p build/windows
-	godot -v --export-release "Windows Desktop" ../build/windows/SnatchNSniff.exe project/project.godot
+	godot4 -v --headless --export-release "Windows Desktop" ../build/windows/Frouldron.exe project/project.godot
 
 zip: linux macos windows
 	mkdir -p build/zip
@@ -29,4 +29,4 @@ zip: linux macos windows
 	cp LICENSE build/zip
 	mkdir -p build/zip/press
 	cp press/*png build/zip/press
-	cd build/zip;	zip SnatchNSniff.zip -r .
+	cd build/zip;	zip Frouldron.zip -r .

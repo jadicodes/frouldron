@@ -43,6 +43,8 @@ func _on_textbox_finished_current_text() -> void:
 func _on_textbox_finished_all_text() -> void:
 	%Textbox.hide()
 	%Wizard.set_can_move(true)
+	$EnemySpawner.turn_on_spawning()
+	$BaseEnemy.visible = true
 	_text_index = 0
 	if _boss_time == true:
 		$AnimationPlayer.play("fade_to_white")
@@ -54,6 +56,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		%Textbox.set_queue(_current_text_sequence.size())
 		%Textbox.set_text(_current_text_sequence[_text_index])
 	if anim_name == "transition_to_boss":
+		$EnemySpawner.turn_off_spawning()
 		$BigCauldron.play_animation()
 	if anim_name == "fade_to_white":
 		get_tree().change_scene_to_file("res://boss_fight/boss_fight.tscn")

@@ -204,7 +204,8 @@ position = Vector2(4310, 469)
 element = ExtResource("16_4bsim")
 
 [node name="BaseEnemy" parent="." instance=ExtResource("3_mgd26")]
-position = Vector2(-952, 698)
+visible = false
+position = Vector2(-2015, 898)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

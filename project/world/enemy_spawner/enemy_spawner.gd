@@ -13,6 +13,11 @@ func make_base_enemy():
 	get_parent().add_child(base_enemy)
 	base_enemy.global_position = global_position
 
+func turn_on_spawning():
+	$Timer.start()
+
+func turn_off_spawning():
+	$Timer.stop()
 
 func _on_on_screen_notifier_screen_exited() -> void:
 	_can_spawn = true
