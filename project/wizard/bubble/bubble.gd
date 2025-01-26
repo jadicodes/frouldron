@@ -29,16 +29,21 @@ func _collide(collision: KinematicCollision2D) -> void:
 
 	if collider.has_method("hit"):
 		collider.hit(element)
-		queue_free()
+		pop()
+		return
 
 	velocity = velocity.bounce(collision.get_normal())
 	_num_hits += 1
 
 	if _num_hits > element.bounces:
-		queue_free()
+		pop()
 
 
 func _on_timer_timeout() -> void:
+	pop()
+
+
+func pop() -> void:
 	queue_free()
 
 

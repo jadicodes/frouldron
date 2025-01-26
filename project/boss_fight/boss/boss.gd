@@ -27,6 +27,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	velocity = Vector2.ZERO
 
+	if not _target:
+		return
+
 	if global_position.distance_to(_target.global_position) > _follow_distance:
 		velocity = (_target.global_position - global_position).normalized() * _speed
 
@@ -64,3 +67,9 @@ func _attack(direction: int) -> void:
 	bubble.global_position = _attack_origin.global_position
 	bubble.set_velocity(velocity + Vector2.RIGHT * direction * 500 * element.force)
 	bubble.set_element(element)
+
+
+func _on_boss_area_body_entered(body: Node2D) -> void:
+	if body is Bubble and body.collision_mask != 3:
+		hit(body.element)
+		body.pop()

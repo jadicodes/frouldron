@@ -1,8 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://w0p55do31lkq"]
+[gd_scene load_steps=22 format=3 uid="uid://w0p55do31lkq"]
 
 [ext_resource type="Script" path="res://boss_fight/boss/boss.gd" id="1_sv155"]
 [ext_resource type="Texture2D" uid="uid://q4hj8n76tbc1" path="res://boss_fight/boss/boss_head.png" id="1_xifnm"]
 [ext_resource type="Texture2D" uid="uid://gsanwuxwl8l" path="res://boss_fight/boss/boss_jaw.png" id="2_7ssks"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q4tvk"]
+radius = 43.9318
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ycjc2"]
 radius = 136.0
@@ -513,10 +516,19 @@ size = Vector2(224, 320)
 
 [node name="Boss" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("1_sv155")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 129)
+shape = SubResource("CircleShape2D_q4tvk")
+
+[node name="BossArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossArea"]
 shape = SubResource("CapsuleShape2D_ycjc2")
 
 [node name="HeadSprite" type="Sprite2D" parent="."]
@@ -551,3 +563,5 @@ libraries = {
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("PlaceholderTexture2D_b0lit")
+
+[connection signal="body_entered" from="BossArea" to="." method="_on_boss_area_body_entered"]
