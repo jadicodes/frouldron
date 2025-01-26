@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0gq67ekf5mmx"]
+[gd_scene load_steps=12 format=3 uid="uid://c0gq67ekf5mmx"]
 
 [ext_resource type="Script" path="res://cauldron/big_cauldron/big_cauldron.gd" id="1_on4uo"]
 [ext_resource type="Script" path="res://element/element.gd" id="2_k78el"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://ca1v1brmxtemq" path="res://element/electricity.tres" id="4_c5lyy"]
 [ext_resource type="Resource" uid="uid://cnmml25qbn6or" path="res://element/nature.tres" id="7_kcjwh"]
 [ext_resource type="Resource" uid="uid://dn6xy0s2w4i4j" path="res://element/normal.tres" id="8_2euye"]
+[ext_resource type="Texture2D" uid="uid://2t4uityoevcj" path="res://cauldron/big_cauldron/jeffrey_cauldron_top.png" id="8_4p221"]
 [ext_resource type="Texture2D" uid="uid://bmo02gelb0xw4" path="res://wizard/bubble/bubble.png" id="9_eyk1q"]
 [ext_resource type="Texture2D" uid="uid://bu2sw4tn81wxk" path="res://cauldron/big_cauldron/jeffrey_cauldron.png" id="10_xed13"]
 [ext_resource type="Texture2D" uid="uid://bgylwc4ncw53d" path="res://cauldron/big_cauldron/jeffrey_cauldron_bubble_container.png" id="11_dpyvn"]
@@ -22,19 +23,23 @@ _bubble_types = Array[ExtResource("2_k78el")]([ExtResource("3_hyiu1"), ExtResour
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("10_xed13")
 
-[node name="JeffreyCauldronBubbleContainer" type="Sprite2D" parent="Sprite"]
+[node name="Sprite2D" type="Sprite2D" parent="Sprite"]
+z_index = 1
+texture = ExtResource("8_4p221")
+
+[node name="JeffreyCauldronBubbleContainer" type="Sprite2D" parent="Sprite/Sprite2D"]
 position = Vector2(-301.5, -68)
 texture = ExtResource("11_dpyvn")
 
-[node name="JeffreyCauldronBubbleContainer2" type="Sprite2D" parent="Sprite"]
+[node name="JeffreyCauldronBubbleContainer2" type="Sprite2D" parent="Sprite/Sprite2D"]
 position = Vector2(279, -72)
 texture = ExtResource("11_dpyvn")
 
-[node name="JeffreyCauldronBubbleContainer3" type="Sprite2D" parent="Sprite"]
+[node name="JeffreyCauldronBubbleContainer3" type="Sprite2D" parent="Sprite/Sprite2D"]
 position = Vector2(-145, 27)
 texture = ExtResource("11_dpyvn")
 
-[node name="JeffreyCauldronBubbleContainer4" type="Sprite2D" parent="Sprite"]
+[node name="JeffreyCauldronBubbleContainer4" type="Sprite2D" parent="Sprite/Sprite2D"]
 position = Vector2(121, 29)
 texture = ExtResource("11_dpyvn")
 
@@ -44,6 +49,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_x5cvq")
 
 [node name="Gems" type="Node2D" parent="."]
+z_index = 1
 position = Vector2(-190, -89)
 
 [node name="Sprite" type="Sprite2D" parent="Gems"]
