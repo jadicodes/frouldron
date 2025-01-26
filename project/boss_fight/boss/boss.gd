@@ -7,6 +7,10 @@ const ELEMENTS: Array[Element] = [
 	preload("res://element/earth.tres")
 ]
 
+@export var _target: Node2D
+@export var _follow_distance := 512
+@export var _speed := 256.0
+
 var health := 20
 
 @onready var _attack_origin := %AttackOrigin
@@ -16,6 +20,15 @@ var health := 20
 
 func _ready() -> void:
 	get_tree().create_timer(5).timeout.connect(_step)
+
+
+func _physics_process(delta: float) -> void:
+	velocity = Vector2.ZERO
+
+	if global_position.distance_to(_target.global_position) > _follow_distance:
+		velocity = (_target.global_position - global_position).normalized() * _speed
+
+	move_and_slide()
 
 func hit(element: Element) -> void:
 	health -= element.damage
