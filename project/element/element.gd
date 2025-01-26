@@ -10,3 +10,6 @@ extends Resource
 @export var ammo_usage : int = 1
 @export var damage : int = 1
 @export var heal: int = 0
+
+@export var bounce_sound: AudioStream
+@export var impact_sound: AudioStream

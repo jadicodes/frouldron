@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Element" load_steps=2 format=3 uid="uid://cnmml25qbn6or"]
+[gd_resource type="Resource" script_class="Element" load_steps=3 format=3 uid="uid://cnmml25qbn6or"]
 
+[ext_resource type="AudioStream" uid="uid://dbnibcnvnfph8" path="res://wizard/bubble/bubble_impact_dark.wav" id="1_5px5r"]
 [ext_resource type="Script" path="res://element/element.gd" id="1_i8etw"]
 
 [resource]
@@ -13,3 +14,5 @@ lifetime = 15.0
 ammo_usage = 10
 damage = 1
 heal = 15
+bounce_sound = ExtResource("1_5px5r")
+impact_sound = ExtResource("1_5px5r")

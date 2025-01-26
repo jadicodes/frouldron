@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Element" load_steps=2 format=3 uid="uid://dn6xy0s2w4i4j"]
+[gd_resource type="Resource" script_class="Element" load_steps=3 format=3 uid="uid://dn6xy0s2w4i4j"]
 
 [ext_resource type="Script" path="res://element/element.gd" id="1_kwfof"]
+[ext_resource type="AudioStream" uid="uid://cnsj5fa1vaw5s" path="res://wizard/bubble/bubble_impact_basic.wav" id="1_lnkk8"]
 
 [resource]
 script = ExtResource("1_kwfof")
@@ -8,5 +9,10 @@ name = "Normal"
 color = Color(0.620684, 0.913727, 1, 1)
 gravity_scale = -0.1
 bounces = 0
+force = 1.0
+lifetime = 15.0
 ammo_usage = 5
 damage = 1
+heal = 0
+bounce_sound = ExtResource("1_lnkk8")
+impact_sound = ExtResource("1_lnkk8")

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dm60m3lewn3kd"
-path="res://.godot/imported/bubble_shoot.wav-c095bc334bef2140ee0d3b99e92142c3.sample"
+path="res://.godot/imported/bubble_shoot.wav-bd0ac12c371f6392e0c947f3fd647b46.sample"
 
 [deps]
 
-source_file="res://wizard/bubble_shoot.wav"
-dest_files=["res://.godot/imported/bubble_shoot.wav-c095bc334bef2140ee0d3b99e92142c3.sample"]
+source_file="res://wizard/bubble/bubble_shoot.wav"
+dest_files=["res://.godot/imported/bubble_shoot.wav-bd0ac12c371f6392e0c947f3fd647b46.sample"]
 
 [params]
 

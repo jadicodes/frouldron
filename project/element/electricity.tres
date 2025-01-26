@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="Element" load_steps=2 format=3 uid="uid://ca1v1brmxtemq"]
+[gd_resource type="Resource" script_class="Element" load_steps=4 format=3 uid="uid://ca1v1brmxtemq"]
 
+[ext_resource type="AudioStream" uid="uid://cttw7mked3abl" path="res://wizard/bubble/bubble_bounce_electric.wav" id="1_nkmbk"]
 [ext_resource type="Script" path="res://element/element.gd" id="1_vy02t"]
+[ext_resource type="AudioStream" uid="uid://2puwqghsqqin" path="res://wizard/bubble/bubble_impact_electric.wav" id="2_78jbw"]
 
 [resource]
 script = ExtResource("1_vy02t")
@@ -12,3 +14,6 @@ force = 1.0
 lifetime = 15.0
 ammo_usage = 2
 damage = 2
+heal = 0
+bounce_sound = ExtResource("1_nkmbk")
+impact_sound = ExtResource("2_78jbw")

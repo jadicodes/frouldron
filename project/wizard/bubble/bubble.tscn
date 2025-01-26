@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnocfmm8g08eb"]
+[gd_scene load_steps=5 format=3 uid="uid://cnocfmm8g08eb"]
 
 [ext_resource type="Script" path="res://wizard/bubble/bubble.gd" id="1_a0lqv"]
 [ext_resource type="Texture2D" uid="uid://bmo02gelb0xw4" path="res://wizard/bubble/bubble.png" id="2_o3d2t"]
+[ext_resource type="AudioStream" uid="uid://dm60m3lewn3kd" path="res://wizard/bubble/bubble_shoot.wav" id="3_qvwvl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2p1v7"]
 
@@ -22,5 +23,18 @@ shape = SubResource("CircleShape2D_2p1v7")
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="SpawnSound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_qvwvl")
+volume_db = 5.0
+
+[node name="BounceSound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+volume_db = 5.0
+
+[node name="ImpactSound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+volume_db = 5.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

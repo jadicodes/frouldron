@@ -42,8 +42,6 @@ func shoot(velocity: Vector2, direction: float) -> bool:
 	_current_ammo -= _bubble.element.ammo_usage
 	var decrease :  = _bubble.element.ammo_usage
 	ammo_used.emit(decrease)
-	$BubbleSound.pitch_scale = randf_range(0.9, 1.1)
-	$BubbleSound.play()
 
 	return true
 	
