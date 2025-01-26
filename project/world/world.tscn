@@ -23,32 +23,32 @@
 [ext_resource type="PackedScene" uid="uid://c0gq67ekf5mmx" path="res://cauldron/big_cauldron/big_cauldron.tscn" id="22_g7613"]
 [ext_resource type="AudioStream" uid="uid://d0bhah523lukc" path="res://world/in_game_music.ogg" id="24_y5b0q"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_scnr5"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2kg0b"]
 texture = ExtResource("1_f5boq")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b28kv"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m6ddo"]
 texture = ExtResource("7_3dw1w")
 separation = Vector2i(0, 2)
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -32, 64, -32, 64, 64, -64, 64)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cc31v"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rl18t"]
 texture = ExtResource("8_0luym")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_50622"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j0vor"]
 texture = ExtResource("9_g24er")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cknmb"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qeeh4"]
 texture = ExtResource("10_kqbxd")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
@@ -58,11 +58,11 @@ texture_region_size = Vector2i(128, 128)
 tile_size = Vector2i(128, 128)
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 5
-sources/0 = SubResource("TileSetAtlasSource_scnr5")
-sources/1 = SubResource("TileSetAtlasSource_b28kv")
-sources/2 = SubResource("TileSetAtlasSource_cc31v")
-sources/3 = SubResource("TileSetAtlasSource_50622")
-sources/4 = SubResource("TileSetAtlasSource_cknmb")
+sources/0 = SubResource("TileSetAtlasSource_2kg0b")
+sources/1 = SubResource("TileSetAtlasSource_m6ddo")
+sources/2 = SubResource("TileSetAtlasSource_rl18t")
+sources/3 = SubResource("TileSetAtlasSource_j0vor")
+sources/4 = SubResource("TileSetAtlasSource_qeeh4")
 
 [sub_resource type="Gradient" id="Gradient_5kqja"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -70,6 +70,33 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_c7pj2"]
 gradient = SubResource("Gradient_5kqja")
 width = 50
+
+[sub_resource type="Animation" id="Animation_bj8sj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BigCauldron:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1620, 498)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wizard:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1625, 709)]
+}
 
 [sub_resource type="Animation" id="Animation_rnhbp"]
 resource_name = "opening"
@@ -97,33 +124,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1625, 709), Vector2(1087, 709)]
-}
-
-[sub_resource type="Animation" id="Animation_bj8sj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BigCauldron:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1620, 498)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Wizard:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1625, 709)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mrn8p"]
