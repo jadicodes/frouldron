@@ -4,7 +4,7 @@ extends CharacterBody2D
 const WALK_SPEED = 100
 
 @export var health = 4
-
+var _current_direction := 1
 var _direction := 1
 var element: Element = [
 	preload("res://element/normal.tres"),
@@ -15,7 +15,8 @@ var element: Element = [
 
 
 func _ready() -> void:
-	sprite.modulate = element.color
+	#sprite.modulate = element.color
+	pass
 
 
 func _physics_process(delta: float) -> void:
@@ -27,8 +28,11 @@ func _move(delta: float) -> void:
 		velocity += get_gravity() * delta
 	
 	if %RayCast.is_colliding():
+		_current_direction = 1 if _direction > 0 else -1
+		scale.y = -_current_direction
+		rotation = PI if _direction > 0 else 0.0
 		_direction = _direction * -1
-		%RayCast.rotate(deg_to_rad(180))
+		#%RayCast.rotate(deg_to_rad(180))
 
 	if _direction:
 		velocity.x = _direction * WALK_SPEED
