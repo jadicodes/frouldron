@@ -1,6 +1,8 @@
 class_name Boss
 extends CharacterBody2D
 
+signal died
+
 const ELEMENTS: Array[Element] = [
 	preload("res://element/normal.tres"),
 	preload("res://element/electricity.tres"),
@@ -19,7 +21,7 @@ var health := 20
 
 
 func _ready() -> void:
-	get_tree().create_timer(5).timeout.connect(_step)
+	get_tree().create_timer(5).timeout.connect(_attack_step)
 
 
 func _physics_process(delta: float) -> void:
@@ -36,6 +38,7 @@ func hit(element: Element) -> void:
 	_animation_player.play("hit")
 
 	if health <= 0:
+		died.emit()
 		queue_free()
 
 func _reset_vars() -> void:
@@ -43,13 +46,13 @@ func _reset_vars() -> void:
 	_animation_tree["parameters/conditions/attack_right"] = false
 
 
-func _step() -> void:
-	if randf() > 0.5:
+func _attack_step() -> void:
+	if (_target.global_position - global_position).x < 0:
 		_animation_tree["parameters/conditions/attack_left"] = true
 	else:
 		_animation_tree["parameters/conditions/attack_right"] = true
 
-	get_tree().create_timer(randf_range(1, 3)).timeout.connect(_step)
+	get_tree().create_timer(randf_range(1, 3)).timeout.connect(_attack_step)
 
 
 func _attack(direction: int) -> void:
