@@ -1,9 +1,142 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpg8dua1xhuyl"]
+[gd_scene load_steps=21 format=3 uid="uid://dpg8dua1xhuyl"]
 
+[ext_resource type="FontFile" uid="uid://buwy73urdic2h" path="res://menus/times.ttf" id="1_a4sh0"]
 [ext_resource type="Script" path="res://menus/title_screen.gd" id="1_aci83"]
+[ext_resource type="Texture2D" uid="uid://chk7e4837im5l" path="res://cauldron/cauldron.png" id="3_sdc7v"]
+[ext_resource type="FontFile" uid="uid://c7l3ys4in51ll" path="res://menus/timesbd.ttf" id="4_nxga7"]
+[ext_resource type="Theme" uid="uid://bap8kcbfphudo" path="res://menus/new_theme.tres" id="5_rim48"]
+
+[sub_resource type="Theme" id="Theme_qwlfs"]
+default_font = ExtResource("1_a4sh0")
+MarginContainer/constants/margin_bottom = 0
+MarginContainer/constants/margin_left = 0
+MarginContainer/constants/margin_right = 0
+MarginContainer/constants/margin_top = 0
+
+[sub_resource type="Gradient" id="Gradient_bbkqn"]
+offsets = PackedFloat32Array(0, 0.00319489, 1)
+colors = PackedColorArray(0.0813658, 0.198667, 0.162838, 1, 0.117814, 0.238372, 0.187762, 1, 0.239216, 0.368627, 0.270588, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m40dv"]
+gradient = SubResource("Gradient_bbkqn")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_3fw46"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ye86b"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cmd7v"]
+color_ramp = SubResource("Gradient_3fw46")
+noise = SubResource("FastNoiseLite_ye86b")
 
 [sub_resource type="LabelSettings" id="LabelSettings_opixd"]
-font_size = 72
+font = ExtResource("4_nxga7")
+font_size = 93
+shadow_size = 12
+shadow_color = Color(0, 0, 0, 0.407843)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="Theme" id="Theme_c5e24"]
+default_font = ExtResource("1_a4sh0")
+default_font_size = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ut6g"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t802e"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5yhpq"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.321368, 0.387829, 0.273245, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fcb8"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.264691, 0.429483, 0.187489, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7djxe"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.464548, 0.600306, 0.215027, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_njchn"]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("1_a4sh0")
+Button/styles/disabled = SubResource("StyleBoxFlat_3ut6g")
+Button/styles/focus = SubResource("StyleBoxFlat_t802e")
+Button/styles/hover = SubResource("StyleBoxFlat_5yhpq")
+Button/styles/normal = SubResource("StyleBoxFlat_0fcb8")
+Button/styles/pressed = SubResource("StyleBoxFlat_7djxe")
+Label/font_sizes/font_size = 27
+Label/fonts/font = ExtResource("1_a4sh0")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ilgpu"]
 font_size = 32
@@ -15,43 +148,69 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_qwlfs")
 script = ExtResource("1_aci83")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(48.08, 26.96)
+texture = SubResource("GradientTexture2D_m40dv")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+self_modulate = Color(1, 1, 1, 0.0627451)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("NoiseTexture2D_cmd7v")
+expand_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureRect"]
+self_modulate = Color(1, 1, 1, 0.0862745)
+position = Vector2(19.6963, 23.6647)
+scale = Vector2(0.201747, 0.270771)
+texture = ExtResource("3_sdc7v")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 0
-offset_left = 714.0
-offset_top = 300.0
-offset_right = 1159.0
-offset_bottom = 399.0
+offset_left = 645.0
+offset_top = 312.0
+offset_right = 1244.0
+offset_bottom = 416.0
 text = "FROULDRON"
 label_settings = SubResource("LabelSettings_opixd")
 
 [node name="StartGameButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 833.0
-offset_top = 511.0
-offset_right = 931.0
-offset_bottom = 542.0
+offset_left = 840.0
+offset_top = 520.0
+offset_right = 938.0
+offset_bottom = 553.0
 scale = Vector2(2, 2)
-text = "Start Game"
+theme = SubResource("Theme_c5e24")
+text = "Start"
 
 [node name="OpenTutorialButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 838.0
-offset_top = 594.0
-offset_right = 938.0
-offset_bottom = 625.0
+offset_left = 840.0
+offset_top = 600.0
+offset_right = 940.0
+offset_bottom = 631.0
 scale = Vector2(2, 2)
-text = "How to Play"
+theme = SubResource("Theme_njchn")
+text = "Tutorial"
 
 [node name="ExitButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 838.0
-offset_top = 674.0
-offset_right = 925.0
+offset_left = 848.0
+offset_top = 672.0
+offset_right = 935.0
 offset_bottom = 705.0
 scale = Vector2(2, 2)
-text = "Exit Game"
+theme = ExtResource("5_rim48")
+text = "Exit"
 
 [node name="TutorialScreen" type="ColorRect" parent="."]
 visible = false

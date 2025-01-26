@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bap8kcbfphudo"]
+
+[ext_resource type="FontFile" uid="uid://buwy73urdic2h" path="res://menus/times.ttf" id="1_gg6ut"]
+
+[resource]
+default_font = ExtResource("1_gg6ut")
+default_font_size = 22
+MarginContainer/constants/margin_bottom = 0
+MarginContainer/constants/margin_left = 0
+MarginContainer/constants/margin_right = 0
+MarginContainer/constants/margin_top = 0
