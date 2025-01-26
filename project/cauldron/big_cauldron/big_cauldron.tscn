@@ -1,0 +1,61 @@
+[gd_scene load_steps=12 format=3 uid="uid://c0gq67ekf5mmx"]
+
+[ext_resource type="Script" path="res://cauldron/big_cauldron/big_cauldron.gd" id="1_on4uo"]
+[ext_resource type="Resource" uid="uid://w37h2xcy8p4p" path="res://element/acid.tres" id="2_1rlc2"]
+[ext_resource type="Resource" uid="uid://cfo5jvoy7qgdb" path="res://element/earth.tres" id="3_hyiu1"]
+[ext_resource type="Resource" uid="uid://ca1v1brmxtemq" path="res://element/electricity.tres" id="4_c5lyy"]
+[ext_resource type="Resource" uid="uid://dhtojjrnhu6ij" path="res://element/fire.tres" id="5_tq3jq"]
+[ext_resource type="Resource" uid="uid://bdqwg028h8n3y" path="res://element/ice.tres" id="6_emq26"]
+[ext_resource type="Resource" uid="uid://cnmml25qbn6or" path="res://element/nature.tres" id="7_kcjwh"]
+[ext_resource type="Resource" uid="uid://dn6xy0s2w4i4j" path="res://element/normal.tres" id="8_2euye"]
+[ext_resource type="Texture2D" uid="uid://bmo02gelb0xw4" path="res://wizard/bubble/bubble.png" id="9_eyk1q"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_k2s65"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0bmr"]
+size = Vector2(390.5, 203)
+
+[node name="BigCauldron" type="Area2D"]
+script = ExtResource("1_on4uo")
+_bubble_types = Array[Resource]([ExtResource("2_1rlc2"), ExtResource("3_hyiu1"), ExtResource("4_c5lyy"), ExtResource("5_tq3jq"), ExtResource("6_emq26"), ExtResource("7_kcjwh"), ExtResource("8_2euye")])
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(194.75, 101.25)
+scale = Vector2(390.5, 203.5)
+texture = SubResource("PlaceholderTexture2D_k2s65")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(194.75, 101.5)
+shape = SubResource("RectangleShape2D_u0bmr")
+
+[node name="Gems" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="Gems"]
+position = Vector2(24, 38)
+texture = ExtResource("9_eyk1q")
+
+[node name="Sprite2" type="Sprite2D" parent="Gems"]
+position = Vector2(73, 106)
+texture = ExtResource("9_eyk1q")
+
+[node name="Sprite3" type="Sprite2D" parent="Gems"]
+position = Vector2(122, 156)
+texture = ExtResource("9_eyk1q")
+
+[node name="Sprite4" type="Sprite2D" parent="Gems"]
+position = Vector2(196, 171)
+texture = ExtResource("9_eyk1q")
+
+[node name="Sprite5" type="Sprite2D" parent="Gems"]
+position = Vector2(268, 149)
+texture = ExtResource("9_eyk1q")
+
+[node name="Sprite6" type="Sprite2D" parent="Gems"]
+position = Vector2(328, 103)
+texture = ExtResource("9_eyk1q")
+
+[node name="Sprite7" type="Sprite2D" parent="Gems"]
+position = Vector2(355, 31)
+texture = ExtResource("9_eyk1q")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
