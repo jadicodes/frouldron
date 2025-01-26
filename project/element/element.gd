@@ -9,3 +9,4 @@ extends Resource
 @export var lifetime: float = 15.0
 @export var ammo_usage : int = 1
 @export var damage : int = 1
+@export var heal: int = 0

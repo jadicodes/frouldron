@@ -5,8 +5,9 @@ signal ammo_used(decrease_amt : int)
 const _SPEED := 250.0
 const _JUMP_VELOCITY := -600.0
 const _DAMAGE := 12
+const _MAX_HEALTH := 100
 
-var _health := 100
+var _health := _MAX_HEALTH
 var _current_direction := -1
 
 
@@ -43,18 +44,24 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, _SPEED)
 
 	if Input.is_action_just_pressed("shoot"):
-		_animation_tree["parameters/conditions/shoot_pressed"] = _bubble_shooter.shoot(velocity, _current_direction)
+		var shot := _bubble_shooter.shoot(velocity, _current_direction)
+		_animation_tree["parameters/conditions/shoot_pressed"] = shot
+
+		if shot:
+			_health = clamp(_health + _bubble_shooter.element.heal, 0, _MAX_HEALTH)
+			_health_bar.value = _health
 
 	move_and_slide()
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	if(area.get_parent() is BaseEnemy): 
+	if(area.get_parent() is BaseEnemy):
 		_health -= _DAMAGE
 		_health_bar.value = _health
 		if(_health <= 0):
 			$DeathSound.play()
 		else:
+			$HurtSound.pitch_scale = randf_range(0.95, 1.05)
 			$HurtSound.play()
 
 
