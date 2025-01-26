@@ -11,11 +11,12 @@ const _MAX_HEALTH := 100
 
 static var instance: Wizard
 
+@export var _can_move = false
+
 var _health := _MAX_HEALTH
 var _current_direction := -1
 var _double_jump = 0
 var _can_double_jump = true
-var _can_move = false
 
 var _dead_wizard := preload("res://wizard/wizard_corpse.tscn")
 

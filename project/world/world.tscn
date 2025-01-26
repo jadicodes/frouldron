@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://h0i7xv7yha14" path="res://world/mountains.png" id="4_225x3"]
 [ext_resource type="Texture2D" uid="uid://brfclo7fsku0d" path="res://world/clouds.png" id="4_sag0k"]
 [ext_resource type="PackedScene" uid="uid://cvlivrphp416p" path="res://cauldron/cauldron.tscn" id="5_4m26d"]
-[ext_resource type="TileSet" uid="uid://elhebk3wqs1s" path="res://world/tileset/tileset.tres" id="6_hhjkw"]
+[ext_resource type="TileSet" uid="uid://b4w3lotvm2n6p" path="res://world/tileset/tileset.tres" id="6_hhjkw"]
 [ext_resource type="Script" path="res://wizard/follow_camera.gd" id="10_njmoa"]
 [ext_resource type="Resource" uid="uid://cfo5jvoy7qgdb" path="res://element/earth.tres" id="11_a2o3n"]
 [ext_resource type="Texture2D" uid="uid://cho7tteei4fdu" path="res://world/ammo_wand.png" id="12_qb6ex"]

@@ -15,7 +15,7 @@ var health := 20
 
 
 func _ready() -> void:
-	get_tree().create_timer(4).timeout.connect(_step)
+	get_tree().create_timer(5).timeout.connect(_step)
 
 func hit(element: Element) -> void:
 	health -= element.damage
