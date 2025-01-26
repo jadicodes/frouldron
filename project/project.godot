@@ -13,6 +13,7 @@ config_version=5
 config/name="Frouldron"
 run/main_scene="res://menus/title_screen.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/image="res://wizard/bubble/bubble.png"
 config/icon="res://icon.svg"
 
 [display]
