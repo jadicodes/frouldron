@@ -1,13 +1,23 @@
 class_name BaseEnemy
 extends CharacterBody2D
 
+
 const WALK_SPEED = 100
-signal damage(dealt:int)
-@onready var _animation_tree: AnimationTree = %AnimationTree
-@export var health = 4
+
 var _current_direction := 1
 var _direction := 1
+<<<<<<< HEAD
 var element: Element = preload("res://element/normal.tres")
+=======
+var element: Element = [
+	preload("res://element/normal.tres"),
+	preload("res://element/earth.tres")
+].pick_random()
+var _corpse := preload("res://enemy/enemy_corpse.tscn")
+
+@onready var _animation_tree: AnimationTree = %AnimationTree
+@export var health = 4
+>>>>>>> 4df644f (Spawn a gunk pile when enemy dies)
 
 
 func _ready() -> void:
@@ -41,6 +51,10 @@ func hit(bubble_element: Element) -> void:
 	health -= bubble_element.damage
 
 	if health <= 0:
+		var dead_pile = _corpse.instantiate()
+		var dead_y = global_position.y - 50
+		dead_pile.global_position = Vector2(global_position.x, dead_y)
+		get_parent().add_child(dead_pile)
 		queue_free()
 
 
