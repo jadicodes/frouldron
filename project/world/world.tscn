@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://djly2h2jcl2kh"]
+[gd_scene load_steps=31 format=4 uid="uid://djly2h2jcl2kh"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_d12hr"]
 [ext_resource type="Texture2D" uid="uid://cta14ng6ojwy3" path="res://icon.svg" id="1_f5boq"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bgqk8h1fvvjnf" path="res://world/sky.png" id="2_y4um3"]
 [ext_resource type="Texture2D" uid="uid://c2djko2ttpj52" path="res://world/stars.png" id="3_2ejju"]
 [ext_resource type="PackedScene" uid="uid://b2vxgw0eolsfr" path="res://enemy/base_enemy.tscn" id="3_mgd26"]
+[ext_resource type="Texture2D" uid="uid://h0i7xv7yha14" path="res://world/mountains.png" id="4_225x3"]
 [ext_resource type="Texture2D" uid="uid://brfclo7fsku0d" path="res://world/clouds.png" id="4_sag0k"]
 [ext_resource type="PackedScene" uid="uid://cvlivrphp416p" path="res://cauldron/cauldron.tscn" id="5_4m26d"]
 [ext_resource type="Texture2D" uid="uid://b4nvmctkqt2wd" path="res://world/dirt.png" id="7_3dw1w"]
@@ -15,7 +16,7 @@
 [ext_resource type="Script" path="res://wizard/follow_camera.gd" id="10_njmoa"]
 [ext_resource type="Resource" uid="uid://cfo5jvoy7qgdb" path="res://element/earth.tres" id="11_a2o3n"]
 [ext_resource type="Texture2D" uid="uid://cho7tteei4fdu" path="res://world/ammo_wand.png" id="12_qb6ex"]
-[ext_resource type="Resource" uid="uid://w37h2xcy8p4p" path="res://element/acid.tres" id="12_u7kxp"]
+[ext_resource type="Resource" path="res://element/acid.tres" id="12_u7kxp"]
 [ext_resource type="Resource" uid="uid://ca1v1brmxtemq" path="res://element/electricity.tres" id="13_uhyw3"]
 [ext_resource type="Resource" uid="uid://dhtojjrnhu6ij" path="res://element/fire.tres" id="14_1lxds"]
 [ext_resource type="PackedScene" uid="uid://dbirdq8cnpjxk" path="res://world/enemy_spawner/enemy_spawner.tscn" id="14_fbijg"]
@@ -75,6 +76,7 @@ script = ExtResource("1_d12hr")
 
 [node name="ParallaxSky" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(4, 4)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxSky"]
 texture = ExtResource("2_y4um3")
@@ -83,6 +85,8 @@ offset = Vector2(0, 540)
 [node name="ParallaxStars" type="Parallax2D" parent="."]
 modulate = Color(1, 1, 1, 0.352941)
 scroll_scale = Vector2(0.1, 0.1)
+scroll_offset = Vector2(4, 4)
+repeat_size = Vector2(4000, 0)
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxStars"]
 position = Vector2(-115, 1074)
@@ -92,46 +96,59 @@ offset = Vector2(0, 540)
 
 [node name="ParallaxClouds" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.25, 0.25)
+scroll_offset = Vector2(4, 4)
 repeat_size = Vector2(4000, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxClouds"]
 texture = ExtResource("4_sag0k")
 offset = Vector2(0, 540)
 
+[node name="ParallaxMountains" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.7, 0.7)
+scroll_offset = Vector2(4, 4)
+repeat_size = Vector2(4000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxMountains"]
+texture = ExtResource("4_225x3")
+offset = Vector2(0, 540)
+
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(-1, 58)
+position = Vector2(3, 62)
 tile_map_data = PackedByteArray("AAAAAAcAAwAAAAAAAAABAAcABAAAAAAAAAACAAcABAAAAAAAAAADAAcAAgAAAAAAAAAEAAcAAgAAAAAAAAAFAAcAAQAAAAAAAAAGAAcAAwAAAAAAAAAHAAcAAQAAAAAAAAAIAAcAAwAAAAAAAAAJAAcAAQAAAAAAAAAKAAcABAAAAAAAAAALAAcAAgAAAAAAAAAMAAcAAgAAAAAAAAANAAcAAQAAAAAAAAAOAAcAAQAAAAAAAAD//wcAAQAAAAAAAAD+/wcAAgAAAAAAAAD9/wcABAAAAAAAAAD8/wcAAgAAAAAAAAD7/wcAAQAAAAAAAAD6/wcAAwAAAAAAAAD5/wcAAQAAAAAAAAD4/wcABAAAAAAAAAD3/wcAAwAAAAAAAAD2/wcAAgAAAAAAAAD1/wcAAQAAAAAAAAD0/wcABAAAAAAAAADy/wcABAAAAAAAAADx/wcAAwAAAAAAAADw/wcABAAAAAAAAADz/wcAAQAAAAAAAADv/wcAAQAAAAAAAADu/wcABAAAAAAAAADt/wcAAgAAAAAAAADr/wcAAgAAAAAAAADq/wcAAgAAAAAAAADp/wcABAAAAAAAAADo/wcAAgAAAAAAAADn/wcAAQAAAAAAAADs/wcAAQAAAAAAAADn/wYAAQAAAAAAAADn/wUAAQAAAAAAAADn/wQAAQAAAAAAAADn/wMAAQAAAAAAAADn/wIAAQAAAAAAAADn/wEAAQAAAAAAAADn/wAAAQAAAAAAAADn////AQAAAAAAAAAPAAcAAQAAAAAAAAAQAAcAAQAAAAAAAAARAAcAAQAAAAAAAAASAAcAAQAAAAAAAAATAAcAAQAAAAAAAAAUAAcAAQAAAAAAAAAVAAcAAQAAAAAAAAAWAAcAAQAAAAAAAAAWAAYAAQAAAAAAAAAWAAUAAQAAAAAAAAAWAAQAAQAAAAAAAAAWAAMAAQAAAAAAAAAWAAIAAQAAAAAAAAAWAAEAAQAAAAAAAAAWAAAAAQAAAAAAAAAWAP//AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_2u478")
 
-[node name="CauldronEarth" parent="." instance=ExtResource("5_4m26d")]
+[node name="Cauldrons" type="Node" parent="."]
+
+[node name="CauldronEarth" parent="Cauldrons" instance=ExtResource("5_4m26d")]
 position = Vector2(813, 966)
 element = ExtResource("11_a2o3n")
 
-[node name="CauldronWater" parent="." instance=ExtResource("5_4m26d")]
-position = Vector2(97, 961)
+[node name="CauldronWater" parent="Cauldrons" instance=ExtResource("5_4m26d")]
+position = Vector2(97, 980)
 
-[node name="CauldronAcid" parent="." instance=ExtResource("5_4m26d")]
+[node name="CauldronAcid" parent="Cauldrons" instance=ExtResource("5_4m26d")]
 position = Vector2(-2957, 958)
 element = ExtResource("12_u7kxp")
 
-[node name="CauldronLightning" parent="." instance=ExtResource("5_4m26d")]
-position = Vector2(-865, 963)
+[node name="CauldronLightning" parent="Cauldrons" instance=ExtResource("5_4m26d")]
+position = Vector2(-864, 975)
+rotation = -3.14159
+scale = Vector2(1, -1)
 element = ExtResource("13_uhyw3")
 
-[node name="CauldronFire" parent="." instance=ExtResource("5_4m26d")]
-position = Vector2(-1689, 959)
+[node name="CauldronFire" parent="Cauldrons" instance=ExtResource("5_4m26d")]
+position = Vector2(-1691, 978)
 element = ExtResource("14_1lxds")
 
-[node name="CauldronIce" parent="." instance=ExtResource("5_4m26d")]
-position = Vector2(-2369, 955)
+[node name="CauldronIce" parent="Cauldrons" instance=ExtResource("5_4m26d")]
+position = Vector2(-2369, 980)
+rotation = -3.14159
+scale = Vector2(1, -1)
 element = ExtResource("15_lax71")
 
-[node name="CauldronNature" parent="." instance=ExtResource("5_4m26d")]
-position = Vector2(-1204, 959)
+[node name="CauldronNature" parent="Cauldrons" instance=ExtResource("5_4m26d")]
+position = Vector2(-1203, 978)
 element = ExtResource("16_4bsim")
-
-[node name="Wizard" parent="." instance=ExtResource("2_61scl")]
-position = Vector2(1598, 712)
 
 [node name="BaseEnemy" parent="." instance=ExtResource("3_mgd26")]
 position = Vector2(420, 859)
@@ -182,18 +199,21 @@ target = NodePath("../Wizard")
 [node name="EnemySpawner" parent="." instance=ExtResource("14_fbijg")]
 position = Vector2(-202, 888)
 
-[connection signal="add_ammo" from="CauldronEarth" to="." method="_on_cauldron_add_ammo"]
-[connection signal="change_element" from="CauldronEarth" to="." method="_on_cauldron_change_element"]
-[connection signal="add_ammo" from="CauldronWater" to="." method="_on_cauldron_add_ammo"]
-[connection signal="change_element" from="CauldronWater" to="." method="_on_cauldron_change_element"]
-[connection signal="add_ammo" from="CauldronAcid" to="." method="_on_cauldron_add_ammo"]
-[connection signal="change_element" from="CauldronAcid" to="." method="_on_cauldron_change_element"]
-[connection signal="add_ammo" from="CauldronLightning" to="." method="_on_cauldron_add_ammo"]
-[connection signal="change_element" from="CauldronLightning" to="." method="_on_cauldron_change_element"]
-[connection signal="add_ammo" from="CauldronFire" to="." method="_on_cauldron_add_ammo"]
-[connection signal="change_element" from="CauldronFire" to="." method="_on_cauldron_change_element"]
-[connection signal="add_ammo" from="CauldronIce" to="." method="_on_cauldron_add_ammo"]
-[connection signal="change_element" from="CauldronIce" to="." method="_on_cauldron_change_element"]
-[connection signal="add_ammo" from="CauldronNature" to="." method="_on_cauldron_add_ammo"]
-[connection signal="change_element" from="CauldronNature" to="." method="_on_cauldron_change_element"]
+[node name="Wizard" parent="." instance=ExtResource("2_61scl")]
+position = Vector2(1598, 712)
+
+[connection signal="add_ammo" from="Cauldrons/CauldronEarth" to="." method="_on_cauldron_add_ammo"]
+[connection signal="change_element" from="Cauldrons/CauldronEarth" to="." method="_on_cauldron_change_element"]
+[connection signal="add_ammo" from="Cauldrons/CauldronWater" to="." method="_on_cauldron_add_ammo"]
+[connection signal="change_element" from="Cauldrons/CauldronWater" to="." method="_on_cauldron_change_element"]
+[connection signal="add_ammo" from="Cauldrons/CauldronAcid" to="." method="_on_cauldron_add_ammo"]
+[connection signal="change_element" from="Cauldrons/CauldronAcid" to="." method="_on_cauldron_change_element"]
+[connection signal="add_ammo" from="Cauldrons/CauldronLightning" to="." method="_on_cauldron_add_ammo"]
+[connection signal="change_element" from="Cauldrons/CauldronLightning" to="." method="_on_cauldron_change_element"]
+[connection signal="add_ammo" from="Cauldrons/CauldronFire" to="." method="_on_cauldron_add_ammo"]
+[connection signal="change_element" from="Cauldrons/CauldronFire" to="." method="_on_cauldron_change_element"]
+[connection signal="add_ammo" from="Cauldrons/CauldronIce" to="." method="_on_cauldron_add_ammo"]
+[connection signal="change_element" from="Cauldrons/CauldronIce" to="." method="_on_cauldron_change_element"]
+[connection signal="add_ammo" from="Cauldrons/CauldronNature" to="." method="_on_cauldron_add_ammo"]
+[connection signal="change_element" from="Cauldrons/CauldronNature" to="." method="_on_cauldron_change_element"]
 [connection signal="ammo_used" from="Wizard" to="." method="_on_wizard_ammo_used"]
