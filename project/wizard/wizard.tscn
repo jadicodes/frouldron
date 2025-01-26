@@ -54,7 +54,7 @@ advance_condition = &"shoot_pressed"
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hiyn7"]
 states/Start/position = Vector2(172, 107)
 states/idle/node = SubResource("AnimationNodeAnimation_7bdq6")
-states/idle/position = Vector2(416, 131)
+states/idle/position = Vector2(349, 79)
 states/shoot/node = SubResource("AnimationNodeAnimation_r8yat")
 states/shoot/position = Vector2(535, 266)
 states/walking/node = SubResource("AnimationNodeAnimation_g4juy")

@@ -6,12 +6,13 @@ extends CharacterBody2D
 var _num_hits: int = 0
 
 @onready var sprite: Sprite2D = %Sprite2D
+@onready var timer: Timer = %Timer
 
 
 func _ready() -> void:
 	assert(element, "Element not set for bubble")
 
-	sprite.modulate = element.color
+	set_element(element)
 
 
 func _physics_process(delta: float) -> void:
@@ -44,6 +45,8 @@ func _on_timer_timeout() -> void:
 func set_element(new_element: Element) -> void:
 	element = new_element
 	sprite.modulate = element.color
+	timer.stop()
+	timer.start(element.lifetime)
 
 
 func _bubble_direction():
