@@ -2,7 +2,7 @@ class_name BaseEnemy
 extends CharacterBody2D
 
 const WALK_SPEED = 100
-
+@onready var _animation_tree: AnimationTree = %AnimationTree
 @export var health = 4
 var _current_direction := 1
 var _direction := 1
@@ -15,7 +15,7 @@ var element: Element = [
 
 
 func _ready() -> void:
-	#sprite.modulate = element.color
+	_animation_tree["parameters/conditions/is_attacking"] = false
 	pass
 
 
