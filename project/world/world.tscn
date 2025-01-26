@@ -16,7 +16,7 @@
 [ext_resource type="Script" path="res://wizard/follow_camera.gd" id="10_njmoa"]
 [ext_resource type="Resource" uid="uid://cfo5jvoy7qgdb" path="res://element/earth.tres" id="11_a2o3n"]
 [ext_resource type="Texture2D" uid="uid://cho7tteei4fdu" path="res://world/ammo_wand.png" id="12_qb6ex"]
-[ext_resource type="Resource" path="res://element/acid.tres" id="12_u7kxp"]
+[ext_resource type="Resource" uid="uid://w37h2xcy8p4p" path="res://element/acid.tres" id="12_u7kxp"]
 [ext_resource type="Resource" uid="uid://ca1v1brmxtemq" path="res://element/electricity.tres" id="13_uhyw3"]
 [ext_resource type="Resource" uid="uid://dhtojjrnhu6ij" path="res://element/fire.tres" id="14_1lxds"]
 [ext_resource type="PackedScene" uid="uid://dbirdq8cnpjxk" path="res://world/enemy_spawner/enemy_spawner.tscn" id="14_fbijg"]

@@ -18,6 +18,7 @@ radius = 250.5
 height = 681.5
 
 [node name="BigCauldron" type="Area2D"]
+collision_mask = 8
 script = ExtResource("1_on4uo")
 _bubble_types = Array[ExtResource("2_k78el")]([ExtResource("2_1rlc2"), ExtResource("3_hyiu1"), ExtResource("4_c5lyy"), ExtResource("5_tq3jq"), ExtResource("6_emq26"), ExtResource("7_kcjwh"), ExtResource("8_2euye")])
 
