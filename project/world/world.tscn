@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://djly2h2jcl2kh"]
+[gd_scene load_steps=34 format=4 uid="uid://djly2h2jcl2kh"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_d12hr"]
 [ext_resource type="Texture2D" uid="uid://cta14ng6ojwy3" path="res://icon.svg" id="1_f5boq"]
@@ -19,6 +19,7 @@
 [ext_resource type="Resource" uid="uid://ca1v1brmxtemq" path="res://element/electricity.tres" id="13_uhyw3"]
 [ext_resource type="PackedScene" uid="uid://dbirdq8cnpjxk" path="res://world/enemy_spawner/enemy_spawner.tscn" id="14_fbijg"]
 [ext_resource type="Resource" uid="uid://cnmml25qbn6or" path="res://element/nature.tres" id="16_4bsim"]
+[ext_resource type="PackedScene" uid="uid://c5ga0jy4gbl1x" path="res://common/textbox/textbox.tscn" id="17_nd7w2"]
 [ext_resource type="PackedScene" uid="uid://c0gq67ekf5mmx" path="res://cauldron/big_cauldron/big_cauldron.tscn" id="22_g7613"]
 [ext_resource type="AudioStream" uid="uid://d0bhah523lukc" path="res://world/in_game_music.ogg" id="24_y5b0q"]
 
@@ -70,8 +71,70 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 gradient = SubResource("Gradient_5kqja")
 width = 50
 
+[sub_resource type="Animation" id="Animation_rnhbp"]
+resource_name = "opening"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BigCauldron:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 1.76667, 2, 2.2, 2.43333, 2.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1620, 498), Vector2(1557, 498), Vector2(1620, 498), Vector2(1557, 498), Vector2(1620, 498), Vector2(1557, 498), Vector2(1620, 498), Vector2(1557, 498), Vector2(1620, 498)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wizard:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5, 4.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1625, 709), Vector2(1087, 709)]
+}
+
+[sub_resource type="Animation" id="Animation_bj8sj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BigCauldron:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1620, 498)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wizard:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1625, 709)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mrn8p"]
+_data = {
+"RESET": SubResource("Animation_bj8sj"),
+"opening": SubResource("Animation_rnhbp")
+}
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_d12hr")
+_opening_scene_text = Array[String](["I have spawned you here...", "to collect all the bubbles...", "and to set me free."])
 
 [node name="ParallaxSky" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
@@ -176,6 +239,11 @@ offset_right = 1942.0
 offset_bottom = 1034.0
 texture = ExtResource("12_qb6ex")
 
+[node name="Textbox" parent="CanvasLayer" instance=ExtResource("17_nd7w2")]
+unique_name_in_owner = true
+offset = Vector2(150, 150)
+transform = Transform2D(1, 0, 0, 1, 150, 150)
+
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 offset = Vector2(0, 540)
 script = ExtResource("10_njmoa")
@@ -189,13 +257,18 @@ z_index = 5
 position = Vector2(1620, 498)
 
 [node name="Wizard" parent="." instance=ExtResource("2_61scl")]
-position = Vector2(2323, 700)
+position = Vector2(1625, 709)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_y5b0q")
 volume_db = -12.0
 autoplay = true
 parameters/looping = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mrn8p")
+}
 
 [connection signal="add_ammo" from="Cauldrons/CauldronEarth" to="." method="_on_cauldron_add_ammo"]
 [connection signal="change_element" from="Cauldrons/CauldronEarth" to="." method="_on_cauldron_change_element"]
@@ -205,4 +278,6 @@ parameters/looping = true
 [connection signal="change_element" from="Cauldrons/CauldronLightning" to="." method="_on_cauldron_change_element"]
 [connection signal="add_ammo" from="Cauldrons/CauldronNature" to="." method="_on_cauldron_add_ammo"]
 [connection signal="change_element" from="Cauldrons/CauldronNature" to="." method="_on_cauldron_change_element"]
+[connection signal="finished_all_text" from="CanvasLayer/Textbox" to="." method="_on_textbox_finished_all_text"]
+[connection signal="finished_current_text" from="CanvasLayer/Textbox" to="." method="_on_textbox_finished_current_text"]
 [connection signal="ammo_used" from="Wizard" to="." method="_on_wizard_ammo_used"]

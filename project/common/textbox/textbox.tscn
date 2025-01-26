@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5ga0jy4gbl1x"]
+
+[ext_resource type="Script" path="res://common/textbox/textbox.gd" id="1_863gk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qh44k"]
+
+[node name="Textbox" type="CanvasLayer"]
+script = ExtResource("1_863gk")
+
+[node name="TextboxContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+offset_right = 414.0
+offset_bottom = 120.0
+
+[node name="MarginContainer" type="MarginContainer" parent="TextboxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="TextboxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qh44k")
+
+[node name="MarginContainer2" type="MarginContainer" parent="TextboxContainer/MarginContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 404.0
+offset_bottom = 110.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="TextboxContainer/MarginContainer/Panel/MarginContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 2
+text = "This is some demonstration text. I am awesome and can do this in 10 minutes."
+autowrap_mode = 3
