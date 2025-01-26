@@ -6,3 +6,15 @@ func _on_start_game_button_pressed() -> void:
 
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_open_tutorial_button_pressed() -> void:
+	$TutorialScreen.visible = true
+	$TutorialText.visible = true
+	$CloseTutorialButton.visible = true
+
+
+func _on_close_tutorial_button_pressed() -> void:
+	$TutorialScreen.visible = false
+	$TutorialText.visible = false
+	$CloseTutorialButton.visible = false
